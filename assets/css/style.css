@@ -1,0 +1,35 @@
+body{
+    font-family: 'Raleway', sans-serif;
+}
+
+.logo-bar-red,.logo-bar-green,.logo-bar-yellow{
+    width: 10px;
+    height: 40px;
+    border: 1px solid #949494;
+    border-radius: 3px;   
+}
+
+.logo-bar-red{
+    background-color: rgba(255, 0, 0, 0.1);
+}
+
+.logo-bar-green{
+    background-color: rgba(0, 255, 56, 0.1);
+}
+
+.logo-bar-yellow{
+    background-color: rgba(255, 255, 0, 0.1);
+}
+
+a.navbar-brand.light-grey{
+    color: #949494;
+    font-size: 40px;
+}
+
+li.nav-item.active {
+    text-decoration: underline;
+}
+
+nav.navbar.navbar-expand-lg.navbar-light.bg-light {
+    background-color: white !important;
+}
