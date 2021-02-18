@@ -7,7 +7,7 @@ body{
     margin-right: 20px;
 }
 
-.logo-bar-red,.logo-bar-green,.logo-bar-yellow{
+.logo-bar{
     width: 10px;
     height: 40px;
     border: 1px solid #949494;
@@ -15,16 +15,28 @@ body{
     margin-right: 3px;  
 }
 
-.logo-bar-red{
+.red-bg{
     background-color: rgba(255, 0, 0, 0.1);
 }
 
-.logo-bar-green{
+.red-shadow{
+    box-shadow: 8px 8px 8px rgba(255, 0, 0, 0.1), inset 4px 4px 8px rgba(255, 0, 0, 0.1);
+}
+
+.green-bg{
     background-color: rgba(0, 255, 56, 0.1);
 }
 
-.logo-bar-yellow{
+.green-shadow{
+    box-shadow: 8px 8px 8px rgba(0, 255, 56, 0.1), inset 4px 4px 8px rgba(0, 255, 56, 0.1);
+}
+
+.yellow-bg{
     background-color: rgba(255, 255, 0, 0.1);
+}
+
+.yellow-shadow{
+    box-shadow: 8px 8px 8px rgba(255, 245, 0, 0.1), inset 4px 4px 8px rgba(255, 245, 0, 0.1);
 }
 
 a.navbar-brand.light-grey{
@@ -55,21 +67,8 @@ div#navbarNav {
     height: 500px;
 }
 
-.outer-card-red{
+.outer-card{
     height: 500px;
-    background-color:rgba(255, 0, 0, 0.1);
-    border: 1px solid #949494;
-    border-radius: 5px;
-}
-.outer-card-yellow{
-    height: 500px;
-    background-color: rgba(255, 255, 0, 0.1);
-    border: 1px solid #949494;
-    border-radius: 5px;
-}
-.outer-card-green{
-    height: 500px;
-    background-color: rgba(0, 255, 56, 0.1);
     border: 1px solid #949494;
     border-radius: 5px;
 }
