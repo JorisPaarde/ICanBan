@@ -2,11 +2,17 @@ body{
     font-family: 'Raleway', sans-serif;
 }
 
+.logo {
+    display: flex;
+    margin-right: 20px;
+}
+
 .logo-bar-red,.logo-bar-green,.logo-bar-yellow{
     width: 10px;
     height: 40px;
     border: 1px solid #949494;
-    border-radius: 3px;   
+    border-radius: 3px;
+    margin-right: 3px;  
 }
 
 .logo-bar-red{
@@ -23,13 +29,47 @@ body{
 
 a.navbar-brand.light-grey{
     color: #949494;
-    font-size: 40px;
+    font-size: 45px;
 }
 
-li.nav-item.active {
+div#navbarNav {
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link {
+    color: #949494;
     text-decoration: underline;
 }
 
-nav.navbar.navbar-expand-lg.navbar-light.bg-light {
-    background-color: white !important;
+@media (max-width:375px){
+    .logo{
+        margin-right: 0px;
+    }
+    a.navbar-brand.light-grey{
+        font-size: 35px;
+    }
+}
+
+.info-screen{
+    height: 500px;
+}
+
+.outer-card-red{
+    height: 500px;
+    background-color:rgba(255, 0, 0, 0.1);
+    border: 1px solid #949494;
+    border-radius: 5px;
+}
+.outer-card-yellow{
+    height: 500px;
+    background-color: rgba(255, 255, 0, 0.1);
+    border: 1px solid #949494;
+    border-radius: 5px;
+}
+.outer-card-green{
+    height: 500px;
+    background-color: rgba(0, 255, 56, 0.1);
+    border: 1px solid #949494;
+    border-radius: 5px;
 }

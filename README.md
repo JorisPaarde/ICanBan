@@ -202,3 +202,8 @@ All the below mentioned code is also marked with comments in the code itself.
 -   My Mentor for his helpful feedback and upfront warnings for common mistakes. This saved me a lot of time.
 -   My fellow students and several other mentors on Slack for their debugging tips.
 -   The basic Readme layout by Code Institute.
+
+Bugs:
+
+Logo would expand on larger screen sizes due to justify content space between. placed div's in a logo div to keep them together.
+menu broke on smallest screen sizes. added media query.
