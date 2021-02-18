@@ -1,5 +1,6 @@
 body{
     font-family: 'Raleway', sans-serif;
+    color: #7a7a7a; ;
 }
 
 .logo {
@@ -10,7 +11,7 @@ body{
 .logo-bar{
     width: 10px;
     height: 40px;
-    border: 1px solid #949494;
+    border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 3px;
     margin-right: 3px;  
 }
@@ -54,6 +55,52 @@ div#navbarNav {
     text-decoration: underline;
 }
 
+.info-screen{
+    height: auto;
+}
+
+.info-screen h1{
+    font-size: 1.5rem;
+    text-align: center;
+    margin: 1rem;
+}
+
+.info-screen h2{
+    font-size: 1rem;
+}
+
+p{
+    font-size: 0.8rem;
+}
+
+a.href {
+    color: gray;
+    text-decoration: underline;
+}
+
+.kanban-image{
+    width: 100%;
+    margin-bottom: 2rem;
+}
+
+.outer-card{
+    min-height: 500px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+.menu-item{
+    border: 1px solid #e5e5e5;
+    border-radius: 3px;
+    background-color: rgba(255, 245, 0, 0.1);
+    margin-bottom: 10px;
+    padding: 3px;
+}
+
+.menu-item p, .menu-item i{
+    margin: auto 3px;
+}
+
 @media (max-width:375px){
     .logo{
         margin-right: 0px;
@@ -61,14 +108,4 @@ div#navbarNav {
     a.navbar-brand.light-grey{
         font-size: 35px;
     }
-}
-
-.info-screen{
-    height: 500px;
-}
-
-.outer-card{
-    height: 500px;
-    border: 1px solid #949494;
-    border-radius: 5px;
 }
