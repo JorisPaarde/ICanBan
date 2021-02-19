@@ -10,6 +10,10 @@ p{
     font-weight: 400;
 }
 
+h1{
+    font-size: 2rem;
+}
+
 .info-screen h2{
     font-size: 1rem;
 }
@@ -27,6 +31,8 @@ a.href {
 
 .red-shadow{
     box-shadow: 8px 8px 8px rgba(255, 0, 0, 0.1), inset 4px 4px 8px rgba(255, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
 }
 
 .green-bg{
@@ -35,6 +41,8 @@ a.href {
 
 .green-shadow{
     box-shadow: 8px 8px 8px rgba(0, 255, 56, 0.1), inset 4px 4px 8px rgba(0, 255, 56, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
 }
 
 .yellow-bg{
@@ -43,6 +51,8 @@ a.href {
 
 .yellow-shadow{
     box-shadow: 8px 8px 8px rgba(255, 245, 0, 0.1), inset 4px 4px 8px rgba(255, 245, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
 }
 
 /*------------------------------------------------header--------------------------------------*/
@@ -82,9 +92,8 @@ div#navbarNav {
 }
 
 .info-screen h1{
-    font-size: 2rem;
     text-align: center;
-    margin-bottom: 1.5rem;
+    margin: 20px;
 }
 
 .kanban-image{
@@ -95,9 +104,7 @@ div#navbarNav {
 }
 
 .outer-card.home{
-    min-height: 1030px;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
+    min-height: 1100px;
 }
 
 .outer-card.yellow-bg.home{
@@ -201,7 +208,32 @@ button.btn.btn-outline-secondary.green-bg:hover{
   from {top:-300px; opacity:0}
   to {top:0; opacity:1}
 }
+/*------------------------------------------settings content--------------------------------------*/
 
+.outer-card.settings{
+    min-height: 480px;
+    margin-bottom: 20px;
+}
+
+.settings h1{
+    text-align: center;
+    margin: 20px;
+    margin-bottom: 20px;
+}
+
+.settings.menu-item {
+    margin: auto;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.settings.menu-item p{
+    font-size: 1rem;
+}
+
+.fa-toggle-off,.fa-toggle-on{
+    font-size: 2rem;
+}
 /*-------------------------------------------media queries--------------------------------------*/
 
 @media (max-width:768px){
@@ -211,7 +243,7 @@ button.btn.btn-outline-secondary.green-bg:hover{
     a.navbar-brand.light-grey{
         font-size: 35px;
     }
-    .info-screen h1{
+    h1{
     font-size: 1.5rem;
     }
 }
