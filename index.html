@@ -94,6 +94,24 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="row email-form">
+                            <div class="col-12 feature-title">
+                            <h2>Do you have any feature suggestions for ICanBan?<br>Please let us know via the form
+                                below.</h2>
+                            </div>
+                            <div class="col-12 justify-content-center">
+                                <form onsubmit="return sendMail(this);">
+                                    <input type="text" name="name" class="form-control" id="fullname" placeholder="Name"
+                                        required />
+                                    <input type="text" name="emailaddress" class="form-control" id="emailaddress"
+                                        placeholder="Email" required />
+                                    <textarea rows="5" name="featurerequest" class="form-control" id="featurerequest"
+                                        placeholder="feature request" required></textarea>
+                                    <button type="submit" class="btn btn-outline-secondary green-bg">Send Feature
+                                        Request</button>
+                                </form>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="col-2 d-none d-md-block">
@@ -102,10 +120,17 @@
             </div>
         </div>
     </div>
-    <footer>
-    </footer>
+<footer>
+</footer>
 </body>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+
 </html>

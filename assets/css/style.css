@@ -6,7 +6,8 @@ body{
 }
 
 p{
-    font-size: 0.8rem;
+    font-size: 0.9rem;
+    font-weight: 400;
 }
 
 .info-screen h2{
@@ -14,7 +15,7 @@ p{
 }
 
 a.href {
-    color: gray;
+    color: #7a7a7a;
     text-decoration: underline;
 }
 
@@ -81,9 +82,9 @@ div#navbarNav {
 }
 
 .info-screen h1{
-    font-size: 1.5rem;
+    font-size: 2rem;
     text-align: center;
-    margin: 1rem;
+    margin-bottom: 1.5rem;
 }
 
 .kanban-image{
@@ -118,13 +119,42 @@ div#navbarNav {
     margin: auto 3px;
 }
 
+/*---------------------------------------------E-mail Form--------------------------------------*/
+
+.feature-title{
+    text-align: center;
+    margin: 1rem 0rem;
+}
+
+.email-form input, .email-form textarea{
+    margin-bottom: 1rem;
+}
+
+button.btn.btn-outline-secondary.green-bg{
+   display: flex;
+   margin: auto;
+   color: #7a7a7a;
+   border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+button.btn.btn-outline-secondary.green-bg:hover{
+   display: flex;
+   margin: auto;
+   background-color: rgba(0, 255, 56, 0.25);
+   color: #7a7a7a;
+   border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
 /*-------------------------------------------media queries--------------------------------------*/
 
-@media (max-width:375px){
+@media (max-width:768px){
     .logo{
         margin-right: 0px;
     }
     a.navbar-brand.light-grey{
         font-size: 35px;
+    }
+    .info-screen h1{
+    font-size: 1.5rem;
     }
 }
