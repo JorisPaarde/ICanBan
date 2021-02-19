@@ -16,7 +16,7 @@
 
 #### As a First Time Visitor, I want to:
 
-1. Get a short description about what kanban is.
+1. Get a short description about what ICanBan is.
 2. Have quick access to more information on Kaban.
 3. Have a clear understanding of the controls on the page.
 4. Have Quick access to navigation on the site.

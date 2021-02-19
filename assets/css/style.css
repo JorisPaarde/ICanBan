@@ -1,20 +1,24 @@
+/*---------------------------------------------fonts--------------------------------------*/
+
 body{
     font-family: 'Raleway', sans-serif;
     color: #7a7a7a; ;
 }
 
-.logo {
-    display: flex;
-    margin-right: 20px;
+p{
+    font-size: 0.8rem;
 }
 
-.logo-bar{
-    width: 10px;
-    height: 40px;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    border-radius: 3px;
-    margin-right: 3px;  
+.info-screen h2{
+    font-size: 1rem;
 }
+
+a.href {
+    color: gray;
+    text-decoration: underline;
+}
+
+/*--------------------------------------------------colors--------------------------------------*/
 
 .red-bg{
     background-color: rgba(255, 0, 0, 0.1);
@@ -40,6 +44,21 @@ body{
     box-shadow: 8px 8px 8px rgba(255, 245, 0, 0.1), inset 4px 4px 8px rgba(255, 245, 0, 0.1);
 }
 
+/*------------------------------------------------header--------------------------------------*/
+
+.logo {
+    display: flex;
+    margin-right: 20px;
+}
+
+.logo-bar{
+    width: 10px;
+    height: 40px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+    margin-right: 3px;  
+}
+
 a.navbar-brand.light-grey{
     color: #949494;
     font-size: 45px;
@@ -55,6 +74,8 @@ div#navbarNav {
     text-decoration: underline;
 }
 
+/*------------------------------------------home content--------------------------------------*/
+
 .info-screen{
     height: auto;
 }
@@ -65,29 +86,25 @@ div#navbarNav {
     margin: 1rem;
 }
 
-.info-screen h2{
-    font-size: 1rem;
-}
-
-p{
-    font-size: 0.8rem;
-}
-
-a.href {
-    color: gray;
-    text-decoration: underline;
-}
-
 .kanban-image{
     width: 100%;
     margin-bottom: 2rem;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
 }
 
-.outer-card{
-    min-height: 500px;
+.outer-card.home{
+    min-height: 800px;
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 5px;
 }
+
+.outer-card.yellow-bg.home{
+    padding: 5%;
+    margin-bottom: 2rem;
+}
+
+/*---------------------------------------------menu items--------------------------------------*/
 
 .menu-item{
     border: 1px solid #e5e5e5;
@@ -100,6 +117,8 @@ a.href {
 .menu-item p, .menu-item i{
     margin: auto 3px;
 }
+
+/*-------------------------------------------media queries--------------------------------------*/
 
 @media (max-width:375px){
     .logo{
