@@ -107,15 +107,21 @@
                             </div>
                             <div class="col-12 justify-content-center">
                                 <form onsubmit="return sendMail(this);">
-                                    <input type="text" name="name" class="form-control" id="fullname" placeholder="Please enter your full name here."
-                                        required />
-                                    <input type="email" name="emailaddress" class="form-control" id="emailaddress" aria-describedby="emailHelp"
-                                        placeholder="name@example.com" required />
+                                    <input type="text" name="name" class="form-control" id="fullname"
+                                        placeholder="Please enter your full name here." required />
+                                    <input type="email" name="emailaddress" class="form-control" id="emailaddress"
+                                        aria-describedby="emailHelp" placeholder="name@example.com" required />
                                     <textarea rows="5" name="featurerequest" class="form-control" id="featurerequest"
                                         placeholder="feature request" required></textarea>
-                                    <button type="submit" class="btn btn-outline-secondary green-bg">Send Feature
+                                    <button id="email-button" type="submit" class="btn btn-outline-secondary green-bg">Send Feature
                                         Request</button>
                                 </form>
+                            </div>
+                            <div id="myModal" class="modal">
+                                <!-- Email confirmation Modal content -->
+                                <div class="modal-content">
+                                    <p>Thank you for sending your feature request!<span class="close">&times;</span></p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -139,4 +145,5 @@
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
 <script src="assets/js/email.js"></script>
+
 </html>
