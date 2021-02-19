@@ -107,10 +107,10 @@
                             </div>
                             <div class="col-12 justify-content-center">
                                 <form onsubmit="return sendMail(this);">
-                                    <input type="text" name="name" class="form-control" id="fullname" placeholder="Name"
+                                    <input type="text" name="name" class="form-control" id="fullname" placeholder="Please enter your full name here."
                                         required />
-                                    <input type="text" name="emailaddress" class="form-control" id="emailaddress"
-                                        placeholder="Email" required />
+                                    <input type="email" name="emailaddress" class="form-control" id="emailaddress" aria-describedby="emailHelp"
+                                        placeholder="name@example.com" required />
                                     <textarea rows="5" name="featurerequest" class="form-control" id="featurerequest"
                                         placeholder="feature request" required></textarea>
                                     <button type="submit" class="btn btn-outline-secondary green-bg">Send Feature

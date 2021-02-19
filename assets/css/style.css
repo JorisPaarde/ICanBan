@@ -95,7 +95,7 @@ div#navbarNav {
 }
 
 .outer-card.home{
-    min-height: 800px;
+    min-height: 1030px;
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 5px;
 }
