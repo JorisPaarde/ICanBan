@@ -1,6 +1,3 @@
-// first load
-
-
 //flip switch
 $(".settings-switch").on("click" , function(){
     let thisSwitch = this.id;
