@@ -1,7 +1,13 @@
 
 // update settings page to local storage readout
 
-$(document).ready(function () {
+$(document).ready(
+    readSettings(),
+    drawCurrentMode()
+);
+
+// read out settings from the settings page
+function readSettings() {
 
     // read localstorage for darkmode
     const darkmode = localStorage.getItem("settings-switch-dark");
@@ -38,4 +44,15 @@ $(document).ready(function () {
             $("#settings-column-" + i).removeClass("fa-toggle-on");
         }
     }
-});
+}
+
+function drawCurrentMode(){
+    const darkmode = localStorage.getItem("settings-switch-dark");
+    console.log(`Darkmode is ${darkmode} drawing stuf....`);
+    if (darkmode == "on"){
+        console.log("welcome to the dark side");
+        //let current = $("[href$='assets/css/style.css']");
+        let current  = document.getElementById("white-css");
+        console.log(current);
+    }
+}
