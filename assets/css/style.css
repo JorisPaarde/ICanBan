@@ -12,6 +12,8 @@
     --red-bg:rgba(255, 0, 0, 0.1);
     --yellow-bg:rgba(255, 255, 0, 0.1);
     --green-bg: rgba(0, 255, 56, 0.1);
+    --modal-bg: rgba(255, 255, 255, 0.9);
+    --modal-shadow: rgba(0, 0, 0, 0.2);
 }
 
 [darkmode ="on"]{
@@ -27,6 +29,8 @@
     --red-bg:rgba(255, 0, 0, 0.15);
     --yellow-bg:rgba(255, 255, 0, 0.15);
     --green-bg: rgba(0, 255, 56, 0.15);
+    --modal-bg: rgba(0, 0, 0, 0.9);
+    --modal-shadow: rgba(255, 255, 255, 0.2);
 }
 
 body{
@@ -233,13 +237,13 @@ button.btn.btn-outline-secondary.green-bg:hover{
 
 /* Modal Content */
 .modal-content {
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: var(--modal-bg);
   margin: auto;
   padding: 20px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--border);
   width: 300px;
   font-size: larger;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 4px 8px 0 var(--modal-shadow), 0 6px 20px 0 var(--modal-shadow);
   -webkit-animation-name: animatetop;
   -webkit-animation-duration: 0.4s;
   animation-name: animatetop;
@@ -252,7 +256,7 @@ button.btn.btn-outline-secondary.green-bg:hover{
 
 /* The Close Button */
 .close {
-  color: #aaaaaa;
+  color: var(--font-color);
   float: right;
   font-size: 28px;
   font-weight: bold;
@@ -260,7 +264,7 @@ button.btn.btn-outline-secondary.green-bg:hover{
 
 .close:hover,
 .close:focus {
-  color: #000;
+  color: var(--font-color);
   text-decoration: none;
   cursor: pointer;
 }
