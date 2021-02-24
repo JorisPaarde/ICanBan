@@ -50,9 +50,9 @@ function drawCurrentMode(){
     const darkmode = localStorage.getItem("settings-switch-dark");
     console.log(`Darkmode is ${darkmode} drawing stuf....`);
     if (darkmode == "on"){
-        console.log("welcome to the dark side");
-        //let current = $("[href$='assets/css/style.css']");
-        let current  = document.getElementById("white-css");
-        console.log(current);
+        console.log(document.getElementsByTagName("body"));
+        document.documentElement.setAttribute('darkmode', 'on');
+    }else{
+        document.documentElement.setAttribute('darkmode', 'off');
     }
 }

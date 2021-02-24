@@ -1,8 +1,38 @@
 /*---------------------------------------------fonts--------------------------------------*/
+:root{
+    background-color:white;
+    --font-color: #7a7a7a;
+    --red-hue:rgba(255, 0, 0, 0.1);
+    --green-hue:rgba(0, 255, 56, 0.1);
+    --yellow-hue:rgba(255, 245, 0, 0.1);
+    --border: rgba(0, 0, 0, 0.2);
+    --red-fill-logo: rgba(255, 0, 0, 0.1);
+    --yellow-fill-logo: rgba(255, 255, 0, 0.1);
+    --green-fill-logo: rgba(0, 255, 56, 0.1);
+    --red-bg:rgba(255, 0, 0, 0.1);
+    --yellow-bg:rgba(255, 255, 0, 0.1);
+    --green-bg: rgba(0, 255, 56, 0.1);
+}
+
+[darkmode ="on"]{
+    background-color: black;
+    --font-color:#e5e5e5;
+    --red-hue:rgba(255, 0, 0, 0.4);
+    --green-hue:rgba(0, 255, 56, 0.4);
+    --yellow-hue:rgba(255, 245, 0, 0.4);
+    --border: rgba(200, 200, 200, 0.5);
+    --red-fill-logo: rgba(255, 0, 0, 0.5);
+    --yellow-fill-logo: rgba(255, 255, 0, 0.5);
+    --green-fill-logo: rgba(0, 255, 56, 0.5);
+    --red-bg:rgba(255, 0, 0, 0.15);
+    --yellow-bg:rgba(255, 255, 0, 0.15);
+    --green-bg: rgba(0, 255, 56, 0.15);
+}
 
 body{
     font-family: 'Raleway', sans-serif;
-    color: #7a7a7a; ;
+    background-color: inherit;
+    color: var(--font-color)!important;
 }
 
 p{
@@ -19,39 +49,68 @@ h1{
 }
 
 a.href {
-    color: #7a7a7a;
+    color: var(--font-color);
     text-decoration: underline;
+}
+
+.navbar-light .navbar-nav .nav-link{
+    color: var(--font-color);
+}
+
+.navbar-light .navbar-nav .nav-link:hover {
+    color: var(--font-color);
+    text-decoration: underline;
+}
+
+.navbar-light .navbar-brand {
+    color: var(--font-color);
+}
+
+.navbar-light .navbar-brand:hover {
+    color: var(--font-color);
 }
 
 /*--------------------------------------------------colors--------------------------------------*/
 
 .red-bg{
-    background-color: rgba(255, 0, 0, 0.1);
+    background-color: var(--red-bg);
+}
+
+.logo-bar.red-bg{
+    background-color: var(--red-fill-logo);
 }
 
 .red-shadow{
-    box-shadow: 8px 8px 8px rgba(255, 0, 0, 0.1), inset 4px 4px 8px rgba(255, 0, 0, 0.1);
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 8px 8px 15px var(--red-hue), inset 4px 4px 10px var(--red-hue);
+    border: 1px solid var(--border);
     border-radius: 5px;
 }
 
 .green-bg{
-    background-color: rgba(0, 255, 56, 0.1);
+    background-color: var(--green-bg);
+}
+
+.logo-bar.green-bg{
+    background-color: var(--green-fill-logo);
 }
 
 .green-shadow{
-    box-shadow: 8px 8px 8px rgba(0, 255, 56, 0.1), inset 4px 4px 8px rgba(0, 255, 56, 0.1);
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 8px 8px 15px var(--green-hue), inset 4px 4px 10px var(--green-hue);
+    border: 1px solid var(--border);
     border-radius: 5px;
 }
 
 .yellow-bg{
-    background-color: rgba(255, 255, 0, 0.1);
+    background-color: var(--yellow-bg);
+}
+
+.logo-bar.yellow-bg{
+    background-color: var(--yellow-fill-logo);
 }
 
 .yellow-shadow{
-    box-shadow: 8px 8px 8px rgba(255, 245, 0, 0.1), inset 4px 4px 8px rgba(255, 245, 0, 0.1);
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 8px 8px 15px var(--yellow-hue), inset 4px 4px 10px var(--yellow-hue);
+    border: 1px solid var(--border);
     border-radius: 5px;
 }
 
@@ -65,24 +124,28 @@ a.href {
 .logo-bar{
     width: 10px;
     height: 40px;
-    border: 1px solid rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--border);
     border-radius: 3px;
     margin-right: 3px;  
 }
 
-a.navbar-brand.light-grey{
-    color: #949494;
+a.navbar-brand{
+    color: var(--font-color);
     font-size: 45px;
 }
 
 div#navbarNav {
-    font-size: 24px;
-    font-weight: 500;
+    font-size: 1.5rem;
+    font-weight: 200;
 }
 
 .navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link {
-    color: #949494;
+    color: var(--font-color);
     text-decoration: underline;
+}
+
+button.navbar-toggler {
+    background-color: #e5e5e5;
 }
 
 /*------------------------------------------home content--------------------------------------*/
@@ -126,6 +189,9 @@ div#navbarNav {
     margin: auto 3px;
 }
 
+.menu-item i:hover{
+    cursor: pointer;
+}
 /*---------------------------------------------E-mail Form--------------------------------------*/
 
 .feature-title{
@@ -140,15 +206,15 @@ div#navbarNav {
 button.btn.btn-outline-secondary.green-bg{
    display: flex;
    margin: auto;
-   color: #7a7a7a;
-   border: 1px solid rgba(0, 0, 0, 0.1);
+   color: var(--font-color);
+   border: 1px solid var(--border);
 }
 
 button.btn.btn-outline-secondary.green-bg:hover{
    display: flex;
    margin: auto;
    background-color: rgba(0, 255, 56, 0.25);
-   color: #7a7a7a;
+   color: var(--font-color);
    border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
@@ -240,7 +306,7 @@ button.btn.btn-outline-secondary.green-bg:hover{
     .logo{
         margin-right: 0px;
     }
-    a.navbar-brand.light-grey{
+    a.navbar-brand{
         font-size: 35px;
     }
     h1{
