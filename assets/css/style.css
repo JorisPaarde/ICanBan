@@ -1,8 +1,24 @@
 /*---------------------------------------------fonts--------------------------------------*/
+:root{
+    background-color:white;
+    --font-color: #7a7a7a;
+    --red-hue:rgba(255, 0, 0, 0.1);
+    --green-hue:rgba(0, 255, 56, 0.1);
+    --yellow-hue:rgba(255, 245, 0, 0.1);
+}
+
+[darkmode ="on"]{
+    background-color: black;
+    --font-color:#e5e5e5;
+    --red-hue:rgba(255, 0, 0, 0.4);
+    --green-hue:rgba(0, 255, 56, 0.4);
+    --yellow-hue:rgba(255, 245, 0, 0.4);
+}
 
 body{
     font-family: 'Raleway', sans-serif;
-    color: #7a7a7a; ;
+    background-color: inherit;
+    color: var(--font-color)!important;
 }
 
 p{
@@ -19,10 +35,21 @@ h1{
 }
 
 a.href {
-    color: #7a7a7a;
+    color: var(--font-color);
     text-decoration: underline;
 }
 
+.navbar-light .navbar-nav .nav-link, .navbar-light .navbar-nav .nav-link{
+    color: var(--font-color);
+}
+
+.navbar-light .navbar-brand {
+    color: var(--font-color);
+}
+
+.navbar-light .navbar-nav .nav-link :hover{
+    color: var(--font-color);
+}
 /*--------------------------------------------------colors--------------------------------------*/
 
 .red-bg{
@@ -30,7 +57,7 @@ a.href {
 }
 
 .red-shadow{
-    box-shadow: 8px 8px 8px rgba(255, 0, 0, 0.1), inset 4px 4px 8px rgba(255, 0, 0, 0.1);
+    box-shadow: 8px 8px 8px var(--red-hue), inset 4px 4px 8px var(--red-hue);
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 5px;
 }
@@ -40,7 +67,7 @@ a.href {
 }
 
 .green-shadow{
-    box-shadow: 8px 8px 8px rgba(0, 255, 56, 0.1), inset 4px 4px 8px rgba(0, 255, 56, 0.1);
+    box-shadow: 8px 8px 8px var(--green-hue), inset 4px 4px 8px var(--green-hue);
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 5px;
 }
@@ -50,7 +77,7 @@ a.href {
 }
 
 .yellow-shadow{
-    box-shadow: 8px 8px 8px rgba(255, 245, 0, 0.1), inset 4px 4px 8px rgba(255, 245, 0, 0.1);
+    box-shadow: 8px 8px 8px var(--yellow-hue), inset 4px 4px 8px var(--yellow-hue);
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 5px;
 }
@@ -70,18 +97,18 @@ a.href {
     margin-right: 3px;  
 }
 
-a.navbar-brand.light-grey{
-    color: #949494;
+a.navbar-brand{
+    color: var(--font-color);
     font-size: 45px;
 }
 
-div#navbarNav {
+div #navbarNav {
     font-size: 24px;
     font-weight: 500;
 }
 
 .navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link {
-    color: #949494;
+    color: var(--font-color);
     text-decoration: underline;
 }
 
@@ -140,7 +167,7 @@ div#navbarNav {
 button.btn.btn-outline-secondary.green-bg{
    display: flex;
    margin: auto;
-   color: #7a7a7a;
+   color: var(--font-color);
    border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
@@ -148,7 +175,7 @@ button.btn.btn-outline-secondary.green-bg:hover{
    display: flex;
    margin: auto;
    background-color: rgba(0, 255, 56, 0.25);
-   color: #7a7a7a;
+   color: var(--font-color);
    border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
@@ -240,7 +267,7 @@ button.btn.btn-outline-secondary.green-bg:hover{
     .logo{
         margin-right: 0px;
     }
-    a.navbar-brand.light-grey{
+    a.navbar-brand{
         font-size: 35px;
     }
     h1{
