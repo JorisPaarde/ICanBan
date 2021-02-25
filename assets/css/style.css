@@ -170,10 +170,6 @@ button.navbar-toggler {
     border-radius: 3px;
 }
 
-.outer-card.home{
-    min-height: 1100px;
-}
-
 .outer-card.yellow-bg.home{
     padding: 5%;
     margin-bottom: 2rem;

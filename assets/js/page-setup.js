@@ -3,6 +3,7 @@
 
 $(document).ready(
     readSettings(),
+    adjustDecoDivs(),
     drawCurrentMode()
 );
 
@@ -50,9 +51,21 @@ function drawCurrentMode(){
     const darkmode = localStorage.getItem("settings-switch-dark");
     console.log(`Darkmode is ${darkmode} drawing stuf....`);
     if (darkmode == "on"){
-        console.log(document.getElementsByTagName("body"));
         document.documentElement.setAttribute('darkmode', 'on');
     }else{
         document.documentElement.setAttribute('darkmode', 'off');
     }
-}
+};
+
+function adjustDecoDivs(){
+    let height =$("div.col-12.outer-card.yellow-bg.yellow-shadow.home").innerHeight();
+    height = Math.round(height);
+    $(".outer-card.home.red-bg").css("height",height);
+    $(".outer-card.home.green-bg").css("height",height);
+};
+
+window.onorientationchange = function(){
+    adjustDecoDivs()
+    location.reload();
+    console.log("reloading...");
+};
