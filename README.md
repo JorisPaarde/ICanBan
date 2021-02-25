@@ -2,7 +2,7 @@
 
 <p>description</p>
 
-[View the live project here.](https://google.com)
+[View the live project here.](https://jorispaarde.github.io/ICanBan/)
 
 
 <h2 align="center"><img src="/readme-images/mockup-image.png"></h2>
@@ -75,19 +75,20 @@
 -   
 ####   main page
 
--   
+-   Email form
 
-#### .. page
+#### settings page
 
 -   multiple recipies for visitors to try out
 
-#### .. page
+#### MyCanban page
 
 -   
 
 ### Possible future Features
 
 -   Database
+-   Accounts
 
 ---
 
@@ -110,13 +111,11 @@
 1. [Font Awesome:](https://fontawesome.com/)
     - Font Awesome was used on all pages throughout the website to add the social icons.
 1. [jQuery:](https://jquery.com/)
-    - jQuery came with Bootstrap to make the navbar responsive.
+    - jQuery came with Bootstrap to make the navbar responsive. Also used in various script files.
 1. [Git](https://git-scm.com/)
     - Git was used for version control by utilizing the terminal in gitpod to regularly commit, with comments, to Git and Push to GitHub.
 1. [GitHub:](https://github.com/)
     - GitHub is used to store the projects code and assets and to fork the project for the customer.
-1. [Gimp:](https://www.gimp.org/)
-    - Gimp was used to edit images and photos for the website.
 1. [Figma:](https://figma.com/)
     - Figma was used to create the website design and prototype.
 1. [TinyPNG](https://tinypng.com/)
@@ -139,7 +138,7 @@ Jasmin?
 The project was deployed to GitHub Pages using the following steps...
 
 1. Log in to GitHub
-2. Locate the [repository](https://github.com/JorisPaarde/Nomnivore-website).
+2. Locate the [repository](https://github.com/JorisPaarde/ICanBan).
 3. Go to settings menu: <h4 align="center"><img src="/readme-images/settings.png"></h4>
 4. scroll down to the bottom of the page.
 5. Select master and save. <h4 align="center"><img src="/readme-images/select-save.png"></h4>
@@ -152,19 +151,19 @@ The project was deployed to GitHub Pages using the following steps...
 1. Make sure u have git installed on your device.
    If u haven't find out how to do that [here](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 2. Log into GitHub.
-3. Locate the [repository](https://github.com/JorisPaarde/Nomnivore-website).
+3. Locate the [repository](https://github.com/JorisPaarde/ICanBan).
 4. Copy the link to the repository here: <h4 align="center"><img src="/readme-images/clone.png"></h4>
 5. Open a terminal and enter the following command (inside the directory u want the repository to be placed):
 
 ```
-$ git clone https://github.com/JorisPaarde/Nomnivore-website.git
+$ git clone https://github.com/JorisPaarde/ICanBan.git
 
 ```
 
 7. Press Enter. Your local clone will be created.
 
 ```
-$ git clone https://github.com/JorisPaarde/Nomnivore-website.git
+$ git clone https://github.com/JorisPaarde/ICanBan.git
 Cloning into Git …
 remote: Counting objects: 25, done.
 remote: Compressing objects: 100% (25/25), done.
