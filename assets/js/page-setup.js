@@ -11,17 +11,18 @@ $(document).ready(
 function readSettings() {
 
     // read localstorage for darkmode
-    const darkmode = localStorage.getItem("settings-switch-dark");
+    var darkmode = localStorage.getItem("settings-switch-dark");
 
     // update site to show stored settings for darkmode
-    if (String(darkmode) === "on") {
+    if (darkmode.search("on") != -1) {
         $("#settings-switch-dark").removeClass("fa-toggle-off");
         $("#settings-switch-dark").addClass("fa-toggle-on");
     } else {
         // if it's off or null set it to off
-        localStorage.setItem("settings-switch-dark", "off");
-    }
-
+        localStorage.setItem("settings-switch-dark", `{"Darkmode","off"}`);
+    };
+};
+    /*
     // read localstorage for all 5 columns
     for (let i = 1; i <= 5; i++) {
         var column = localStorage.getItem("settings-column-" + i);
@@ -45,16 +46,15 @@ function readSettings() {
             $("#settings-column-" + i).removeClass("fa-toggle-on");
         }
     }
-}
+} */
 
 function drawCurrentMode(){
-    const darkmode = localStorage.getItem("settings-switch-dark");
-    console.log(`Darkmode is ${darkmode} drawing stuf....`);
-    if (darkmode == "on"){
+    var darkmode = localStorage.getItem("settings-switch-dark");
+    if (darkmode.search("on") != -1){
         document.documentElement.setAttribute('darkmode', 'on');
     }else{
         document.documentElement.setAttribute('darkmode', 'off');
-    }
+    };
 };
 
 function adjustDecoDivs(){
@@ -67,5 +67,4 @@ function adjustDecoDivs(){
 window.onorientationchange = function(){
     adjustDecoDivs()
     location.reload();
-    console.log("reloading...");
 };
