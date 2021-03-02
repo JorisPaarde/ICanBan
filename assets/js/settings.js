@@ -1,5 +1,7 @@
 
+
 //https://www.tutorialrepublic.com/faq/how-to-check-a-checkbox-is-checked-or-not-using-jquery.php//
+
 
 //handle switch settings in localstorage and toggle darkmode
 $(document).ready(function () {
