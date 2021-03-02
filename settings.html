@@ -11,8 +11,8 @@
         integrity="sha384-vSIIfh2YWi9wW0r9iZe7RJPrKwp6bG+s9QZMoITbCckVJqGCCRhc+ccxNcdpHuYu" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-    crossorigin="anonymous"></script>
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
     <link rel="stylesheet" href="assets/css/style.css" type="text/css">
     <title>MyCanBan</title>
 </head>
@@ -36,8 +36,7 @@
                         <a class="nav-link" href="index.html">Home</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="settings.html">Settings<span
-                                class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="settings.html">Settings<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="mycanban.html">MyCanban</a>
@@ -55,28 +54,47 @@
                 <div class="col-md-8 col-sm-12">
                     <div class="col-12 outer-card yellow-bg yellow-shadow settings">
                         <h1>Settings</h1>
-                        <div class="col-md-8 col-sm-12 d-flex settings menu-item"><p></p>
-                            <p>Dark mode </p><p class="mr-auto">off</p><i id="settings-switch-dark" class="fas fa-toggle-off settings-switch"></i>
+                        <div class="col-md-8 col-sm-12 d-flex settings menu-item">
+                            <p>Dark mode: </p>
+                            <p id="darkmode" class="mr-auto">off</p><label class="switch">
+                                <input type="checkbox">
+                                <span class="slider round"></span>
+                            </label>
                         </div>
                         <div class="col-md-8 col-sm-12 d-flex settings menu-item">
-                            <i class="fas fa-pencil-alt"></i>
-                            <p>Column 1: </p><p class="mr-auto">To do</p><i id="settings-column-1" class="fas fa-toggle-on settings-switch"></i>
+                            <p>Column 1: </p>
+                            <p id="column-1" class="mr-auto">To do</p><label class="switch column">
+                                <input type="checkbox">
+                                <span class="slider round"></span>
+                            </label>
                         </div>
                         <div class="col-md-8 col-sm-12 d-flex settings menu-item">
-                            <i class="fas fa-pencil-alt"></i>
-                            <p>Column 2: </p><p class="mr-auto">Doing</p><i id="settings-column-2" class="fas fa-toggle-on settings-switch"></i>
+                            <p>Column 2: </p>
+                            <p id="column-2" class="mr-auto">Doing</p><label class="switch column">
+                                <input type="checkbox">
+                                <span class="slider round"></span>
+                            </label>
                         </div>
                         <div class="col-md-8 col-sm-12 d-flex settings menu-item">
-                            <i class="fas fa-pencil-alt"></i>
-                            <p>Column 3: </p><p class="mr-auto">Done</p><i id="settings-column-3" class="fas fa-toggle-on settings-switch"></i>
+                            <p>Column 3: </p>
+                            <p id="column-3" class="mr-auto">Done</p><label class="switch column">
+                                <input type="checkbox">
+                                <span class="slider round"></span>
+                            </label>
                         </div>
                         <div class="col-md-8 col-sm-12 d-flex settings menu-item">
-                            <i class="fas fa-pencil-alt"></i>
-                            <p>Column 4: </p><p class="mr-auto">...</p><i id="settings-column-4" class="fas fa-toggle-off settings-switch"></i>
+                            <p>Column 4: </p>
+                            <p id="column-4" class="mr-auto">...</p><label class="switch column">
+                                <input type="checkbox">
+                                <span class="slider round"></span>
+                            </label>
                         </div>
                         <div class="col-md-8 col-sm-12 d-flex settings menu-item">
-                            <i class="fas fa-pencil-alt"></i>
-                            <p>Column 5: </p><p class="mr-auto">...</p><i id="settings-column-5" class="fas fa-toggle-off settings-switch"></i>
+                            <p>Column 5: </p>
+                            <p id="column-5" class="mr-auto">...</p><label class="switch column">
+                                <input type="checkbox">
+                                <span class="slider round"></span>
+                            </label>
                         </div>
                     </div>
                 </div>
@@ -97,4 +115,5 @@
     crossorigin="anonymous"></script>
 <script src="assets/js/settings.js"></script>
 <script src="assets/js/page-setup.js"></script>
+
 </html>

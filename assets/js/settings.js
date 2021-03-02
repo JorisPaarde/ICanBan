@@ -1,32 +1,36 @@
-//flip switches
-$(".settings-switch").on("click", function () {
-    let thisSwitch = this.id;
-    let columnname = $(this).siblings()[2].innerHTML;
-    console.log(`${columnname} switched`);
-    if ($(this).hasClass("fa-toggle-off")) {
-        $(this).removeClass("fa-toggle-off");
 
-        // turn the switch on both in storage and appearance
-        $(this).addClass("fa-toggle-on");
-        localStorage.setItem(thisSwitch, `{"${columnname}","on"}`);
+//https://www.tutorialrepublic.com/faq/how-to-check-a-checkbox-is-checked-or-not-using-jquery.php//
 
-        // if dark mode is turned on draw the page dark
-        if (thisSwitch == "settings-switch-dark") {
-            localStorage.setItem(thisSwitch, `{"Darkmode","on"}`);
-            drawCurrentMode();
+//handle switch settings in localstorage and toggle darkmode
+$(document).ready(function () {
+    $('.column , input[type="checkbox"]').click(function () {
+        //get id of the switch that's clicked
+        let thisSwitch = $(this).parent().siblings()[1].id;
+        if ($(this).prop("checked") == true) {
+            // if it's darkmode update css
+            if (thisSwitch == 'darkmode'){
+                document.documentElement.setAttribute('darkmode', 'on');
+                //save this setting
+                localStorage.setItem(thisSwitch, 'on');
+            }else{
+                // this is a column turn it on and save the name
+                let columnName = $(this).parent().siblings()[1].innerHTML;
+                localStorage.setItem(thisSwitch, columnName);
+            }
         }
-    } else {
-        // turn the switch off both in storage and appearance
-        $(this).removeClass("fa-toggle-on");
-        $(this).addClass("fa-toggle-off");
-        localStorage.setItem(thisSwitch, `{"${columnname}","off"}`);
-
-        // if dark mode is turned off draw the page white
-        if (thisSwitch == "settings-switch-dark") {
-            localStorage.setItem(thisSwitch, `{"Darkmode","off"}`);
-            drawCurrentMode();
+        else if ($(this).prop("checked") == false) {
+            // if it's darkmode update css
+            if (thisSwitch == 'darkmode'){
+                document.documentElement.setAttribute('darkmode', 'off');
+                //save this setting
+                localStorage.setItem(thisSwitch, 'off');
+            }else{
+                // this is a column turn it off
+                let columnName = $(this).parent().siblings()[1].innerHTML;
+                localStorage.setItem(thisSwitch, columnName);
+            }
         }
-    }
+    });
 });
 
-// setting columns
+//edit column names
