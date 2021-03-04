@@ -195,7 +195,7 @@ button.navbar-toggler {
     cursor: pointer;
 }
 
-/*-------w3schools code----*/
+/*-------w3schools code slider button----*/
 .switch {
   position: relative;
   top: 4px;
@@ -256,7 +256,7 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
-/*-------w3schools code----*/
+/*-------w3schools code for slider button----*/
 
 /*---------------------------------------------E-mail Form--------------------------------------*/
 
@@ -343,6 +343,7 @@ button.btn.btn-outline-secondary.green-bg:hover{
 /*------------------------------------------settings content--------------------------------------*/
 
 .outer-card.settings{
+    margin-top: 12vh;
     min-height: 480px;
     margin-bottom: 20px;
 }
@@ -366,6 +367,7 @@ button.btn.btn-outline-secondary.green-bg:hover{
 .fa-toggle-off,.fa-toggle-on{
     font-size: 2rem;
 }
+
 /*-------------------------------------------media queries--------------------------------------*/
 
 @media (max-width:768px){
@@ -378,4 +380,15 @@ button.btn.btn-outline-secondary.green-bg:hover{
     h1{
     font-size: 1.5rem;
     }
+}
+
+@media (max-height: 736px){
+    .outer-card.settings{
+    margin-top: 5vh;}
+}
+
+@media (max-height: 568px){
+    .outer-card.settings{
+    margin-top: 0px;
+    min-height: 450px;}
 }
