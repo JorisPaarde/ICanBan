@@ -14,6 +14,7 @@
     --green-bg: rgba(0, 255, 56, 0.1);
     --modal-bg: rgba(255, 255, 255, 0.9);
     --modal-shadow: rgba(0, 0, 0, 0.2);
+    --slider-color: #ffefc4;
 }
 
 [darkmode ="on"]{
@@ -31,6 +32,7 @@
     --green-bg: rgba(0, 255, 56, 0.15);
     --modal-bg: rgba(0, 0, 0, 0.9);
     --modal-shadow: rgba(255, 255, 255, 0.2);
+    --slider-color: #463403;
 }
 
 body{
@@ -192,6 +194,70 @@ button.navbar-toggler {
 .menu-item i:hover{
     cursor: pointer;
 }
+
+/*-------w3schools code slider button----*/
+.switch {
+  position: relative;
+  top: 4px;
+  display: inline-block;
+  width: 40px;
+  height: 24px;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--font-color);
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 4px;
+  bottom: 4px;
+  background-color: var(--slider-color);
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: var(--font-color);
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px var(--font-color);
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(16px);
+  -ms-transform: translateX(16px);
+  transform: translateX(16px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 20px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+/*-------w3schools code for slider button----*/
+
 /*---------------------------------------------E-mail Form--------------------------------------*/
 
 .feature-title{
@@ -277,6 +343,7 @@ button.btn.btn-outline-secondary.green-bg:hover{
 /*------------------------------------------settings content--------------------------------------*/
 
 .outer-card.settings{
+    margin-top: 12vh;
     min-height: 480px;
     margin-bottom: 20px;
 }
@@ -300,6 +367,7 @@ button.btn.btn-outline-secondary.green-bg:hover{
 .fa-toggle-off,.fa-toggle-on{
     font-size: 2rem;
 }
+
 /*-------------------------------------------media queries--------------------------------------*/
 
 @media (max-width:768px){
@@ -312,4 +380,15 @@ button.btn.btn-outline-secondary.green-bg:hover{
     h1{
     font-size: 1.5rem;
     }
+}
+
+@media (max-height: 736px){
+    .outer-card.settings{
+    margin-top: 5vh;}
+}
+
+@media (max-height: 568px){
+    .outer-card.settings{
+    margin-top: 0px;
+    min-height: 450px;}
 }
