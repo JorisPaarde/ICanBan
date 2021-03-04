@@ -1,9 +1,11 @@
 //https://www.tutorialrepublic.com/faq/how-to-check-a-checkbox-is-checked-or-not-using-jquery.php//
 
-//handle switch settings in localstorage and toggle darkmode
+//handle clicking of switches in localstorage
 $(document).ready(
     checkSwitches()
 );
+
+// set clicked columns to either on or off in localstorage
 
 function setColumnStatus(thisColumn, status) {
     // get columndata and change to json format
@@ -17,6 +19,8 @@ function setColumnStatus(thisColumn, status) {
     localStorage.setItem(thisColumn, column);
 };
 
+// process when a switch is clicked
+
 function checkSwitches() {
     $('.column , input[type="checkbox"]').click(function () {
         //get id of the switch that's clicked
@@ -26,7 +30,7 @@ function checkSwitches() {
             if (thisSwitch == 'darkmode') {
                 document.documentElement.setAttribute('darkmode', 'on');
                 //save this setting
-                localStorage.setItem(thisSwitch, 'on');
+                localStorage.setItem(thisSwitch, '{"columnStatus:""on"}');
                 $(this).parent().siblings()[1].innerHTML = "on";
             } else {
                 // this is a column turn it on
@@ -38,7 +42,7 @@ function checkSwitches() {
             if (thisSwitch == 'darkmode') {
                 document.documentElement.setAttribute('darkmode', 'off');
                 //save this setting
-                localStorage.setItem(thisSwitch, 'off');
+                localStorage.setItem(thisSwitch, '{"columnStatus:""off"}');
                 $(this).parent().siblings()[1].innerHTML = "off";
             } else {
                 // this is a column turn it off

@@ -6,7 +6,6 @@ function column(text, status) {
 
 //populate local storage if empty
 function populateMem() {
-    localStorage.clear();
     if (localStorage.length < 1) {
         localStorage.setItem('darkmode', 'off');
         // Create five column objects
