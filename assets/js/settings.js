@@ -7,7 +7,6 @@ $(document).ready(
 );
 
 // set clicked columns to either on or off in localstorage
-
 function setColumnStatus(thisColumn, status) {
     // get columndata and change to json format
     let column = localStorage.getItem(thisColumn);
@@ -20,6 +19,7 @@ function setColumnStatus(thisColumn, status) {
     localStorage.setItem(thisColumn, column);
 };
 
+// set the text of a column to match localstorage value
 function setColumnText(thisColumn, text) {
     // get columndata and change to json format
     let column = localStorage.getItem(thisColumn);
@@ -32,36 +32,38 @@ function setColumnText(thisColumn, text) {
     localStorage.setItem(thisColumn, column);
 };
 
-
 // process when a switch is clicked
-
 function checkSwitches() {
     $('.column , input[type="checkbox"]').click(function () {
         //get id of the switch that's clicked
         let thisSwitch = $(this).parent().siblings()[1].id;
         let text = $(this).parent().siblings()[1].value;
+        // is this button is checked
         if ($(this).prop("checked") == true) {
-            // if it's darkmode update css
             if (thisSwitch == 'darkmode') {
+                // if it's darkmode update css
                 document.documentElement.setAttribute('darkmode', 'on');
                 //save this setting
                 localStorage.setItem(thisSwitch, '{"columnStatus":"on"}');
+                //update html
                 $(this).parent().siblings()[1].innerHTML = "on";
             } else {
-                // this is a column turn it on
+                // this is a column turn it on and save the text
                 setColumnStatus(thisSwitch, "on");
                 setColumnText(thisSwitch, text);
             }
         }
+        // is this button is unchecked
         else if ($(this).prop("checked") == false) {
-            // if it's darkmode update css
             if (thisSwitch == 'darkmode') {
+                // if it's darkmode update css
                 document.documentElement.setAttribute('darkmode', 'off');
                 //save this setting
                 localStorage.setItem(thisSwitch, '{"columnStatus":"off"}');
+                //update html
                 $(this).parent().siblings()[1].innerHTML = "off";
             } else {
-                // this is a column turn it off
+                // this is a column turn it off and save the text
                 setColumnStatus(thisSwitch, "off");
                 setColumnText(thisSwitch, text);
             }

@@ -50,6 +50,7 @@ function setColumns() {
     }
 };
 
+// get the height of the mainpage yellow div and match decoration div's height
 function adjustDecoDivs() {
     let height = $("div.col-12.outer-card.yellow-bg.yellow-shadow.home").innerHeight();
     height = Math.round(height);
@@ -57,6 +58,7 @@ function adjustDecoDivs() {
     $(".outer-card.home.green-bg").css("height", height);
 };
 
+// adjust div's when the screen rotates on mobile
 window.onorientationchange = function () {
     adjustDecoDivs();
     location.reload();
