@@ -210,3 +210,4 @@ email form enter name field was by accident targeted in css. made css for menu i
 decorative columns where not the right size on all screens. added a fuction to calculate the right hight for them. adjustDecoDivs.
 when rotating the screen on tablet these dcorative column's height was not correct. added onorientationchange eventlistener.
 when typing a name for a column the text wasn't saved when clicking outside the field with mouse. added focusout function.
+when pressing enter, focus stays on settings text field. added blur to checkText function.
