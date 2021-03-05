@@ -73,14 +73,14 @@ function checkSwitches() {
 
 function checkText() {
     // save text when enter pressed
-    $('.textBox').keydown(function (event) {
+    $('.text-box').keydown(function (event) {
         if (event.which == 13) {
             event.preventDefault();
             setColumnText(this.id, this.value);
         }
     });
     // save text when clicking outside of text area
-    $('.textBox').focusout(function (event) {
+    $('.text-box').focusout(function (event) {
             event.preventDefault();
             setColumnText(this.id, this.value);
     });

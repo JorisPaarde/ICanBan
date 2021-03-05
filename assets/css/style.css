@@ -191,7 +191,7 @@ button.navbar-toggler {
     margin: auto 3px;
 }
 
-input[type="text"] .settings {
+input[type="text"].text-box{
     border: 1px solid #e5e5e5;
     margin-left: 0.5rem;
     width: 60%;
