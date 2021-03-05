@@ -77,6 +77,7 @@ function checkText() {
         if (event.which == 13) {
             event.preventDefault();
             setColumnText(this.id, this.value);
+            $(this).blur();
         }
     });
     // save text when clicking outside of text area
