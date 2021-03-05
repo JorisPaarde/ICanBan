@@ -1,10 +1,14 @@
 // set darkmode to match localstorage
 function setDarkmode() {
     let mode = localStorage.getItem('darkmode');
-    if (mode == "on") {
+    console.log(mode);
+    mode = JSON.parse(mode);
+    if (mode.columnStatus == "on") {
+        $( "#darkmode-checkbox" ).prop( "checked", true );
         document.documentElement.setAttribute('darkmode', 'on');
-    } else if (mode == "off"){
-        document.documentElement.setAttribute('darkmode', 'off');
+    } else if (mode.columnStatus == "off"){
+        $( "#darkmode-checkbox" ).prop( "checked", false );
+        document.documentElement.setAttribute('darkmode', 'off');  
     }
 };
 

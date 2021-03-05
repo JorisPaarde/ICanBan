@@ -30,7 +30,7 @@ function checkSwitches() {
             if (thisSwitch == 'darkmode') {
                 document.documentElement.setAttribute('darkmode', 'on');
                 //save this setting
-                localStorage.setItem(thisSwitch, '{"columnStatus:""on"}');
+                localStorage.setItem(thisSwitch, '{"columnStatus":"on"}');
                 $(this).parent().siblings()[1].innerHTML = "on";
             } else {
                 // this is a column turn it on
@@ -42,7 +42,7 @@ function checkSwitches() {
             if (thisSwitch == 'darkmode') {
                 document.documentElement.setAttribute('darkmode', 'off');
                 //save this setting
-                localStorage.setItem(thisSwitch, '{"columnStatus:""off"}');
+                localStorage.setItem(thisSwitch, '{"columnStatus":"off"}');
                 $(this).parent().siblings()[1].innerHTML = "off";
             } else {
                 // this is a column turn it off
