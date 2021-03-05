@@ -18,7 +18,7 @@
 }
 
 [darkmode ="on"]{
-    background-color: black;
+    background-color: #171717;
     --font-color:#e5e5e5;
     --red-hue:rgba(255, 0, 0, 0.4);
     --green-hue:rgba(0, 255, 56, 0.4);
@@ -194,7 +194,7 @@ button.navbar-toggler {
 input[type="text"].text-box{
     border: 1px solid #e5e5e5;
     margin-left: 0.5rem;
-    width: 60%;
+    width: 55%;
     font-size: 1rem;
     color: var(--font-color);
     background-color: transparent;
@@ -404,4 +404,13 @@ button.btn.btn-outline-secondary.green-bg:hover{
     .outer-card.settings{
     margin-top: 0px;
     min-height: 450px;}
+}
+
+@media (max-width: 375px){
+    .settings .menu-item label,.settings.menu-item p{
+    font-size: 0.8rem;}
+    input[type="text"].text-box{
+        margin-left: 0px;
+        font-size: 0.8rem;
+    }
 }
