@@ -12,7 +12,6 @@ function setDarkmode() {
 };
 
 // set switches to match localstorage
-
 function setSwitches() {
     //if the loaded page is the settings page
     if (window.location.href.indexOf('settings')) {

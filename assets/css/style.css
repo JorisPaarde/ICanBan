@@ -187,8 +187,22 @@ button.navbar-toggler {
     padding: 3px;
 }
 
-.menu-item p, .menu-item i{
+.menu-item p, .menu-item i, .settings .menu-item label{
     margin: auto 3px;
+}
+
+input[type="text"] {
+    border: 1px solid #e5e5e5;
+    margin-left: 0.5rem;
+    width: 60%;
+    font-size: 1rem;
+    color: var(--font-color);
+    background-color: transparent;
+}
+
+.settings .menu-item label{
+    font-size: 1rem;
+    font-weight: 400;
 }
 
 .menu-item i:hover{
@@ -198,7 +212,6 @@ button.navbar-toggler {
 /*-------w3schools code slider button----*/
 .switch {
   position: relative;
-  top: 4px;
   display: inline-block;
   width: 40px;
   height: 24px;
