@@ -12,9 +12,11 @@ function setDarkmode() {
     if (mode.columnStatus == "on") {
         $("#darkmode-checkbox").prop("checked", true);
         document.documentElement.setAttribute('darkmode', 'on');
+        $("#darkmode")[0].innerHTML = "on";
     } else if (mode.columnStatus == "off") {
         $("#darkmode-checkbox").prop("checked", false);
         document.documentElement.setAttribute('darkmode', 'off');
+        $("#darkmode")[0].innerHTML = "off";
     }
 };
 
