@@ -211,3 +211,5 @@ decorative columns where not the right size on all screens. added a fuction to c
 when rotating the screen on tablet these dcorative column's height was not correct. added onorientationchange eventlistener.
 when typing a name for a column the text wasn't saved when clicking outside the field with mouse. added focusout function.
 when pressing enter, focus stays on settings text field. added blur to checkText function.
+when loading site with empty memory darkmode was not initialized correctly. corrected value.
+settings for darkmode did not display correctly. added inner html change.
