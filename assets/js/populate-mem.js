@@ -7,7 +7,7 @@ function column(text, status) {
 //populate local storage if empty
 function populateMem() {
     if (localStorage.length < 1) {
-        localStorage.setItem('darkmode', 'off');
+        localStorage.setItem('darkmode','{"columnStatus":"off"}');
         // Create five column objects with default settings
         var column1 = new column("To Do", "on");
         var column2 = new column("Doing", "on");
