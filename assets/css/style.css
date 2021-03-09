@@ -361,7 +361,7 @@ button.btn.btn-outline-secondary.green-bg:hover{
     margin-top: 1rem;
     min-height: 80vh;
     margin-bottom: 1rem;
-    padding-bottom: 1rem;
+    padding-bottom: 1.2rem;
 }
 
 .my-canban-column .row{
@@ -370,8 +370,8 @@ button.btn.btn-outline-secondary.green-bg:hover{
 
 .my-canban-column h2{
    text-align: center;
-   margin-top: 0.5rem;
-   margin-bottom: 2rem;
+   margin-top: 1.1rem;
+   margin-bottom: 1.2rem;
 }
 
 .my-canban-column p{
@@ -383,7 +383,7 @@ button.btn.btn-outline-secondary.green-bg:hover{
     padding: 0.5rem;
     width: 8rem;
     height: 7rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
 }
 
 /*------------------------------------------settings content--------------------------------------*/
@@ -462,5 +462,8 @@ button.btn.btn-outline-secondary.green-bg:hover{
     }
     .my-canban-column p{
     margin-top: 0rem;
+    }
+    .my-canban-column h2{
+    margin-bottom: 0.5rem;
     }
 }
