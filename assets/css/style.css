@@ -297,7 +297,7 @@ button.btn.btn-outline-secondary.green-bg:hover{
    border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-/* The Modal (background) */
+/* The Modal (background) code from: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_modal2 */
 .modal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
@@ -353,6 +353,31 @@ button.btn.btn-outline-secondary.green-bg:hover{
   from {top:-300px; opacity:0}
   to {top:0; opacity:1}
 }
+/* The Modal code from: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_modal2 */
+
+/*------------------------------------------mycanban content--------------------------------------*/
+
+.my-canban-column{
+    margin-top: 1rem;
+    min-height: 80vh;
+    margin-bottom: 1rem;
+}
+
+.my-canban-column h2{
+   text-align: center;
+   margin-top: 0.5rem;
+}
+
+.my-canban-column p{
+    margin-top: 0.1rem;
+    margin-bottom: 0.1rem;
+}
+
+.canban-item{
+    padding: 0.5rem;
+    margin-bottom: 0.8rem;
+}
+
 /*------------------------------------------settings content--------------------------------------*/
 
 .outer-card.settings{
@@ -413,4 +438,12 @@ button.btn.btn-outline-secondary.green-bg:hover{
         margin-left: 0px;
         font-size: 0.8rem;
     }
+}
+
+@media (max-width: 736px){
+    .my-canban-column{
+    margin-top: 0rem;
+    min-height: 30vh;
+    margin-bottom: 1rem;
+}
 }
