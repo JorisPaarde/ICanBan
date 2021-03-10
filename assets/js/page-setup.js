@@ -1,6 +1,5 @@
 // adjust page to settings and adjust decor columns height
 $(document).ready(
-    adjustDecoDivs(),
     setDarkmode(),
     setColumns()
 );
@@ -23,7 +22,7 @@ function setDarkmode() {
 };
 
 // check the setting of a column
-function checkSetting(item, _index) {
+function setColumnButtons(item, _index) {
     // get this columns data
     let thisColumn = localStorage.getItem(item);
     // parse to json 
@@ -50,22 +49,6 @@ function setColumns() {
             columns[i] = "column" + i;
         };
         // read out status of all columns and set the switches
-        columns.forEach(checkSetting);
+        columns.forEach(setColumnButtons);
     }
-};
-
-// get the height of the mainpage yellow div and match decoration div's height
-function adjustDecoDivs() {
-    if(window.location.href.includes("index")){
-    let height = $("div.col-12.outer-card.yellow-bg.yellow-shadow.home").innerHeight();
-    height = Math.round(height);
-    $(".outer-card.home.red-bg").css("height", height);
-    $(".outer-card.home.green-bg").css("height", height);
-    }
-};
-
-// adjust div's when the screen rotates on mobile
-window.onorientationchange = function () {
-    adjustDecoDivs();
-    location.reload();
 };
