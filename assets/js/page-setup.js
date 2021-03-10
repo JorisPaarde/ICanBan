@@ -6,17 +6,19 @@ $(document).ready(
 );
 
 // set darkmode to match localstorage
-function setDarkmode() {
+function setDarkmode() {  
     let mode = localStorage.getItem('darkmode');
     mode = JSON.parse(mode);
     if (mode.columnStatus == "on") {
         $("#darkmode-checkbox").prop("checked", true);
         document.documentElement.setAttribute('darkmode', 'on');
-        $("#darkmode")[0].innerHTML = "on";
+        if(window.location.href.includes("setting")){
+        $("#darkmode")[0].innerHTML = "on";}
     } else if (mode.columnStatus == "off") {
         $("#darkmode-checkbox").prop("checked", false);
         document.documentElement.setAttribute('darkmode', 'off');
-        $("#darkmode")[0].innerHTML = "off";
+        if(window.location.href.includes("setting")){
+        $("#darkmode")[0].innerHTML = "off";}
     }
 };
 
@@ -54,10 +56,12 @@ function setColumns() {
 
 // get the height of the mainpage yellow div and match decoration div's height
 function adjustDecoDivs() {
+    if(window.location.href.includes("index")){
     let height = $("div.col-12.outer-card.yellow-bg.yellow-shadow.home").innerHeight();
     height = Math.round(height);
     $(".outer-card.home.red-bg").css("height", height);
     $(".outer-card.home.green-bg").css("height", height);
+    }
 };
 
 // adjust div's when the screen rotates on mobile
