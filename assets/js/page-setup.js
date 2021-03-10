@@ -1,7 +1,7 @@
 // adjust page to settings and adjust decor columns height
 $(document).ready(
     setDarkmode(),
-    setColumns()
+    checkColumns()
 );
 
 // set darkmode to match localstorage
@@ -22,33 +22,42 @@ function setDarkmode() {
 };
 
 // check the setting of a column
-function setColumnButtons(item, _index) {
+function setColumns(item, _index) {
     // get this columns data
     let thisColumn = localStorage.getItem(item);
     // parse to json 
     thisColumn = JSON.parse(thisColumn);
     // check te status of this column in localmemory
     if (thisColumn.columnStatus == "on") {
-        // set this button to true
-        $(`#${item}-checkbox`).prop("checked", true);
+        // if on the settingspage set this button to true
+        if (window.location.href.indexOf('settings')){ 
+            $(`#${item}-checkbox`).prop("checked", true);
+        }
+        if (window.location.href.indexOf('mycanban')){
+            $(`#my-canban-${item}`).toggleClass('d-none',false);
+            $(`#my-canban-${item} h2`).first().html(thisColumn.columnText);
+        }
     } else {
-        // set this button to false
-        $(`#${item}-checkbox`).prop("checked", false);
+        // if on the settingspage  set this button to false
+        if (window.location.href.indexOf('settings')){
+            $(`#${item}-checkbox`).prop("checked", false);
+        }
+        if (window.location.href.indexOf('mycanban')){
+            $(`#my-canban-${item}`).toggleClass('d-none',true);
+        }
     }
     // set the value of this columns textfield to the value in local memory
     $(`#${item}`).val(thisColumn.columnText);
 };
 
 // set all Columns to match localstorage
-function setColumns() {
-    //if the loaded page is the settings page
-    if (window.location.href.indexOf('settings')) {
+function checkColumns(){
         // create array of the 5 columns to load
         let columns = [];
         for (let i = 1; i < 6; i++) {
             columns[i] = "column" + i;
-        };
+        }; 
+        //if the loaded page is the settings page
         // read out status of all columns and set the switches
-        columns.forEach(setColumnButtons);
-    }
+        columns.forEach(setColumns);
 };
