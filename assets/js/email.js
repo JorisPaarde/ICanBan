@@ -20,7 +20,7 @@ function sendMail(contactForm) {
 // Confirmation modal
 
 // Get the modal
-var modal = document.getElementById("myModal");
+var modal = document.getElementById("emailModal");
 
 // Get the button that opens the modal
 var btn = document.getElementById("email-button");
