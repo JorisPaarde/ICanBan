@@ -367,6 +367,31 @@ button.btn.btn-outline-secondary.green-bg:hover{
     padding-bottom: 1.2rem;
 }
 
+#my-canban-column1 .canban-item{
+    box-shadow: 8px 8px 15px var(--red-hue), inset 4px 4px 10px var(--red-hue);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+}
+#my-canban-column2 .canban-item{
+    box-shadow: 8px 8px 15px var(--yellow-hue), inset 4px 4px 10px var(--yellow-hue);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+}
+#my-canban-column3 .canban-item{
+    box-shadow: 8px 8px 15px var(--green-hue), inset 4px 4px 10px var(--green-hue);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+}
+#my-canban-column4 .canban-item{
+    box-shadow: 8px 8px 15px var(--yellow-hue), inset 4px 4px 10px var(--yellow-hue);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+}
+#my-canban-column4 .canban-item{
+    box-shadow: 8px 8px 15px var(--green-hue), inset 4px 4px 10px var(--green-hue);
+    border: 1px solid var(--border);
+    border-radius: 5px;
+}
 .my-canban-column .row{
     padding: 0rem 0.2rem;
 }
