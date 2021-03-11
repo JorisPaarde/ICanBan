@@ -543,6 +543,7 @@ button.btn.btn-outline-secondary.green-bg:hover{
     min-height: 30vh;
     margin-bottom: 1rem;
     }
+
     .canban-item{
     padding: 0.4rem;
     width: 100%;
@@ -560,5 +561,30 @@ button.btn.btn-outline-secondary.green-bg:hover{
     }
     .my-canban-column h2{
     margin-bottom: 0.5rem;
+    }
+
+    /* in the last column don't display left right and up on desktop*/
+    .last .canban-item .left ,.last .canban-item .right ,.last .canban-item .down{
+        display: none;
+    }
+    .last .canban-item .up{
+        display: block;
+    }
+
+    /* in the first column don't display up left and down on desktop*/
+    .first .canban-item .up ,.first .canban-item .left ,.first .canban-item .right{
+       display: none;
+    }
+    .first .canban-item .down{
+        display: block;
+    }
+
+    /* in the middle column don't display up down and trash on desktop*/
+    .middle .canban-item .left ,.middle .canban-item .trash ,.middle .canban-item .right{
+        display: none;
+    }
+
+    .middle .canban-item .up, .middle .canban-item .down{
+        display: block;
     }
 }

@@ -65,6 +65,7 @@ function checkColumns() {
 };
 
 // add item to column
+
 $(".add-item").click(function addCanbanItem() {
     $(this).parent().find(".clicked-canban-column").prepend(`
    <!--Canban item start-->
@@ -82,7 +83,6 @@ $(".add-item").click(function addCanbanItem() {
 });
 
 //canban items controls
-
 $(".my-canban-column").click(function (event) {
     // get the class of the clicked item
     var clickedIcon = $(event.target).attr('class');
@@ -92,4 +92,4 @@ $(".my-canban-column").click(function (event) {
         //$(event.target).parent().parent().slideUp();
         $(event.target).parent().parent().remove();
     }
-    });
+});
