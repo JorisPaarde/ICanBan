@@ -68,7 +68,7 @@ function checkColumns() {
 $(".add-item").click(function addCanbanItem() {
     $(this).parent().find(".clicked-canban-column").prepend(`
    <!--Canban item start-->
-    <div class="green-shadow canban-item">
+    <div class="canban-item">
         <div class="d-flex justify-content-between">
             <i class="fas down fa-level-down-alt"></i>
             <i class="fas left fa-long-arrow-alt-left d-none"></i>
@@ -80,3 +80,12 @@ $(".add-item").click(function addCanbanItem() {
             name="canban-item-input" maxlength="35" autofocus></textarea>
         </div>`);
 });
+
+//canban items controls
+
+$(".my-canban-column").click(function (event) {
+    // get the class of the clicked item
+    var clickedIcon = $(event.target).attr('class');
+    // if it has class trash the trashcan is clicked so remove the item containing this trashcan
+    if(clickedIcon.includes('trash')){$(event.target).parent().parent().remove();}
+    });
