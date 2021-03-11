@@ -66,7 +66,7 @@ function checkColumns() {
 
 // add item to column
 $(".add-item").click(function addCanbanItem() {
-   $(this).parent().find(".clicked-canban-column").append(`
+    $(this).parent().find(".clicked-canban-column").prepend(`
    <!--Canban item start-->
     <div class="green-shadow canban-item">
         <div class="d-flex justify-content-between">
@@ -76,6 +76,7 @@ $(".add-item").click(function addCanbanItem() {
             <i class="far trash fa-trash-alt"></i>
             <i class="fas up fa-level-up-alt d-none"></i>
         </div>
-            <p class="text-center">Dit soort dingen doen max letters graag.</p>
-    </div>`);
+            <textarea id="canban-item-input" placeholder="name your item (max 35 chars)"
+            name="canban-item-input" maxlength="35" autofocus></textarea>
+        </div>`);
 });

@@ -39,6 +39,7 @@
 #### As a visitor to MyKanban page , I want to:
 
 1. Add a card to a column.
+2. Enter text in a new card.
 2. Move a card to another column.
 3. Expand or contract the size of a column.
 4. Delete a card.

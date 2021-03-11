@@ -411,6 +411,11 @@ button.btn.btn-outline-secondary.green-bg:hover{
     float: right;
     margin-top: 1.2rem;
     margin-right: 0.5rem;
+    font-size: 2rem;
+}
+
+.my-canban-column .fa-plus:hover{
+    cursor: pointer;
 }
 
 .canban-item{
@@ -418,6 +423,33 @@ button.btn.btn-outline-secondary.green-bg:hover{
     width: 8rem;
     height: 7rem;
     margin-bottom: 1rem;
+}
+.canban-item i{
+    margin-bottom: 0.3rem;
+}
+
+.canban-item i:hover{
+    cursor: pointer;
+}
+
+.canban-item textarea{
+    width: 100%;
+    height: 80%;
+    resize: none;
+    overflow: hidden;
+    background-color: transparent;
+    color: var(--font-color);
+    border: none;
+    border-radius: 3px;
+}
+
+.canban-item textarea:focus{
+    border: 1px solid var(--border);
+    outline: none;
+}
+
+.canban-item-text{
+    line-height: 1.1rem;
 }
 /*------------------------------------------settings content--------------------------------------*/
 
@@ -473,6 +505,7 @@ button.btn.btn-outline-secondary.green-bg:hover{
 }
 
 @media (max-width: 375px){
+    /*media query for column name entry*/
     .settings .menu-item label,.settings.menu-item p{
     font-size: 0.8rem;}
     input[type="text"].text-box{
@@ -486,13 +519,19 @@ button.btn.btn-outline-secondary.green-bg:hover{
     margin-top: 0rem;
     min-height: 30vh;
     margin-bottom: 1rem;
-}
+    }
     .canban-item{
     padding: 0.4rem;
     width: 100%;
     height: auto;
     margin-bottom: 0.3rem;
     }
+
+    .canban-item textarea{
+    margin-top: 0rem;
+    height:1.5rem;
+    }
+
     .my-canban-column p{
     margin-top: 0rem;
     }
