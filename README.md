@@ -24,26 +24,27 @@
 #### As a Returning Visitor, I want to:
 
 1. Quickly access my personal Kanban page without having to go trough the menu.
-2. Give feature suggestions for the site.
+1. Give feature suggestions for the site.
 
 ### Settings functionality:
 
 #### As a visitor to the settings page , I want to:
 
 1. Change the site to dark mode or light mode.
-2. Add a column to my Kanban.
-3. Change the name of a column.
+1. Add a column to my Kanban.
+1. Change the name of a column.
 
 ### Kanban functionality:
 
 #### As a visitor to MyKanban page , I want to:
 
 1. Add a card to a column.
-2. Enter text in a new card.
-2. Move a card to another column.
-3. Expand or contract the size of a column.
-4. Delete a card.
-5. Easily be able to access all columns on all screensizes and orientations.
+1. Enter text in a new card.
+1. Move a card to another column.
+1. Expand or contract the size of a column.
+1. Delete a card.
+1. Only be presented with usefull controls in a canban item.
+1. Easily be able to access all columns on all screensizes and orientations.
 
 ### Design
 

@@ -372,26 +372,31 @@ button.btn.btn-outline-secondary.green-bg:hover{
     border: 1px solid var(--border);
     border-radius: 5px;
 }
+
 #my-canban-column2 .canban-item{
     box-shadow: 8px 8px 15px var(--yellow-hue), inset 4px 4px 10px var(--yellow-hue);
     border: 1px solid var(--border);
     border-radius: 5px;
 }
+
 #my-canban-column3 .canban-item{
     box-shadow: 8px 8px 15px var(--green-hue), inset 4px 4px 10px var(--green-hue);
     border: 1px solid var(--border);
     border-radius: 5px;
 }
+
 #my-canban-column4 .canban-item{
     box-shadow: 8px 8px 15px var(--yellow-hue), inset 4px 4px 10px var(--yellow-hue);
     border: 1px solid var(--border);
     border-radius: 5px;
 }
-#my-canban-column4 .canban-item{
+
+#my-canban-column5 .canban-item{
     box-shadow: 8px 8px 15px var(--green-hue), inset 4px 4px 10px var(--green-hue);
     border: 1px solid var(--border);
     border-radius: 5px;
 }
+
 .my-canban-column .row{
     padding: 0rem 0.2rem;
 }
@@ -424,6 +429,7 @@ button.btn.btn-outline-secondary.green-bg:hover{
     height: 7rem;
     margin-bottom: 1rem;
 }
+
 .canban-item i{
     margin-bottom: 0.3rem;
 }
@@ -451,6 +457,23 @@ button.btn.btn-outline-secondary.green-bg:hover{
 .canban-item-text{
     line-height: 1.1rem;
 }
+
+/* in the last column don't display up right and down on desktop*/
+.last .canban-item .up ,.last .canban-item .right ,.last .canban-item .down{
+    display: none;
+}
+
+/* in the first column don't display up left and down on desktop*/
+.first .canban-item .up ,.first .canban-item .left ,.first .canban-item .down{
+    display: none;
+}
+
+/* in the middle column don't display up down and trash on desktop*/
+.middle .canban-item .up ,.middle .canban-item .trash ,.middle .canban-item .down{
+    display: none;
+}
+
+
 /*------------------------------------------settings content--------------------------------------*/
 
 .outer-card.settings{

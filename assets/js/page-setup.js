@@ -71,10 +71,10 @@ $(".add-item").click(function addCanbanItem() {
     <div class="canban-item">
         <div class="d-flex justify-content-between">
             <i class="fas down fa-level-down-alt"></i>
-            <i class="fas left fa-long-arrow-alt-left d-none"></i>
-            <i class="fas right fa-long-arrow-alt-right d-none"></i>
+            <i class="fas left fa-long-arrow-alt-left"></i>
             <i class="far trash fa-trash-alt"></i>
-            <i class="fas up fa-level-up-alt d-none"></i>
+            <i class="fas right fa-long-arrow-alt-right"></i>
+            <i class="fas up fa-level-up-alt"></i>
         </div>
             <textarea id="canban-item-input" placeholder="name your item (max 35 chars)"
             name="canban-item-input" maxlength="35" autofocus></textarea>
@@ -87,5 +87,9 @@ $(".my-canban-column").click(function (event) {
     // get the class of the clicked item
     var clickedIcon = $(event.target).attr('class');
     // if it has class trash the trashcan is clicked so remove the item containing this trashcan
-    if(clickedIcon.includes('trash')){$(event.target).parent().parent().remove();}
+    if(clickedIcon.includes('trash')){
+        console.log($(event.target).parent().parent());
+        //$(event.target).parent().parent().slideUp();
+        $(event.target).parent().parent().remove();
+    }
     });
