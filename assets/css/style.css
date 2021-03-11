@@ -359,7 +359,6 @@ button.btn.btn-outline-secondary.green-bg:hover{
 /* The Modal code from: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_modal2 */
 
 /*------------------------------------------mycanban content--------------------------------------*/
-
 .my-canban-column{
     margin-top: 1rem;
     min-height: 80vh;
@@ -367,51 +366,46 @@ button.btn.btn-outline-secondary.green-bg:hover{
     padding-bottom: 1.2rem;
 }
 
+/*---cabnan item colors---*/
 #my-canban-column1 .canban-item{
     box-shadow: 8px 8px 15px var(--red-hue), inset 4px 4px 10px var(--red-hue);
     border: 1px solid var(--border);
     border-radius: 5px;
 }
-
 #my-canban-column2 .canban-item{
     box-shadow: 8px 8px 15px var(--yellow-hue), inset 4px 4px 10px var(--yellow-hue);
     border: 1px solid var(--border);
     border-radius: 5px;
 }
-
 #my-canban-column3 .canban-item{
     box-shadow: 8px 8px 15px var(--green-hue), inset 4px 4px 10px var(--green-hue);
     border: 1px solid var(--border);
     border-radius: 5px;
 }
-
 #my-canban-column4 .canban-item{
     box-shadow: 8px 8px 15px var(--yellow-hue), inset 4px 4px 10px var(--yellow-hue);
     border: 1px solid var(--border);
     border-radius: 5px;
 }
-
 #my-canban-column5 .canban-item{
     box-shadow: 8px 8px 15px var(--green-hue), inset 4px 4px 10px var(--green-hue);
     border: 1px solid var(--border);
     border-radius: 5px;
 }
 
+/*--canban column layout--*/
 .my-canban-column .row{
     padding: 0rem 0.2rem;
 }
-
 .my-canban-column h2{
    text-align: center;
    margin-top: 0.9rem;
    margin-bottom: 1.2rem;
 }
-
 .my-canban-column p{
     margin-top: 0.1rem;
     margin-bottom: 0.1rem;
 }
-
 .my-canban-column .fa-plus{
     float: right;
     margin-top: 1.2rem;
@@ -419,25 +413,23 @@ button.btn.btn-outline-secondary.green-bg:hover{
     font-size: 2rem;
 }
 
+/*--canban item layout--*/
+
 .my-canban-column .fa-plus:hover{
     cursor: pointer;
 }
-
 .canban-item{
     padding: 0.5rem;
     width: 8rem;
     height: 7rem;
     margin-bottom: 1rem;
 }
-
 .canban-item i{
     margin-bottom: 0.3rem;
 }
-
 .canban-item i:hover{
     cursor: pointer;
 }
-
 .canban-item textarea{
     width: 100%;
     height: 80%;
@@ -448,26 +440,21 @@ button.btn.btn-outline-secondary.green-bg:hover{
     border: none;
     border-radius: 3px;
 }
-
 .canban-item textarea:focus{
     border: 1px solid var(--border);
     outline: none;
 }
-
 .canban-item-text{
     line-height: 1.1rem;
 }
-
 /* in the last column don't display up right and down on desktop*/
 .last .canban-item .up ,.last .canban-item .right ,.last .canban-item .down{
     display: none;
 }
-
 /* in the first column don't display up left and down on desktop*/
 .first .canban-item .up ,.first .canban-item .left ,.first .canban-item .down{
     display: none;
 }
-
 /* in the middle column don't display up down and trash on desktop*/
 .middle .canban-item .up ,.middle .canban-item .trash ,.middle .canban-item .down{
     display: none;
@@ -481,51 +468,36 @@ button.btn.btn-outline-secondary.green-bg:hover{
     min-height: 480px;
     margin-bottom: 20px;
 }
-
 .settings h1{
     text-align: center;
     margin: 20px;
     margin-bottom: 20px;
 }
-
 .settings.menu-item {
     margin: auto;
     font-size: 1.5rem;
     margin-bottom: 20px;
 }
-
 .settings.menu-item p{
     font-size: 1rem;
 }
-
 .fa-toggle-off,.fa-toggle-on{
     font-size: 2rem;
 }
 
 /*-------------------------------------------media queries--------------------------------------*/
 
-@media (max-width:768px){
-    .logo{
-        margin-right: 0px;
-    }
-    a.navbar-brand{
-        font-size: 35px;
-    }
-    h1{
-    font-size: 1.5rem;
-    }
-}
-
 @media (max-height: 736px){
     .outer-card.settings{
     margin-top: 5vh;}
 }
-
 @media (max-height: 568px){
     .outer-card.settings{
     margin-top: 0px;
     min-height: 450px;}
 }
+
+/*media queries for small mobile devices*/
 
 @media (max-width: 375px){
     /*media query for column name entry*/
@@ -537,32 +509,40 @@ button.btn.btn-outline-secondary.green-bg:hover{
     }
 }
 
-@media (max-width: 736px){
+/*-------------------media queries for mobile devices (phones)-----------------*/
+
+@media (max-width: 768px){
+
+    .logo{
+    margin-right: 0px;
+    }
+    a.navbar-brand{
+    font-size: 35px;
+    }
+    h1{
+    font-size: 1.5rem;
+    }
     .my-canban-column{
     margin-top: 0rem;
     min-height: 30vh;
     margin-bottom: 1rem;
     }
-
     .canban-item{
     padding: 0.4rem;
     width: 100%;
     height: auto;
     margin-bottom: 0.3rem;
     }
-
     .canban-item textarea{
     margin-top: 0rem;
     height:1.5rem;
     }
-
     .my-canban-column p{
     margin-top: 0rem;
     }
     .my-canban-column h2{
     margin-bottom: 0.5rem;
     }
-
     /* in the last column don't display left right and up on desktop*/
     .last .canban-item .left ,.last .canban-item .right ,.last .canban-item .down{
         display: none;
@@ -570,7 +550,6 @@ button.btn.btn-outline-secondary.green-bg:hover{
     .last .canban-item .up{
         display: block;
     }
-
     /* in the first column don't display up left and down on desktop*/
     .first .canban-item .up ,.first .canban-item .left ,.first .canban-item .right{
        display: none;
@@ -578,12 +557,10 @@ button.btn.btn-outline-secondary.green-bg:hover{
     .first .canban-item .down{
         display: block;
     }
-
     /* in the middle column don't display up down and trash on desktop*/
     .middle .canban-item .left ,.middle .canban-item .trash ,.middle .canban-item .right{
         display: none;
     }
-
     .middle .canban-item .up, .middle .canban-item .down{
         display: block;
     }
