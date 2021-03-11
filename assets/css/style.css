@@ -41,7 +41,7 @@ body{
     color: var(--font-color)!important;
 }
 
-p{
+p , textarea{
     font-size: 0.9rem;
     font-weight: 400;
 }
@@ -512,7 +512,6 @@ button.btn.btn-outline-secondary.green-bg:hover{
 /*-------------------media queries for mobile devices (phones)-----------------*/
 
 @media (max-width: 768px){
-
     .logo{
     margin-right: 0px;
     }
@@ -521,11 +520,6 @@ button.btn.btn-outline-secondary.green-bg:hover{
     }
     h1{
     font-size: 1.5rem;
-    }
-    .my-canban-column{
-    margin-top: 0rem;
-    min-height: 30vh;
-    margin-bottom: 1rem;
     }
     .canban-item{
     padding: 0.4rem;
@@ -543,6 +537,9 @@ button.btn.btn-outline-secondary.green-bg:hover{
     .my-canban-column h2{
     margin-bottom: 0.5rem;
     }
+}
+
+@media (max-width: 760px){
     /* in the last column don't display left right and up on desktop*/
     .last .canban-item .left ,.last .canban-item .right ,.last .canban-item .down{
         display: none;
@@ -563,5 +560,10 @@ button.btn.btn-outline-secondary.green-bg:hover{
     }
     .middle .canban-item .up, .middle .canban-item .down{
         display: block;
+    }
+    .my-canban-column{
+    margin-top: 0rem;
+    min-height: 30vh;
+    margin-bottom: 1rem;
     }
 }
