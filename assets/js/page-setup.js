@@ -91,5 +91,9 @@ $(".my-canban-column").click(function (event) {
         console.log($(event.target).parent().parent());
         //$(event.target).parent().parent().slideUp();
         $(event.target).parent().parent().remove();
+    }if((clickedIcon.includes('left'))||(clickedIcon.includes('up'))){
+        console.log('moving left or up');
+    }if(clickedIcon.includes('right')||clickedIcon.includes('down')){
+        console.log('moving right or down');
     }
 });
