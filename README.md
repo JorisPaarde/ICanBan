@@ -216,3 +216,4 @@ when pressing enter, focus stays on settings text field. added blur to checkText
 when loading site with empty memory darkmode was not initialized correctly. corrected value.
 settings for darkmode did not display correctly. added inner html change.
 On ipad in portrait mode the canban item controls did not display correctly. adjusted media query.
+error message when clicking on text area of a canban item. added != statement.

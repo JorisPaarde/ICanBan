@@ -107,8 +107,8 @@ function executeButtonPress(clickedElement){
 $(".my-canban-column").click(function (event) {
     // get the class of the clicked item
     var clickedElement = $(event.target).attr('class');
-    // if an i element is clicked check which one
-    if ($(event.target).attr('class') != 'canban-item-input'){
+    // if an icon is clicked check which one
+    if (clickedElement != undefined){
         executeButtonPress(clickedElement);
     }
 });
