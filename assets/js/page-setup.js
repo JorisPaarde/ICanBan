@@ -67,7 +67,7 @@ function checkColumns() {
 // add item to column
 
 $(".add-item").click(function addCanbanItem() {
-    $(this).parent().find(".clicked-canban-column").prepend(`
+    let addedItem =  `
    <!--Canban item start-->
     <div class="canban-item">
         <div class="d-flex justify-content-between">
@@ -79,7 +79,8 @@ $(".add-item").click(function addCanbanItem() {
         </div>
             <textarea id="canban-item-input" placeholder="name your item (max 35 chars)"
             name="canban-item-input" maxlength="35" autofocus></textarea>
-        </div>`);
+        </div>`;
+    $(addedItem).hide().prependTo($(this).parent().find(".clicked-canban-column")).slideDown(250);
 });
 
 //canban items controls
@@ -88,9 +89,8 @@ $(".my-canban-column").click(function (event) {
     var clickedIcon = $(event.target).attr('class');
     // if it has class trash the trashcan is clicked so remove the item containing this trashcan
     if(clickedIcon.includes('trash')){
-        console.log($(event.target).parent().parent());
-        //$(event.target).parent().parent().slideUp();
-        $(event.target).parent().parent().remove();
+        console.log('Deleting');
+        $(event.target).parent().parent().slideUp(300,function(){$(event.target).parent().parent().remove();});
     }if((clickedIcon.includes('left'))||(clickedIcon.includes('up'))){
         console.log('moving left or up');
     }if(clickedIcon.includes('right')||clickedIcon.includes('down')){
