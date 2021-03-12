@@ -64,7 +64,7 @@ function checkColumns() {
     columns.forEach(setColumns);
 };
 
-// add item to column
+// add canban-item to column when plus is clicked
 
 $(".add-item").click(function addCanbanItem() {
     let addedItem =  `
@@ -83,17 +83,32 @@ $(".add-item").click(function addCanbanItem() {
     $(addedItem).hide().prependTo($(this).parent().find(".clicked-canban-column")).slideDown(250);
 });
 
+// delete canban item
+function removeCanban(event){
+    $(event.target).parent().parent().slideUp(300,function(){$(event.target).parent().parent().remove();});
+};
+
+// execution of different canban item controls
+function executeButtonPress(clickedElement){
+        // if it has class trash the trashcan is clicked so remove the item containing this trashcan
+    if(clickedElement.includes('trash')){
+        console.log('Deleting');
+        removeCanban(event);
+        // if up arrow or left arrow is clicked
+    }if((clickedElement.includes('left'))||(clickedElement.includes('up'))){
+        console.log('moving left or up');
+        // if down arrow or right arrow is clicked
+    }if(clickedElement.includes('right')||clickedElement.includes('down')){
+        console.log('moving right or down');
+    }
+};
+
 //canban items controls
 $(".my-canban-column").click(function (event) {
     // get the class of the clicked item
-    var clickedIcon = $(event.target).attr('class');
-    // if it has class trash the trashcan is clicked so remove the item containing this trashcan
-    if(clickedIcon.includes('trash')){
-        console.log('Deleting');
-        $(event.target).parent().parent().slideUp(300,function(){$(event.target).parent().parent().remove();});
-    }if((clickedIcon.includes('left'))||(clickedIcon.includes('up'))){
-        console.log('moving left or up');
-    }if(clickedIcon.includes('right')||clickedIcon.includes('down')){
-        console.log('moving right or down');
+    var clickedElement = $(event.target).attr('class');
+    // if an i element is clicked check which one
+    if ($(event.target).attr('class') != 'canban-item-input'){
+        executeButtonPress(clickedElement);
     }
 });
