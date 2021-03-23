@@ -70,7 +70,7 @@ function checkColumns() {
 // add new canban-item to column when plus is clicked
 
 $(".add-item").click(function addNewCanbanItem() {
-    
+
     //update number of items in localstorage
     let lastid = localStorage.getItem('itemCount');
     lastid++;
@@ -108,7 +108,7 @@ function removeCanban(event) {
     $(event.target).parent().parent().slideUp(300, function () { $(event.target).parent().parent().remove(); });
 };
 
-function addCanbanItem(thisItemKey,thisItem) { 
+function addCanbanItem(thisItemKey, thisItem) {
     //add the following html
     let addedItem = `
    <!--Canban item start-->
@@ -132,8 +132,9 @@ function addCanbanItem(thisItemKey,thisItem) {
 function executeButtonPress(clickedElement) {
     // if it has class trash the trashcan is clicked so remove the item containing this trashcan
     if (clickedElement.includes('trash')) {
-        console.log('Deleting');
         removeCanban(event);
+        let thisItemKey = $(event.target).closest("div[id]").attr('id');
+        localStorage.removeItem(thisItemKey);
         // if up arrow or left arrow is clicked
     } if ((clickedElement.includes('left')) || (clickedElement.includes('up'))) {
         // find this item in localstorage
@@ -151,7 +152,7 @@ function executeButtonPress(clickedElement) {
         //store new settings in memory
         localStorage.setItem(thisItemKey, JSON.stringify(thisItem));
         //visual update
-        addCanbanItem(thisItemKey,thisItem);
+        addCanbanItem(thisItemKey, thisItem);
         removeCanban(event);
 
         // if down arrow or right arrow is clicked
@@ -171,7 +172,7 @@ function executeButtonPress(clickedElement) {
         //store new settings in memory
         localStorage.setItem(thisItemKey, JSON.stringify(thisItem));
         //visual update
-        addCanbanItem(thisItemKey,thisItem);
+        addCanbanItem(thisItemKey, thisItem);
         removeCanban(event);
     }
 };
