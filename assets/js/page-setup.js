@@ -96,7 +96,7 @@ $(".add-item").click(function addNewCanbanItem() {
             <i class="fas right fa-long-arrow-alt-right"></i>
             <i class="fas up fa-level-up-alt"></i>
         </div>
-            <textarea id="canban-item-input" placeholder="${canbanItem.text}"
+            <textarea id="canban-item-input" placeholder="${canbanItem.itemText}"
             name="canban-item-input" maxlength="35" autofocus></textarea>
         </div>`;
     //hide it add it to the clicked column and animate it in
