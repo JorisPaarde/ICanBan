@@ -79,16 +79,16 @@ $(".add-item").click(function addNewCanbanItem() {
     //set default values for new item
     let currentColumn = $(event.target).closest("div[id]").attr('id');
     let canbanItem = {
-        text: 'name your item (max 35 chars)',
-        columnLocation: currentColumn
+        itemText: 'name your item (max 35 chars)',
+        itemLocation: currentColumn
     };
 
     // make new item in localstorage with default values
-    localStorage.setItem(`item nr ${JSON.stringify(lastid)}`, JSON.stringify(canbanItem));
+    localStorage.setItem(`item-nr-${JSON.stringify(lastid)}`, JSON.stringify(canbanItem));
     //add the following html
     let addedItem = `
    <!--Canban item start-->
-    <div class="canban-item">
+    <div id="item-nr-${JSON.stringify(lastid)}" class="canban-item">
         <div class="d-flex justify-content-between">
             <i class="fas down fa-level-down-alt"></i>
             <i class="fas left fa-long-arrow-alt-left"></i>
@@ -108,17 +108,11 @@ function removeCanban(event) {
     $(event.target).parent().parent().slideUp(300, function () { $(event.target).parent().parent().remove(); });
 };
 
-function addCanbanItem(column) { 
-    //get values for this item
-    let canbanItem = {
-        text: 'name your item (max 35 chars)',
-        columnLocation: column
-    };
-
+function addCanbanItem(thisItemKey,thisItem) { 
     //add the following html
     let addedItem = `
    <!--Canban item start-->
-    <div class="canban-item">
+    <div id="${thisItemKey}" class="canban-item">
         <div class="d-flex justify-content-between">
             <i class="fas down fa-level-down-alt"></i>
             <i class="fas left fa-long-arrow-alt-left"></i>
@@ -126,11 +120,11 @@ function addCanbanItem(column) {
             <i class="fas right fa-long-arrow-alt-right"></i>
             <i class="fas up fa-level-up-alt"></i>
         </div>
-            <textarea id="canban-item-input" placeholder="${canbanItem.text}"
+            <textarea id="canban-item-input" placeholder="${thisItem.itemText}"
             name="canban-item-input" maxlength="35" autofocus></textarea>
         </div>`;
     //hide it add it to the clicked column and animate it in
-    $(addedItem).hide().prependTo($(`#my-canban-column${column}`).find('.clicked-canban-column')).slideDown(250);
+    $(addedItem).hide().prependTo($(`#${thisItem.itemLocation}`).find('.clicked-canban-column')).slideDown(250);
 };
 
 
@@ -142,27 +136,42 @@ function executeButtonPress(clickedElement) {
         removeCanban(event);
         // if up arrow or left arrow is clicked
     } if ((clickedElement.includes('left')) || (clickedElement.includes('up'))) {
-        // find the column this item is in
-        let currentColumn = $(event.target).closest("div[id]").attr('id');
+        // find this item in localstorage
+        let thisItemKey = $(event.target).closest("div[id]").attr('id');
+        thisItem = localStorage.getItem(thisItemKey);
+        thisItem = JSON.parse(thisItem);
+        //update itemlocation
+        let currentColumn = thisItem.itemLocation;
         let columnNumber = /\d+/;
         columnNumber = currentColumn.match(columnNumber);
         // this item goes to the column with 1 digit lower
         columnNumber[0]--;
-        let newColumnNumber = columnNumber[0];
-        console.log(`my-canban-column${newColumnNumber}`);
-        addCanbanItem(newColumnNumber);
+        // set the new location
+        thisItem.itemLocation = `my-canban-column${columnNumber[0]}`;
+        //store new settings in memory
+        localStorage.setItem(thisItemKey, JSON.stringify(thisItem));
+        //visual update
+        addCanbanItem(thisItemKey,thisItem);
         removeCanban(event);
+
         // if down arrow or right arrow is clicked
     } if (clickedElement.includes('right') || clickedElement.includes('down')) {
-        // find the column this item is in
-        let currentColumn = $(event.target).closest("div[id]").attr('id');
+        // find this item in localstorage
+        let thisItemKey = $(event.target).closest("div[id]").attr('id');
+        let thisItem = localStorage.getItem(thisItemKey);
+        thisItem = JSON.parse(thisItem);
+        //update itemlocation
+        let currentColumn = thisItem.itemLocation;
         let columnNumber = /\d+/;
         columnNumber = currentColumn.match(columnNumber);
-        // this item goes to the column with 1 digit higher
+        // this item goes to the column with 1 digit lower
         columnNumber[0]++;
-        let newColumnNumber = columnNumber[0];
-        console.log(`my-canban-column${newColumnNumber}`);
-        addCanbanItem(newColumnNumber);
+        // set the new location
+        thisItem.itemLocation = `my-canban-column${columnNumber[0]}`;
+        //store new settings in memory
+        localStorage.setItem(thisItemKey, JSON.stringify(thisItem));
+        //visual update
+        addCanbanItem(thisItemKey,thisItem);
         removeCanban(event);
     }
 };
