@@ -4,8 +4,6 @@ $(document).ready(
     checkColumns(),
 );
 
-//  !!!! should update to number of items in localstorage
- var lastid = 0;
 
 // set darkmode to match localstorage
 function setDarkmode() {
@@ -38,15 +36,17 @@ function setColumns(item, _index) {
         if (window.location.href.indexOf('settings')) {
             $(`#${item}-checkbox`).prop("checked", true);
         }
+        // if on the mycanban page display this as in settings
         if (window.location.href.indexOf('mycanban')) {
             $(`#my-canban-${item}`).toggleClass('d-none', false);
             $(`#my-canban-${item} h2`).first().html(thisColumn.columnText);
         }
     } else {
-        // if on the settingspage  set this button to false
+        // if on the settingspage set this button to false
         if (window.location.href.indexOf('settings')) {
             $(`#${item}-checkbox`).prop("checked", false);
         }
+        // if on the mycanban page display this as in settings
         if (window.location.href.indexOf('mycanban')) {
             $(`#my-canban-${item}`).toggleClass('d-none', true);
         }
@@ -67,19 +67,25 @@ function checkColumns() {
     columns.forEach(setColumns);
 };
 
-// add canban-item to column when plus is clicked
+// add new canban-item to column when plus is clicked
 
-$(".add-item").click(function addCanbanItem() {
-    //add the following
-    let id = lastid++;
+$(".add-item").click(function addNewCanbanItem() {
+    
+    //update number of items in localstorage
+    let lastid = localStorage.getItem('itemCount');
+    lastid++;
+    localStorage.setItem('itemCount', lastid);
 
+    //set default values for new item
+    let currentColumn = $(event.target).closest("div[id]").attr('id');
     let canbanItem = {
-        text: 'dit is de text',
-        columnLocation: 'my-canban-column1'
+        text: 'name your item (max 35 chars)',
+        columnLocation: currentColumn
     };
 
-    localStorage.setItem(`item nr ${JSON.stringify(id)}`,JSON.stringify(canbanItem));
-
+    // make new item in localstorage with default values
+    localStorage.setItem(`item nr ${JSON.stringify(lastid)}`, JSON.stringify(canbanItem));
+    //add the following html
     let addedItem = `
    <!--Canban item start-->
     <div class="canban-item">
@@ -90,7 +96,7 @@ $(".add-item").click(function addCanbanItem() {
             <i class="fas right fa-long-arrow-alt-right"></i>
             <i class="fas up fa-level-up-alt"></i>
         </div>
-            <textarea id="canban-item-input" placeholder="name your item (max 35 chars)"
+            <textarea id="canban-item-input" placeholder="${canbanItem.text}"
             name="canban-item-input" maxlength="35" autofocus></textarea>
         </div>`;
     //hide it add it to the clicked column and animate it in
@@ -102,6 +108,32 @@ function removeCanban(event) {
     $(event.target).parent().parent().slideUp(300, function () { $(event.target).parent().parent().remove(); });
 };
 
+function addCanbanItem(column) { 
+    //get values for this item
+    let canbanItem = {
+        text: 'name your item (max 35 chars)',
+        columnLocation: column
+    };
+
+    //add the following html
+    let addedItem = `
+   <!--Canban item start-->
+    <div class="canban-item">
+        <div class="d-flex justify-content-between">
+            <i class="fas down fa-level-down-alt"></i>
+            <i class="fas left fa-long-arrow-alt-left"></i>
+            <i class="far trash fa-trash-alt"></i>
+            <i class="fas right fa-long-arrow-alt-right"></i>
+            <i class="fas up fa-level-up-alt"></i>
+        </div>
+            <textarea id="canban-item-input" placeholder="${canbanItem.text}"
+            name="canban-item-input" maxlength="35" autofocus></textarea>
+        </div>`;
+    //hide it add it to the clicked column and animate it in
+    $(addedItem).hide().prependTo($(`#my-canban-column${column}`).find('.clicked-canban-column')).slideDown(250);
+};
+
+
 // execution of different canban item controls
 function executeButtonPress(clickedElement) {
     // if it has class trash the trashcan is clicked so remove the item containing this trashcan
@@ -110,10 +142,28 @@ function executeButtonPress(clickedElement) {
         removeCanban(event);
         // if up arrow or left arrow is clicked
     } if ((clickedElement.includes('left')) || (clickedElement.includes('up'))) {
-        console.log('moving left or up');
+        // find the column this item is in
+        let currentColumn = $(event.target).closest("div[id]").attr('id');
+        let columnNumber = /\d+/;
+        columnNumber = currentColumn.match(columnNumber);
+        // this item goes to the column with 1 digit lower
+        columnNumber[0]--;
+        let newColumnNumber = columnNumber[0];
+        console.log(`my-canban-column${newColumnNumber}`);
+        addCanbanItem(newColumnNumber);
+        removeCanban(event);
         // if down arrow or right arrow is clicked
     } if (clickedElement.includes('right') || clickedElement.includes('down')) {
-        console.log('moving right or down');
+        // find the column this item is in
+        let currentColumn = $(event.target).closest("div[id]").attr('id');
+        let columnNumber = /\d+/;
+        columnNumber = currentColumn.match(columnNumber);
+        // this item goes to the column with 1 digit higher
+        columnNumber[0]++;
+        let newColumnNumber = columnNumber[0];
+        console.log(`my-canban-column${newColumnNumber}`);
+        addCanbanItem(newColumnNumber);
+        removeCanban(event);
     }
 };
 

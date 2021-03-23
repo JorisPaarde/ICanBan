@@ -7,6 +7,7 @@ function column(text, status) {
 //populate local storage if empty
 function populateMem() {
     if (localStorage.length < 1) {
+        localStorage.setItem('itemCount','8');
         localStorage.setItem('darkmode','{"columnStatus":"off"}');
         // Create five column objects with default settings
         var column1 = new column("To Do", "on");
@@ -19,7 +20,7 @@ function populateMem() {
         localStorage.setItem('column3', JSON.stringify(column3));
         localStorage.setItem('column4', JSON.stringify(column4));
         localStorage.setItem('column5', JSON.stringify(column5));
-        console.log('memory reset');
+        console.log('memory was empty default values initialized..');
     }
 };
 
