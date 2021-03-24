@@ -2,8 +2,8 @@
 $(document).ready(
     setDarkmode(),
     checkColumns(),
+    setCanbanItems()
 );
-
 
 // set darkmode to match localstorage
 function setDarkmode() {
@@ -20,6 +20,33 @@ function setDarkmode() {
         document.documentElement.setAttribute('darkmode', 'off');
         if (window.location.href.includes("setting")) {
             $("#darkmode")[0].innerHTML = "off";
+        }
+    }
+};
+
+// set all Columns to match localstorage
+function checkColumns() {
+    // create array of the 5 columns to load
+    let columns = [];
+    for (let i = 1; i < 6; i++) {
+        columns[i] = "column" + i;
+    };
+    //if the loaded page is the settings page
+    // read out status of all columns and set the switches
+    columns.forEach(setColumns);
+};
+
+function setCanbanItems() {
+    if (window.location.href.includes('mycanban')) {
+        //scan localstorage for canban items
+        for (var i = 0; i < localStorage.length; i++) {
+            let thisItem = localStorage.getItem(localStorage.key(i));
+            let thisItemKey = localStorage.key(i);
+            if (thisItemKey.includes('item-nr')) {
+                // this is a canban item add it to the html
+                thisItem = JSON.parse(thisItem);
+                addCanbanItem(thisItemKey, thisItem);
+            }
         }
     }
 };
@@ -55,20 +82,7 @@ function setColumns(item, _index) {
     $(`#${item}`).val(thisColumn.columnText);
 };
 
-// set all Columns to match localstorage
-function checkColumns() {
-    // create array of the 5 columns to load
-    let columns = [];
-    for (let i = 1; i < 6; i++) {
-        columns[i] = "column" + i;
-    };
-    //if the loaded page is the settings page
-    // read out status of all columns and set the switches
-    columns.forEach(setColumns);
-};
-
 // add new canban-item to column when plus is clicked
-
 $(".add-item").click(function addNewCanbanItem() {
 
     //update number of items in localstorage
@@ -121,7 +135,7 @@ function addCanbanItem(thisItemKey, thisItem) {
             <i class="fas up fa-level-up-alt"></i>
         </div>
             <textarea id="canban-item-input" placeholder="${thisItem.itemText}"
-            name="canban-item-input" maxlength="35" autofocus></textarea>
+            name="canban-item-input" maxlength="35"></textarea>
         </div>`;
     //hide it add it to the clicked column and animate it in
     $(addedItem).hide().prependTo($(`#${thisItem.itemLocation}`).find('.clicked-canban-column')).slideDown(250);
