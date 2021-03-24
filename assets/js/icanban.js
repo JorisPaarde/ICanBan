@@ -1,9 +1,53 @@
 // adjust page to settings and adjust decor columns height
-$(document).ready(
+$(document).ready( 
+    populateMem(),
     setDarkmode(),
     checkColumns(),
     setCanbanItems()
 );
+//--------------------------------------------------initializing memory------------------------------------------
+// Constructor function for columns
+function column(text, status) {
+    this.columnText = text;
+    this.columnStatus = status;
+}
+
+// Constructor function for items
+function item(column, text) {
+    this.itemText = text;
+    this.itemLocation = column;
+}
+
+//populate local storage if empty
+function populateMem() {
+    if (localStorage.length < 1) {
+        localStorage.setItem('itemCount','4');
+        localStorage.setItem('darkmode','{"columnStatus":"off"}');
+        // Create five column objects with default settings
+        var column1 = new column("To Do", "on");
+        var column2 = new column("Doing", "on");
+        var column3 = new column("Done", "on");
+        var column4 = new column("", "off");
+        var column5 = new column("", "off");
+        localStorage.setItem('column1', JSON.stringify(column1));
+        localStorage.setItem('column2', JSON.stringify(column2));
+        localStorage.setItem('column3', JSON.stringify(column3));
+        localStorage.setItem('column4', JSON.stringify(column4));
+        localStorage.setItem('column5', JSON.stringify(column5));
+        // Create four item objects with default settings
+        var item1 = new item("my-canban-column1","name your item (max 35 chars)");
+        var item2 = new item("my-canban-column1","name your item (max 35 chars)");
+        var item3 = new item("my-canban-column2","name your item (max 35 chars)");
+        var item4 = new item("my-canban-column3","name your item (max 35 chars)");
+        localStorage.setItem('item-nr-1', JSON.stringify(item1));
+        localStorage.setItem('item-nr-2', JSON.stringify(item2));
+        localStorage.setItem('item-nr-3', JSON.stringify(item3));
+        localStorage.setItem('item-nr-4', JSON.stringify(item4));
+        console.log('memory was empty default values initialized..');
+    }
+};
+
+//--------------------------------------------------building site from memory------------------------------------------
 
 // set darkmode to match localstorage
 function setDarkmode() {
@@ -81,6 +125,8 @@ function setColumns(item, _index) {
     // set the value of this columns textfield to the value in local memory
     $(`#${item}`).val(thisColumn.columnText);
 };
+
+//--------------------------------------------------modifying items------------------------------------------
 
 // add new canban-item to column when plus is clicked
 $(".add-item").click(function addNewCanbanItem() {
@@ -200,3 +246,100 @@ $(".my-canban-column").click(function (event) {
         executeButtonPress(clickedElement);
     }
 });
+
+//--------------------------------------------------modifying settings------------------------------------------
+
+//handle clicking of switches in localstorage
+$(document).ready(
+    checkSwitches(),
+    checkColumnText()
+);
+
+// set clicked columns to either on or off in localstorage
+function setColumnStatus(thisColumn, status) {
+    if (window.location.href.includes('settings')) {
+        // get columndata and change to json format
+        let column = localStorage.getItem(thisColumn);
+        column = JSON.parse(column);
+        // set columnstatus to this status
+        column.columnStatus = status;
+        // convert JSON back to sting
+        column = JSON.stringify(column);
+        // store the new data for this column
+        localStorage.setItem(thisColumn, column);
+    }
+};
+
+// set the text of a column to match localstorage value
+function setColumnText(thisColumn, text) {
+    if (window.location.href.includes('settings')) {
+        // get columndata and change to json format
+        let column = localStorage.getItem(thisColumn);
+        column = JSON.parse(column);
+        // set columnstatus to this status
+        column.columnText = text;
+        // convert JSON back to sting
+        column = JSON.stringify(column);
+        // store the new data for this column
+        localStorage.setItem(thisColumn, column);
+    }
+};
+
+// process when a switch is clicked
+function checkSwitches() {
+    if (window.location.href.includes('settings')) {
+        $('.column , input[type="checkbox"]').click(function () {
+            //get id of the switch that's clicked
+            let thisSwitch = $(this).parent().siblings()[1].id;
+            let text = $(this).parent().siblings()[1].value;
+            // is this button is checked
+            if ($(this).prop("checked") == true) {
+                if (thisSwitch == 'darkmode') {
+                    // if it's darkmode update css
+                    document.documentElement.setAttribute('darkmode', 'on');
+                    //save this setting
+                    localStorage.setItem(thisSwitch, '{"columnStatus":"on"}');
+                    //update html
+                    $(this).parent().siblings()[1].innerHTML = "on";
+                } else {
+                    // this is a column turn it on and save the text
+                    setColumnStatus(thisSwitch, "on");
+                    setColumnText(thisSwitch, text);
+                }
+            }
+            // is this button is unchecked
+            else if ($(this).prop("checked") == false) {
+                if (thisSwitch == 'darkmode') {
+                    // if it's darkmode update css
+                    document.documentElement.setAttribute('darkmode', 'off');
+                    //save this setting
+                    localStorage.setItem(thisSwitch, '{"columnStatus":"off"}');
+                    //update html
+                    $(this).parent().siblings()[1].innerHTML = "off";
+                } else {
+                    // this is a column turn it off and save the text
+                    setColumnStatus(thisSwitch, "off");
+                    setColumnText(thisSwitch, text);
+                }
+            }
+        })
+    }
+};
+
+function checkColumnText() {
+    if (window.location.href.includes('settings')) {
+        // save text when enter pressed
+        $('.text-box').keydown(function (event) {
+            if (event.which == 13) {
+                event.preventDefault();
+                setColumnText(this.id, this.value);
+                $(this).blur();
+            }
+        });
+        // save text when clicking outside of text area
+        $('.text-box').focusout(function (event) {
+            event.preventDefault();
+            setColumnText(this.id, this.value);
+        });
+    }
+};

@@ -531,21 +531,21 @@ button.btn.btn-outline-secondary.green-bg:hover{
 }
 
 @media (max-width: 760px){
-    /* in the last column don't display left right and up on desktop*/
+    /* in the last column don't display left right and up on mobile*/
     .last .canban-item .left ,.last .canban-item .right ,.last .canban-item .down{
         display: none;
     }
     .last .canban-item .up{
         display: block;
     }
-    /* in the first column don't display up left and down on desktop*/
+    /* in the first column don't display up left and down on mobile*/
     .first .canban-item .up ,.first .canban-item .left ,.first .canban-item .right{
        display: none;
     }
     .first .canban-item .down{
         display: block;
     }
-    /* in the middle column don't display up down and trash on desktop*/
+    /* in the middle column don't display up down and trash on mobile*/
     .middle .canban-item .left ,.middle .canban-item .trash ,.middle .canban-item .right{
         display: none;
     }
@@ -554,7 +554,7 @@ button.btn.btn-outline-secondary.green-bg:hover{
     }
     .my-canban-column{
     margin-top: 0rem;
-    min-height: 30vh;
+    min-height: fit-content;
     margin-bottom: 1rem;
     }
     .canban-item{
