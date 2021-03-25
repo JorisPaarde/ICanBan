@@ -471,7 +471,7 @@ button.btn.btn-outline-secondary.green-bg:hover{
 .settings h1{
     text-align: center;
     margin: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 10vh;
 }
 .settings.menu-item {
     margin: auto;

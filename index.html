@@ -111,7 +111,7 @@
                             </div>
                             <!-- Feature request form -->
                             <div class="col-12 justify-content-center">
-                                <form onsubmit="return sendMail(this);">
+                                <form id="email-form" onsubmit="return sendMail(this);">
                                     <input type="text" name="name" class="form-control" id="fullname"
                                         placeholder="Please enter your full name here." required/>
                                     <input type="email" name="emailaddress" class="form-control" id="emailaddress"
@@ -122,10 +122,16 @@
                                         Request</button>
                                 </form>
                             </div>
-                            <div id="emailModal" class="modal">
+                            <div id="confirmationModal" class="modal">
                                 <!-- Email confirmation Modal content -->
                                 <div class="modal-content">
                                     <p>Thank you for sending your feature request!<span class="close">&times;</span></p>
+                                </div>
+                            </div>
+                            <div id="incorrectNameModal" class="modal">
+                                <!-- Email confirmation Modal content -->
+                                <div class="modal-content">
+                                    <p>Please enter a valid full name.<span class="close">&times;</span></p>
                                 </div>
                             </div>
                         </div>

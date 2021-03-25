@@ -27,13 +27,9 @@ function populateMem() {
         var column1 = new column("To Do", "on");
         var column2 = new column("Doing", "on");
         var column3 = new column("Done", "on");
-        var column4 = new column("", "off");
-        var column5 = new column("", "off");
         localStorage.setItem('column1', JSON.stringify(column1));
         localStorage.setItem('column2', JSON.stringify(column2));
         localStorage.setItem('column3', JSON.stringify(column3));
-        localStorage.setItem('column4', JSON.stringify(column4));
-        localStorage.setItem('column5', JSON.stringify(column5));
         // Create four item objects with default settings
         var item1 = new item("my-canban-column1","name your item (max 35 chars)");
         var item2 = new item("my-canban-column1","name your item (max 35 chars)");
@@ -72,7 +68,7 @@ function setDarkmode() {
 function checkColumns() {
     // create array of the 5 columns to load
     let columns = [];
-    for (let i = 1; i < 6; i++) {
+    for (let i = 1; i < 4; i++) {
         columns[i] = "column" + i;
     };
     //if the loaded page is the settings page
