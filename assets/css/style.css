@@ -326,9 +326,11 @@ button.btn.btn-outline-secondary.green-bg:hover{
   -webkit-animation-duration: 0.4s;
   animation-name: animatetop;
   animation-duration: 0.4s;
+  text-align: center;
 }
 
 .modal-content p{
+    
     margin-bottom: 0px;
 }
 

@@ -1,23 +1,31 @@
 function validateForm(contactForm) {
     var validatedForm = true;
+    var modal = document.getElementById("confirmationModal");
+    // is the fullname longer than 4 chars?
     if (contactForm.name.value.length < 5) {
         validatedForm = false;
-        console.log('name to short');
+        console.log('to short');
         modal = document.getElementById("badNameModal");
-        modal.style.display = "block";
-    }else{
-        modal = document.getElementById("confirmationModal");
+    // does the name include letters?
+    }if(!/[a-zA-Z]/.test(contactForm.name.value)){
+        validatedForm = false;
+        console.log('no letters');
+        modal = document.getElementById("badNameModal");
     }
-    return validatedForm;
+    // does the name include at least one space?
+    return [validatedForm, modal];
 }
 
 // send email via emailjs
 function sendMail(contactForm) {
-    var validatedForm = true;
-    validatedForm = validateForm(contactForm);
-    console.log(validatedForm);
+    // get validation and correct validation modal
+    var validatedForm = validateForm(contactForm)[0];
+    var modal = validateForm(contactForm)[1];
+    // if validation checks out
     if (validatedForm == true) {
-        modal.style.display = "block"; // show confirmation modal
+        // show confirmation modal
+        displayModal(modal);
+        // send this email
         emailjs.send("service_uyji557", "contact-form", {
             "from_name": contactForm.name.value,
             "from_email": contactForm.emailaddress.value,
@@ -31,32 +39,33 @@ function sendMail(contactForm) {
                     console.log("FAILED", error);
                 }
             );
-        return false;  // To block from loading a new page
-    }else{
-        return false; // To block from loading a new page
+        // To block from loading a new page
+        return false;
+    }
+    // if validation fails
+    else {
+        // show validation error modal
+        displayModal(modal);
+        // To block from loading a new page
+        return false; 
     }
 }
 
 
 // Confirmation modal
-
-// Get the modal
-var modal = document.getElementById("confirmationModal");
-
-// Get the button that opens the modal
-var btn = document.getElementById("email-button");
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function () {
-    modal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function (event) {
-    if (event.target == modal) {
+function displayModal(modal) {
+    // Get this modal
+    var modal = document.getElementById(modal.id);
+    // Show this modal
+    modal.style.display = "block";
+    // When the user clicks on the modal close it
+    modal.onclick = function () {
         modal.style.display = "none";
     }
-}
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+};

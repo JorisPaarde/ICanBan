@@ -18,7 +18,7 @@
     </script>
     <link rel="stylesheet" href="assets/css/style.css" type="text/css">
     <title>MyCanBan</title>
-    <link rel="shortcut icon" type="image/png" href="assets/images/icanban-favicon.png"/>
+    <link rel="shortcut icon" type="image/png" href="assets/images/icanban-favicon.png" />
 </head>
 
 <body>
@@ -52,97 +52,98 @@
         <!-- navbar from bootstrap website: https://getbootstrap.com/docs/4.0/components/navbar/-->
     </header>
     <div class="container info-screen">
-            <div class="row row-eq-height">
-                <!-- Red decoration div -->
-                <div class="col-2 d-none d-md-block">
-                    <div class="row mr-2 h-100">
-                        <div class="col-12 outer-card red-bg red-shadow home"></div>
+        <div class="row row-eq-height">
+            <!-- Red decoration div -->
+            <div class="col-2 d-none d-md-block">
+                <div class="row mr-2 h-100">
+                    <div class="col-12 outer-card red-bg red-shadow home"></div>
+                </div>
+            </div>
+            <!-- yellow div Main content -->
+            <div class="col-md-8 col-sm-12 outer-card yellow-bg yellow-shadow home">
+                <h1>Can I Kanban? Yes u can!</h1>
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        <h2>ICanBan is your simple to use Kanban system</h2>
+                        <p>With ICanBan we set out to make a visually pleasing and simple way for you to
+                            organise your tasks.
+                            Add and move your tickets with ease. No distractons and a clean and beautifull UI.
+                            If u need more columns or prefer a "dark mode" please go to the settings menu. Give
+                            our Kanban system a go!<br><br>
+                            <a href="https://nl.wikipedia.org/wiki/Kanban#:~:text=Kanban%20(van%20het%20Japanse%20kan,in%20het%20leven%20te%20organiseren."
+                                class="href" target="blank">More information on Kanban.</a></p>
+                    </div>
+                    <div class="col-md-6 col-sm-12"><img class="kanban-image" src="assets/images/kanban-board.jpg"
+                            alt="kanban board">
                     </div>
                 </div>
-                <!-- yellow div Main content -->
-                <div class="col-md-8 col-sm-12 outer-card yellow-bg yellow-shadow home">
-                        <h1>Can I Kanban? Yes u can!</h1>
-                        <div class="row">
-                            <div class="col-md-6 col-sm-12">
-                                <h2>ICanBan is your simple to use Kanban system</h2>
-                                <p>With ICanBan we set out to make a visually pleasing and simple way for you to
-                                    organise your tasks.
-                                    Add and move your tickets with ease. No distractons and a clean and beautifull UI.
-                                    If u need more columns or prefer a "dark mode" please go to the settings menu. Give
-                                    our Kanban system a go!<br><br>
-                                    <a href="https://nl.wikipedia.org/wiki/Kanban#:~:text=Kanban%20(van%20het%20Japanse%20kan,in%20het%20leven%20te%20organiseren."
-                                        class="href" target="blank">More information on Kanban.</a></p>
-                            </div>
-                            <div class="col-md-6 col-sm-12"><img class="kanban-image"
-                                    src="assets/images/kanban-board.jpg" alt="kanban board">
-                            </div>
+                <div class="row">
+                    <!-- Controls section -->
+                    <div class="col-12">
+                        <h2>General controls:</h2>
+                        <div class="col-md-8 col-sm-12 d-flex menu-item">
+                            <p class="mr-auto">Add an item to this column</p><i class="fas fa-plus menu-icon"></i>
                         </div>
-                        <div class="row">
-                            <!-- Controls section -->
-                            <div class="col-12">
-                                <h2>General controls:</h2>
-                                <div class="col-md-8 col-sm-12 d-flex menu-item">
-                                    <p class="mr-auto">Add an item to this column</p><i
-                                        class="fas fa-plus menu-icon"></i>
-                                </div>
-                                <div class="col-md-8 col-sm-12 d-flex menu-item">
-                                    <p class="mr-auto">Delete this item</p><i class="far fa-trash-alt"></i>
-                                </div>
-                                <div class="col-md-8 col-sm-12 d-flex menu-item">
-                                    <p class="mr-auto">Move item in this direction</p><i
-                                        class="fas fa-arrow-right"></i><i class="fas fa-arrow-left"></i><i
-                                        class="fas fa-level-up-alt"></i><i class="fas fa-level-up-alt"></i>
-                                </div>
-                                <div class="col-md-8 col-sm-12 d-flex menu-item">
-                                    <p class="mr-auto">Number of not shown items</p>
-                                    <i class="far fa-arrow-alt-circle-down">5</i>
-                                </div>
-                                <div class="col-md-8 col-sm-12 d-flex menu-item">
-                                    <p class="mr-auto">Expand or compress this column</p><i
-                                        class="fas fa-expand-alt"></i><i class="fas fa-compress-alt"></i>
-                                </div>
-                            </div>
+                        <div class="col-md-8 col-sm-12 d-flex menu-item">
+                            <p class="mr-auto">Delete this item</p><i class="far fa-trash-alt"></i>
                         </div>
-                        <!-- Email section -->
-                        <div class="row email-form">
-                            <div class="col-12 feature-title">
-                                <h2>Do you have any feature suggestions for ICanBan?<br>Please let us know via the form
-                                    below.</h2>
-                            </div>
-                            <!-- Feature request form -->
-                            <div class="col-12 justify-content-center">
-                                <form id="email-form" onsubmit="return sendMail(this);">
-                                    <input type="text" name="name" class="form-control" id="fullname"
-                                        placeholder="Please enter your full name here." required/>
-                                    <input type="email" name="emailaddress" class="form-control" id="emailaddress"
-                                        aria-describedby="emailHelp" placeholder="name@example.com" required/>
-                                    <textarea rows="5" name="featurerequest" class="form-control" id="featurerequest"
-                                        placeholder="feature request" required></textarea>
-                                    <button id="email-button" type="submit" class="btn btn-outline-secondary green-shadow green-bg">Send Feature
-                                        Request</button>
-                                </form>
-                            </div>
-                            <div id="confirmationModal" class="modal">
-                                <!-- Email confirmation Modal content -->
-                                <div class="modal-content">
-                                    <p>Thank you for sending your feature request!<span class="close">&times;</span></p>
-                                </div>
-                            </div>
-                            <div id="badNameModal" class="modal">
-                                <!-- Email confirmation Modal content -->
-                                <div class="modal-content">
-                                    <p>Please enter a valid full name <br>(Must contain least 4 letters and a space)<span class="close">&times;</span></p>
-                                </div>
-                            </div>
+                        <div class="col-md-8 col-sm-12 d-flex menu-item">
+                            <p class="mr-auto">Move item in this direction</p><i class="fas fa-arrow-right"></i><i
+                                class="fas fa-arrow-left"></i><i class="fas fa-level-up-alt"></i><i
+                                class="fas fa-level-up-alt"></i>
+                        </div>
+                        <div class="col-md-8 col-sm-12 d-flex menu-item">
+                            <p class="mr-auto">Number of not shown items</p>
+                            <i class="far fa-arrow-alt-circle-down">5</i>
+                        </div>
+                        <div class="col-md-8 col-sm-12 d-flex menu-item">
+                            <p class="mr-auto">Expand or compress this column</p><i class="fas fa-expand-alt"></i><i
+                                class="fas fa-compress-alt"></i>
                         </div>
                     </div>
-                <!-- Green decoration div -->
-                <div class="col-2 d-none d-md-block">
-                    <div class="row ml-2 h-100">
-                        <div class="col-12 outer-card green-bg green-shadow home"></div>
+                </div>
+                <!-- Email section -->
+                <div class="row email-form">
+                    <div class="col-12 feature-title">
+                        <h2>Do you have any feature suggestions for ICanBan?<br>Please let us know via the form
+                            below.</h2>
+                    </div>
+                    <!-- Feature request form -->
+                    <div class="col-12 justify-content-center">
+                        <form id="email-form" onsubmit="return sendMail(this);">
+                            <input type="text" name="name" class="form-control" id="fullname"
+                                placeholder="Please enter your full name here." required />
+                            <input type="email" name="emailaddress" class="form-control" id="emailaddress"
+                                aria-describedby="emailHelp" placeholder="name@example.com" required />
+                            <textarea rows="5" name="featurerequest" class="form-control" id="featurerequest"
+                                placeholder="feature request" required></textarea>
+                            <button id="email-button" type="submit"
+                                class="btn btn-outline-secondary green-shadow green-bg">Send Feature
+                                Request</button>
+                        </form>
+                    </div>
+                    <div id="confirmationModal" class="modal">
+                        <!-- Email confirmation Modal content -->
+                        <div class="modal-content">
+                            <p>Thank you for sending your feature request!<br>click this message to close it.</p>
+                        </div>
+                    </div>
+                    <div id="badNameModal" class="modal">
+                        <!-- Email confirmation Modal content -->
+                        <div class="modal-content">
+                            <p>Please enter a valid full name<br>(Contains least 4 letters and a space)<br>click
+                                this message to close it.</p>
+                        </div>
                     </div>
                 </div>
             </div>
+            <!-- Green decoration div -->
+            <div class="col-2 d-none d-md-block">
+                <div class="row ml-2 h-100">
+                    <div class="col-12 outer-card green-bg green-shadow home"></div>
+                </div>
+            </div>
+        </div>
     </div>
     <footer>
     </footer>
@@ -158,4 +159,5 @@
     crossorigin="anonymous"></script>
 <script src="assets/js/email.js"></script>
 <script src="assets/js/icanban.js"></script>
+
 </html>
