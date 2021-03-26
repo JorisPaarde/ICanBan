@@ -2,7 +2,7 @@ function validateForm(contactForm) {
     var validatedForm = true;
     var modal = document.getElementById("confirmationModal");
 
-        // is the fullname longer than 4 chars?
+    // is the fullname longer than 4 chars?
     if (contactForm.name.value.length < 5) {
         validatedForm = false;
         console.log('name to short');
@@ -25,6 +25,14 @@ function validateForm(contactForm) {
         validatedForm = false;
         console.log('feature has no letters');
         modal = document.getElementById("badFeatureModal");
+
+        // does the feature request input include 4 letters?
+    } if (contactForm.featurerequest.value.match(/\w/g) != null) {
+        if (contactForm.featurerequest.value.match(/\w/g).length < 5) {
+            validatedForm = false;
+            console.log('feature has less than 4 letters');
+            modal = document.getElementById("badFeatureModal");
+        }
 
         // is the feature request input longer than 4 chars?
     } if (contactForm.featurerequest.value.length < 4) {
