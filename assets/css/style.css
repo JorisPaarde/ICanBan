@@ -573,7 +573,9 @@ button.btn.btn-outline-secondary.green-bg:hover{
     h1{
     font-size: 1.5rem;
     }
-
+    .container.info-screen {
+    width: 95%;
+    }
     .my-canban-column p{
     margin-top: 0rem;
     }
