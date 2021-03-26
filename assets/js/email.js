@@ -20,15 +20,16 @@ function validateForm(contactForm) {
         console.log('name has no space');
         modal = document.getElementById("badNameModal");
 
-        // does the feature request input include letters?
+        // does the feature request input include any letters?
     } if (!/[a-zA-Z]/.test(contactForm.featurerequest.value)) {
         validatedForm = false;
         console.log('feature has no letters');
         modal = document.getElementById("badFeatureModal");
 
-        // does the feature request input include 4 letters?
+        // does the feature request input include letters or numbers?
     } if (contactForm.featurerequest.value.match(/\w/g) != null) {
-        if (contactForm.featurerequest.value.match(/\w/g).length < 5) {
+        // does the feature request input include at least 4 letters or numbers?
+        if (contactForm.featurerequest.value.match(/\w/g).length < 4) {
             validatedForm = false;
             console.log('feature has less than 4 letters');
             modal = document.getElementById("badFeatureModal");
@@ -80,6 +81,7 @@ function sendMail(contactForm) {
                 }
             );
         // To block from loading a new page
+        contactForm.reset();
         return false;
     }
     // if validation fails
