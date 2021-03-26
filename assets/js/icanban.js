@@ -50,23 +50,35 @@ function setDarkmode() {
     let mode = localStorage.getItem('darkmode');
     mode = JSON.parse(mode);
     if (mode.columnStatus == "on") {
-        $("#darkmode-checkbox").prop("checked", true);
+        // set the darkmode css element attribute to on
         document.documentElement.setAttribute('darkmode', 'on');
         if (window.location.href.includes("setting")) {
+            // adjust the menu text and button
             $("#darkmode")[0].innerHTML = "on";
+            $("#darkmode-checkbox").prop("checked", true);
+        }
+        if(window.location.href.includes("index")){
+            // adjust the image in the index page
+            $(".kanban-image").attr("src","assets/images/Kanban-board-dark.jpg");
         }
     } else if (mode.columnStatus == "off") {
-        $("#darkmode-checkbox").prop("checked", false);
+        // set the darkmode css element attribute to off
         document.documentElement.setAttribute('darkmode', 'off');
         if (window.location.href.includes("setting")) {
+            // adjust the menu text and button
+            $("#darkmode-checkbox").prop("checked", false);
             $("#darkmode")[0].innerHTML = "off";
+        }
+        if(window.location.href.includes("index")){
+            // adjust the image in the index page
+             $(".kanban-image").attr("src","assets/images/Kanban-board-light.jpg");
         }
     }
 };
 
 // set all Columns to match localstorage
 function checkColumns() {
-    // create array of the 5 columns to load
+    // create array of the columns to load
     let columns = [];
     for (let i = 1; i < 4; i++) {
         columns[i] = "column" + i;
@@ -76,6 +88,7 @@ function checkColumns() {
     columns.forEach(setColumns);
 };
 
+// set all items to match localstorage
 function setCanbanItems() {
     if (window.location.href.includes('mycanban')) {
         //scan localstorage for canban items
