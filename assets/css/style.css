@@ -297,8 +297,26 @@ input:checked + .slider:before {
 
 #email-form #fullname, #email-form #emailaddress, #email-form #featurerequest{
     background-color: var(--yellow-bg);
+    color: var(--font-color);
 }
 
+/* Change autocomplete styles in WebKit https://codepen.io/team/css-tricks/pen/oxyJxR */
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border: 1px solid #e5e5e5;
+  -webkit-text-fill-color: var(--font-color);
+  color: var(--font-color);
+  -webkit-box-shadow: 0 0 0px 1000px var(--yellow-bg) inset;
+  box-shadow: 0 0 0px 1000px var(--yellow-bg) inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
 
 #email-form ::-webkit-input-placeholder {
   color: var(--font-color);
