@@ -1,4 +1,4 @@
-/*---------------------------------------------fonts--------------------------------------*/
+/*---------------------------------------------css variables--------------------------------------*/
 :root{
     background-color:white;
     --font-color: #7a7a7a;
@@ -33,6 +33,20 @@
     --modal-bg: rgba(0, 0, 0, 0.9);
     --modal-shadow: rgba(255, 255, 255, 0.2);
     --slider-color: #463403;
+}
+
+/*---------------------------------------------fonts--------------------------------------*/
+
+::-webkit-input-placeholder {
+  color: var(--font-color);
+}
+
+:-ms-input-placeholder {
+  color: var(--font-color);
+}
+
+::placeholder {
+  color: var(--font-color);
 }
 
 body{
@@ -280,6 +294,24 @@ input:checked + .slider:before {
     text-align: center;
     margin: 1rem 0rem;
 }
+
+#email-form #fullname, #email-form #emailaddress, #email-form #featurerequest{
+    background-color: var(--yellow-bg);
+}
+
+
+#email-form ::-webkit-input-placeholder {
+  color: var(--font-color);
+}
+
+#email-form :-ms-input-placeholder {
+  color: var(--font-color);
+}
+
+#email-form ::placeholder {
+  color: var(--font-color);
+}
+
 
 .email-form input, .email-form textarea{
     margin-bottom: 1rem;
