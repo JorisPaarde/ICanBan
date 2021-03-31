@@ -1,12 +1,28 @@
-<h1 align="center">I CanBan</h1>
+# I CanBan
 
-<p>description</p>
+## ICanBan is an easy to use canban system.
 
-[View the live project here.](https://jorispaarde.github.io/ICanBan/)
+The goal of this website is to deliver an easy and appealing way to manage to do's.
+Add items to your to do list, move them to the doing list and eventually to the done list.
+It features include among other things, renamable and resizable columns and a dark mode setting.
+All data is stored in localstorage so will only be stored in your local browser.
+This project was made as a second milestone project for the Code Institute full Stack Web developer course.
 
 
-<h2 align="center"><img src="/readme-images/mockup-image.png"></h2>
+[View the live project here](https://jorispaarde.github.io/ICanBan/index.html)
 
+![Icanban mockup image](/readme-images/site-mockup.jpg)
+
+## Table of Contents
+- [UX](#user-experience-(ux))
+  - [User stories](#user-stories)
+  - [Design](#design)
+  - [Mockup](#mockup)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Testing](#testing)
+- [Deployment](#deployment)
+- [Credits](#credits)
 
 ## User Experience (UX)
 
@@ -50,19 +66,41 @@
 
 #### Colour Scheme
 
--   
+For the colors on this website a soft red yellow and green were chosen.
+
+- Red : The color red is used to draw attention and inspire action. Therefore suited for our "To do" list.
+        The user is drawn to the items on the list and inspired to take action on them.
+
+- Yellow : Yellow is a color that stimulates and energizes. Therefore suited for our "Doing" list.
+        The user is stimulated and energized to complete these tasks.
+
+- Green : Green revitalizes and encourages ideal for the "Done" section of our page.
+        After completing a task revitalized nad encouraged by the color green it's back to work o the next task!
+
+source: [color meaning and psycology](https://graf1x.com/color-psychology-emotion-meaning-poster/)
 
 #### Typography
 
- -  font
+Font: [Raleway](https://fonts.google.com/specimen/Raleway?preview.text_type=custom#standard-styles)
+
+About:
+
+Raleway is an elegant sans-serif typeface family. Initially designed by Matt McInerney as a single thin weight,
+it was expanded into a 9 weight family by Pablo Impallari and Rodrigo Fuenzalida in 2012 and iKerned by Igino Marini.
+A thorough review and italic was added in 2016.
+It is a display face and the download features both old style and lining numerals, standard and discretionary ligatures,
+a pretty complete set of diacritics, as well as a stylistic alternate inspired by more geometric sans-serif typefaces than its neo-grotesque inspired default character set.
+
 
 #### Imagery
 
--   Imagery is focused on showing 
+-   The image on the main page is a screenshot of the mycanban page, giving the user a quick view of what the canban system looks like.
 
 ### Mockup
 
 -  The mockup of this site was made in Figma. U can view it [here](https://www.figma.com/file/y5LdwdHOZVvlOjnidnMRb4/ICanBan?node-id=0%3A1) 
+
+![Icanban mockup image](readme-images/mockup-design.jpg)
 
 ---
 
@@ -81,7 +119,7 @@
 
 #### settings page
 
--   multiple recipies for visitors to try out
+-   
 
 #### MyCanban page
 
@@ -131,6 +169,7 @@
 
 All testing can be found [here](https://github.com/JorisPaarde/Nomnivore-website/blob/master/TESTING.md).
 Jasmin?
+
 ---
 
 ## Deployment
