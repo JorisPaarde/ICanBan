@@ -111,24 +111,31 @@ a pretty complete set of diacritics, as well as a stylistic alternate inspired b
 ####   All pages
 
 -   Responsive on all device sizes
--   Collapsing hamburger menu 
--   
+-   Collapsing hamburger menu
+-   Dark mode
+
 ####   main page
 
--   Email form
+-   Email form with extensive validation
 
 #### settings page
 
--   
+-   Animated sliders
+-   Text field input
 
 #### MyCanban page
 
--   
+-   Add item to the column
+-   Text field input
+-   Remove item with confirmation
+-   Move items to adjacent column
 
 ### Possible future Features
 
--   Database
--   Accounts
+-   Database : Store all data in a database so the user can access his/her canban from any device and browser.
+-   Accounts : Login to a specific canban list with an account to make collaboration possible (this needs the database also).
+-   Adding more columns like testing or other.
+-   More content in items like owner, file attachments, by expanding when a user clickes an item. 
 
 ---
 
@@ -159,7 +166,7 @@ a pretty complete set of diacritics, as well as a stylistic alternate inspired b
 1. [Figma:](https://figma.com/)
     - Figma was used to create the website design and prototype.
 1. [TinyPNG](https://tinypng.com/)
-    - TinyPNG was used to compress all images to ensure faster load times.
+    - TinyPNG was used to compress images to ensure faster load times.
 1. [Browserstack](https://live.browserstack.com/)
     - To test the site on a variety of devices and browsers.
 
@@ -167,8 +174,7 @@ a pretty complete set of diacritics, as well as a stylistic alternate inspired b
 
 ## Testing
 
-All testing can be found [here](https://github.com/JorisPaarde/Nomnivore-website/blob/master/TESTING.md).
-Jasmin?
+All testing can be found [here](TESTING.md).
 
 ---
 
@@ -223,24 +229,22 @@ Unpacking objects: 100% (25/25), done.
 
 All the below mentioned code is also marked with comments in the code itself.
 
--   The social icons code came from 
+-   navbar code was taken and edited from: https://getbootstrap.com/docs/4.0/components/navbar/
+-   modal code was taken and edited from: https://www.w3schools.com/howto/howto_css_modals.asp
+-   email code was taken and edited from: https://github.com/Code-Institute-Solutions/InteractiveFrontendDevelopment-Resume/blob/master/03-SendingEmailsUsingEmailJS/06-sending_emails/assets/js/sendEmail.js
 
 ### Content
 
--   
--   All other content was written by the developer.
--   All texts where reviewed by Melinda Schuurmans.
+-   All content was written by the developer.
 
 ### Media
 
--   Foto's
--   Images
--  
+-   All media was created by the developer.
 
 ### Acknowledgements
 
--   My Mentor for his helpful feedback and upfront warnings for common mistakes. This saved me a lot of time.
--   My fellow students and several other mentors on Slack for their debugging tips.
+-   My Mentor for pointing me to ux issues i had to adress like asking for confirmation when deleting an item.
+-   My fellow students and several other mentors on Slack for their tips and moral support.
 -   The basic Readme layout by Code Institute.
 
 Bugs:

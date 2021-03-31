@@ -56,7 +56,7 @@ function validateForm(contactForm) {
     return [validatedForm, modal];
 }
 
-// send email via emailjs
+// send email via emailjs edited from https://github.com/Code-Institute-Solutions/InteractiveFrontendDevelopment-Resume/blob/master/03-SendingEmailsUsingEmailJS/06-sending_emails/assets/js/sendEmail.js
 function sendMail(contactForm) {
     // get validation and correct validation modal
     var validatedForm = validateForm(contactForm);
@@ -94,7 +94,7 @@ function sendMail(contactForm) {
 }
 
 
-// Confirmation modal
+// Confirmation modal edited from https://www.w3schools.com/howto/howto_css_modals.asp
 function displayModal(modal) {
     // Get this modal
     var modal = document.getElementById(modal.id);
