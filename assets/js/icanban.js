@@ -1,5 +1,5 @@
 // adjust page to settings and adjust decor columns height
-$(document).ready( 
+$(document).ready(
     populateMem(),
     setDarkmode(),
     checkColumns(),
@@ -21,8 +21,8 @@ function item(column, text) {
 //populate local storage if empty
 function populateMem() {
     if (localStorage.length < 1) {
-        localStorage.setItem('itemCount','4');
-        localStorage.setItem('darkmode','{"columnStatus":"off"}');
+        localStorage.setItem('itemCount', '4');
+        localStorage.setItem('darkmode', '{"columnStatus":"off"}');
         // Create five column objects with default settings
         var column1 = new column("To Do", "on");
         var column2 = new column("Doing", "on");
@@ -31,10 +31,10 @@ function populateMem() {
         localStorage.setItem('column2', JSON.stringify(column2));
         localStorage.setItem('column3', JSON.stringify(column3));
         // Create four item objects with default settings
-        var item1 = new item("my-canban-column1","name your item (max 35 chars)");
-        var item2 = new item("my-canban-column1","name your item (max 35 chars)");
-        var item3 = new item("my-canban-column2","name your item (max 35 chars)");
-        var item4 = new item("my-canban-column3","name your item (max 35 chars)");
+        var item1 = new item("my-canban-column1", "");
+        var item2 = new item("my-canban-column1", "");
+        var item3 = new item("my-canban-column2", "");
+        var item4 = new item("my-canban-column3", "");
         localStorage.setItem('item-nr-1', JSON.stringify(item1));
         localStorage.setItem('item-nr-2', JSON.stringify(item2));
         localStorage.setItem('item-nr-3', JSON.stringify(item3));
@@ -57,9 +57,9 @@ function setDarkmode() {
             $("#darkmode")[0].innerHTML = "on";
             $("#darkmode-checkbox").prop("checked", true);
         }
-        if(window.location.href.includes("index")){
+        if (window.location.href.includes("index")) {
             // adjust the image in the index page
-            $(".kanban-image").attr("src","assets/images/Kanban-board-dark.jpg");
+            $(".kanban-image").attr("src", "assets/images/Kanban-board-dark.jpg");
         }
     } else if (mode.columnStatus == "off") {
         // set the darkmode css element attribute to off
@@ -69,9 +69,9 @@ function setDarkmode() {
             $("#darkmode-checkbox").prop("checked", false);
             $("#darkmode")[0].innerHTML = "off";
         }
-        if(window.location.href.includes("index")){
+        if (window.location.href.includes("index")) {
             // adjust the image in the index page
-             $(".kanban-image").attr("src","assets/images/Kanban-board-light.jpg");
+            $(".kanban-image").attr("src", "assets/images/Kanban-board-light.jpg");
         }
     }
 };
@@ -148,7 +148,7 @@ $(".add-item").click(function addNewCanbanItem() {
     //set default values for new item
     let currentColumn = $(event.target).closest("div[id]").attr('id');
     let canbanItem = {
-        itemText: 'name your item (max 35 chars)',
+        itemText: '',
         itemLocation: currentColumn
     };
 
@@ -165,7 +165,7 @@ $(".add-item").click(function addNewCanbanItem() {
             <i class="fas right fa-long-arrow-alt-right"></i>
             <i class="fas up fa-level-up-alt"></i>
         </div>
-            <textarea id="canban-item-input" placeholder="${canbanItem.itemText}"
+            <textarea class="item-textarea" id="canban-item-input" placeholder="name your item (max 35 chars)"
             name="canban-item-input" maxlength="35" autofocus></textarea>
         </div>`;
     //hide it add it to the clicked column and animate it in
@@ -189,7 +189,7 @@ function addCanbanItem(thisItemKey, thisItem) {
             <i class="fas right fa-long-arrow-alt-right"></i>
             <i class="fas up fa-level-up-alt"></i>
         </div>
-            <textarea id="canban-item-input" placeholder="${thisItem.itemText}"
+            <textarea class="item-textarea" id="canban-item-input" placeholder="${thisItem.itemText}"
             name="canban-item-input" maxlength="35"></textarea>
         </div>`;
     //hide it add it to the clicked column and animate it in
@@ -199,17 +199,29 @@ function addCanbanItem(thisItemKey, thisItem) {
 
 // execution of different canban item controls
 function executeButtonPress(clickedElement) {
-    // if it has class trash the trashcan is clicked so remove the item containing this trashcan
+    // find the clicked item id
+    var thisItemKey = $(event.target).closest("div[id]").attr('id');
+    // find the clicked item in localstorage
+    var thisItem = localStorage.getItem(thisItemKey);
+    thisItem = JSON.parse(thisItem);
+
+    // if the textarea is clicked the value should represent the localstorage itemText for this item
+    if (clickedElement.includes('item-textarea')){
+        console.log(`setting`);
+        console.log(event.target);
+        console.log(`to: ${thisItem.itemText}`)
+        //enter the text in memory as value to this textarea
+        event.target.value = thisItem.itemText;
+        console.log(event.target.value);
+    }
+
+    // if the trashcan is clicked remove the item containing this trashcan
     if (clickedElement.includes('trash')) {
         removeCanban(event);
-        let thisItemKey = $(event.target).closest("div[id]").attr('id');
         localStorage.removeItem(thisItemKey);
-        // if up arrow or left arrow is clicked
+
+    // if up arrow or left arrow is clicked move the item in that direction
     } if ((clickedElement.includes('left')) || (clickedElement.includes('up'))) {
-        // find this item in localstorage
-        let thisItemKey = $(event.target).closest("div[id]").attr('id');
-        thisItem = localStorage.getItem(thisItemKey);
-        thisItem = JSON.parse(thisItem);
         //update itemlocation
         let currentColumn = thisItem.itemLocation;
         let columnNumber = /\d+/;
@@ -224,12 +236,8 @@ function executeButtonPress(clickedElement) {
         addCanbanItem(thisItemKey, thisItem);
         removeCanban(event);
 
-        // if down arrow or right arrow is clicked
+    // if down arrow or right arrow is clicked move the item in that direction
     } if (clickedElement.includes('right') || clickedElement.includes('down')) {
-        // find this item in localstorage
-        let thisItemKey = $(event.target).closest("div[id]").attr('id');
-        let thisItem = localStorage.getItem(thisItemKey);
-        thisItem = JSON.parse(thisItem);
         //update itemlocation
         let currentColumn = thisItem.itemLocation;
         let columnNumber = /\d+/;
@@ -254,6 +262,24 @@ $(".my-canban-column").click(function (event) {
     if (clickedElement != undefined) {
         executeButtonPress(clickedElement);
     }
+});
+
+// saving text when edited
+
+$(".my-canban-column").focusout(function (event) {
+    // the input value of the textarea
+    let thisItemText = event.target.value;
+    // the id of the item the textarea is in
+    let thisItemId = $(event.target).closest('div[id]')[0].id;
+    // the id of the column this item is in
+    let currentColumn = $(event.target).parents('div[id]')[1].id;
+
+    let canbanItem = {
+        itemText: thisItemText,
+        itemLocation: currentColumn
+    };
+    // save the settings for this item
+    localStorage.setItem(thisItemId, JSON.stringify(canbanItem));
 });
 
 //--------------------------------------------------modifying settings------------------------------------------
