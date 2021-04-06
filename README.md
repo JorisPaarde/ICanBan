@@ -260,3 +260,4 @@ when loading site with empty memory darkmode was not initialized correctly. corr
 settings for darkmode did not display correctly. added inner html change.
 On ipad in portrait mode the canban item controls did not display correctly. adjusted media query.
 error message when clicking on text area of a canban item. added != statement.
+item not deleted when clicking delete modal. added parameter to function.
