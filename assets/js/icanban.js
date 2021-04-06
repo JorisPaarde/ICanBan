@@ -3,7 +3,8 @@ $(document).ready(
     populateMem(),
     setDarkmode(),
     checkColumns(),
-    setCanbanItems()
+    setCanbanItems(),
+    setResizeIcons()
 );
 //--------------------------------------------------initializing memory------------------------------------------
 // Constructor function for columns
@@ -134,36 +135,79 @@ function setColumns(item, _index) {
     // set the value of this columns textfield to the value in local memory
     $(`#${item}`).val(thisColumn.columnText);
 };
+
 //--------------------------------------------------modifying Columns------------------------------------------
 
-$('.resize').click(function resizeColumns(){
+window.addEventListener("resize", setResizeIcons);
+
+// display the correct resize icon
+function setResizeIcons() {
+    console.log('resizing');
+    let screenWidth = $(document).width();
+    // if on the canban page
+    if (window.location.href.indexOf('mycanban')) {
+        let columns = $('.my-canban-column');
+        //go over all columns
+        columns.each(element => {
+            let hiddenCanbanItem = $(columns[element]).find('[id]').hasClass('hidden');
+            // if there is a hidden element in this column and screensize is mobile
+            if ((hiddenCanbanItem) && (screenWidth < 767)){
+                $(columns[element]).find('.resize').addClass('fa-expand-alt');
+                $(columns[element]).find('.resize').removeClass('fa-compress-alt');
+            // if there is no hidden element in this column and screensize is mobile
+            }else if((!hiddenCanbanItem) && (screenWidth < 767)){
+                $(columns[element]).find('.resize').removeClass('fa-expand-alt');
+                $(columns[element]).find('.resize').addClass('fa-compress-alt');
+            // if screensize is desktop and it's a wide column
+            }else if((screenWidth >= 767)&&($(columns[element]).hasClass('col-md-5'))){
+                $(columns[element]).find('.resize').removeClass('fa-expand-alt');
+                $(columns[element]).find('.resize').addClass('fa-compress-alt');
+            // if screensize is desktop and it's a narrow column
+            }else if((screenWidth >= 767)&&($(columns[element]).hasClass('col-md-3'))){
+                $(columns[element]).find('.resize').addClass('fa-expand-alt');
+                $(columns[element]).find('.resize').removeClass('fa-compress-alt');}
+        });
+    };
+};
+
+$('.resize').click(function resizeColumns() {
     let currentState = $(event.target).attr('class');
-    let screenSize = $(document).width();
+    let screenWidth = $(document).width();
     let thisColumn = $(event.target).closest('[id]');
     // the icon clicked is the expand icon
-    if (currentState.includes('expand')){
-        //switch icon
-        $(event.target).removeClass("fa-expand-alt");
-        $(event.target).addClass("fa-compress-alt");
-        console.log(`expanding...${thisColumn}`);
+    if (currentState.includes('expand')) {
         // resize current col-5 to col-3 and adjust icon
-        thisColumn.siblings('.col-md-5').find('.resize').addClass('fa-expand-alt');
-        thisColumn.siblings('.col-md-5').find('.resize').addClass('fa-compress-alt');
         thisColumn.siblings('.col-md-5').addClass('col-md-3');
         thisColumn.siblings('.col-md-5').removeClass('col-md-5');
         // give this column a col-5 width
         thisColumn.removeClass('col-md-3');
         thisColumn.addClass('col-md-5');
+        // show all canban items in this column
+        let canbanItems = $(event.target).siblings().find('.canban-item');
+        let canbanItemsCount = canbanItems.length;
+        for (let i = 0; i < canbanItemsCount; i++) {
+            $(canbanItems[i]).removeClass('hidden');
+        }
+        //switch icons
+        setResizeIcons();
     }
+
     // the icon clicked is the compress icon
-    else if (currentState.includes('compress')){
-        //switch icon
-        $(event.target).removeClass("fa-compress-alt");
-        $(event.target).addClass("fa-expand-alt");
-        console.log(`contracting...${thisColumn}`);
-        // resize columns
+    else if (currentState.includes('compress')) {
+        // resize column
         thisColumn.removeClass('col-md-5');
         thisColumn.addClass('col-md-3');
+        // if on mobile hide all canban items in this column
+        if (screenWidth < 767) {
+            let canbanItems = $(event.target).siblings().find('.canban-item');
+            let canbanItemsCount = canbanItems.length;
+            // hide all but the first items
+            for (let i = 1; i < canbanItemsCount; i++) {
+                $(canbanItems[i]).addClass('hidden');
+            }
+        }
+        //switch icons
+        setResizeIcons();
     }
 });
 
@@ -201,7 +245,7 @@ $(".add-item").click(function addNewCanbanItem() {
             name="canban-item-input" maxlength="35" autofocus></textarea>
         </div>`;
     //hide it add it to the clicked column and animate it in
-    $(addedItem).hide().prependTo($(this).parent().find(".clicked-canban-column")).slideDown(250);
+    $(addedItem).hide().prependTo($(this).parent().find(".canban-column")).slideDown(250);
 });
 
 // delete canban item
@@ -225,7 +269,7 @@ function addCanbanItem(thisItemKey, thisItem) {
             name="canban-item-input" maxlength="35"></textarea>
         </div>`;
     //hide it add it to the clicked column and animate it in
-    $(addedItem).hide().prependTo($(`#${thisItem.itemLocation}`).find('.clicked-canban-column')).slideDown(250);
+    $(addedItem).hide().prependTo($(`#${thisItem.itemLocation}`).find('.canban-column')).slideDown(250);
 };
 
 
@@ -238,7 +282,7 @@ function executeButtonPress(clickedElement) {
     thisItem = JSON.parse(thisItem);
 
     // if the textarea is clicked the value should represent the localstorage itemText for this item
-    if (clickedElement.includes('item-textarea')){
+    if (clickedElement.includes('item-textarea')) {
         console.log(`setting`);
         console.log(event.target);
         console.log(`to: ${thisItem.itemText}`)
@@ -249,9 +293,9 @@ function executeButtonPress(clickedElement) {
 
     // if the trashcan is clicked remove the item containing this trashcan
     if (clickedElement.includes('trash')) {
-        displayDeleteModal(event, thisItemKey); 
+        displayDeleteModal(event, thisItemKey);
 
-    // if up arrow or left arrow is clicked move the item in that direction
+        // if up arrow or left arrow is clicked move the item in that direction
     } if ((clickedElement.includes('left')) || (clickedElement.includes('up'))) {
         //update itemlocation
         let currentColumn = thisItem.itemLocation;
@@ -267,7 +311,7 @@ function executeButtonPress(clickedElement) {
         addCanbanItem(thisItemKey, thisItem);
         removeCanban(event);
 
-    // if down arrow or right arrow is clicked move the item in that direction
+        // if down arrow or right arrow is clicked move the item in that direction
     } if (clickedElement.includes('right') || clickedElement.includes('down')) {
         //update itemlocation
         let currentColumn = thisItem.itemLocation;
@@ -286,7 +330,7 @@ function executeButtonPress(clickedElement) {
 };
 
 //display confirm delete modal
-function displayDeleteModal(event, thisItemKey){
+function displayDeleteModal(event, thisItemKey) {
     // Get this modal
     var modal = document.getElementById('delete-modal');
     // Show this modal
@@ -300,7 +344,7 @@ function displayDeleteModal(event, thisItemKey){
         localStorage.removeItem(thisItemKey);
     }
     // if canceled remove the modal
-    deleteAbort.onclick = function (){
+    deleteAbort.onclick = function () {
         modal.style.display = "none";
     }
 }
@@ -428,3 +472,4 @@ function checkColumnText() {
         });
     }
 };
+

@@ -445,7 +445,7 @@ button.btn.btn-outline-secondary.green-bg:hover{
     border-radius: 5px;
 }
 
-/*--canban column layout--*/
+/*---------------------------------canban column layout--*/
 .my-canban-column .row{
     padding: 0rem 0.2rem;
 }
@@ -471,7 +471,11 @@ button.btn.btn-outline-secondary.green-bg:hover{
     font-size: 1.5rem;
 }
 
-/*--canban item layout--*/
+/*------------------------------------------canban item layout--*/
+
+.hidden{
+    display: none;
+}
 
 .my-canban-column .fas:hover{
     cursor: pointer;
