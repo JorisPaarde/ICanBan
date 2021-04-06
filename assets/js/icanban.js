@@ -217,8 +217,7 @@ function executeButtonPress(clickedElement) {
 
     // if the trashcan is clicked remove the item containing this trashcan
     if (clickedElement.includes('trash')) {
-        displayDeleteModal(event);
-        
+        displayDeleteModal(event, thisItemKey); 
 
     // if up arrow or left arrow is clicked move the item in that direction
     } if ((clickedElement.includes('left')) || (clickedElement.includes('up'))) {
@@ -255,18 +254,20 @@ function executeButtonPress(clickedElement) {
 };
 
 //display confirm delete modal
-function displayDeleteModal(event){
+function displayDeleteModal(event, thisItemKey){
     // Get this modal
     var modal = document.getElementById('delete-modal');
     // Show this modal
     let deleteConfirm = document.getElementById('confirm-delete');
     let deleteAbort = document.getElementById('cancel-delete');
     modal.style.display = "block";
+    // if confirmed delete the item 
     deleteConfirm.onclick = function () {
         modal.style.display = "none";
         removeCanban(event);
         localStorage.removeItem(thisItemKey);
     }
+    // if canceled remove the modal
     deleteAbort.onclick = function (){
         modal.style.display = "none";
     }
