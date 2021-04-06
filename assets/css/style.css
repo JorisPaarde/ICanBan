@@ -461,13 +461,19 @@ button.btn.btn-outline-secondary.green-bg:hover{
 .my-canban-column .fa-plus{
     float: right;
     margin-top: 1.2rem;
-    margin-right: 0.5rem;
-    font-size: 2rem;
+    margin-right: 0.3rem;
+    font-size: 1.5rem;
+}
+.my-canban-column .fa-compress-alt, .my-canban-column .fa-expand-alt{
+    float: left;
+    margin-top: 1.2rem;
+    margin-left: 0.3rem;
+    font-size: 1.5rem;
 }
 
 /*--canban item layout--*/
 
-.my-canban-column .fa-plus:hover{
+.my-canban-column .fas:hover{
     cursor: pointer;
 }
 .canban-item{
@@ -593,7 +599,7 @@ button.btn.btn-outline-secondary.green-bg:hover{
     }
 }
 
-@media (max-width: 760px){
+@media (max-width: 767px){
     /* in the last column don't display left right and up on mobile*/
     .last .canban-item .left ,.last .canban-item .right ,.last .canban-item .down{
         display: none;

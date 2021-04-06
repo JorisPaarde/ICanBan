@@ -134,6 +134,38 @@ function setColumns(item, _index) {
     // set the value of this columns textfield to the value in local memory
     $(`#${item}`).val(thisColumn.columnText);
 };
+//--------------------------------------------------modifying Columns------------------------------------------
+
+$('.resize').click(function resizeColumns(){
+    let currentState = $(event.target).attr('class');
+    let screenSize = $(document).width();
+    let thisColumn = $(event.target).closest('[id]');
+    // the icon clicked is the expand icon
+    if (currentState.includes('expand')){
+        //switch icon
+        $(event.target).removeClass("fa-expand-alt");
+        $(event.target).addClass("fa-compress-alt");
+        console.log(`expanding...${thisColumn}`);
+        // resize current col-5 to col-3 and adjust icon
+        thisColumn.siblings('.col-md-5').find('.resize').addClass('fa-expand-alt');
+        thisColumn.siblings('.col-md-5').find('.resize').addClass('fa-compress-alt');
+        thisColumn.siblings('.col-md-5').addClass('col-md-3');
+        thisColumn.siblings('.col-md-5').removeClass('col-md-5');
+        // give this column a col-5 width
+        thisColumn.removeClass('col-md-3');
+        thisColumn.addClass('col-md-5');
+    }
+    // the icon clicked is the compress icon
+    else if (currentState.includes('compress')){
+        //switch icon
+        $(event.target).removeClass("fa-compress-alt");
+        $(event.target).addClass("fa-expand-alt");
+        console.log(`contracting...${thisColumn}`);
+        // resize columns
+        thisColumn.removeClass('col-md-5');
+        thisColumn.addClass('col-md-3');
+    }
+});
 
 //--------------------------------------------------modifying items------------------------------------------
 
