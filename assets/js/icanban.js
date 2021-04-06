@@ -217,8 +217,8 @@ function executeButtonPress(clickedElement) {
 
     // if the trashcan is clicked remove the item containing this trashcan
     if (clickedElement.includes('trash')) {
-        removeCanban(event);
-        localStorage.removeItem(thisItemKey);
+        displayDeleteModal(event);
+        
 
     // if up arrow or left arrow is clicked move the item in that direction
     } if ((clickedElement.includes('left')) || (clickedElement.includes('up'))) {
@@ -254,6 +254,24 @@ function executeButtonPress(clickedElement) {
     }
 };
 
+//display confirm delete modal
+function displayDeleteModal(event){
+    // Get this modal
+    var modal = document.getElementById('delete-modal');
+    // Show this modal
+    let deleteConfirm = document.getElementById('confirm-delete');
+    let deleteAbort = document.getElementById('cancel-delete');
+    modal.style.display = "block";
+    deleteConfirm.onclick = function () {
+        modal.style.display = "none";
+        removeCanban(event);
+        localStorage.removeItem(thisItemKey);
+    }
+    deleteAbort.onclick = function (){
+        modal.style.display = "none";
+    }
+}
+
 //canban items controls
 $(".my-canban-column").click(function (event) {
     // get the class of the clicked item
@@ -265,7 +283,6 @@ $(".my-canban-column").click(function (event) {
 });
 
 // saving text when edited
-
 $(".my-canban-column").focusout(function (event) {
     // the input value of the textarea
     let thisItemText = event.target.value;
