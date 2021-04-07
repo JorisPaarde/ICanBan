@@ -142,22 +142,27 @@ window.addEventListener("resize", setResizeIcons);
 
 // display the correct resize icon
 function setResizeIcons() {
-  console.log("resizing");
   let screenWidth = $(document).width();
   // if on the canban page
   if (window.location.href.indexOf("mycanban")) {
     let columns = $(".my-canban-column");
     //go over all columns
     columns.each((element) => {
-      let hiddenCanbanItem = $(columns[element])
-        .find("[id]")
-        .hasClass("hidden");
+      // get number of items hidden in this column
+      hiddenAmount = $(columns[element]).find(".hidden").length;
+      // if it's more than 0 display the amount
+      if (hiddenAmount > 0){
+        $(columns[element]).find(".resize")[0].innerHTML = hiddenAmount;
+      }else{
+        // display nothing
+        $(columns[element]).find(".resize")[0].innerHTML = "";
+      }
       // if there is a hidden element in this column and screensize is mobile
-      if (hiddenCanbanItem && screenWidth < 767) {
+      if (hiddenAmount > 0 && screenWidth < 767) {
         $(columns[element]).find(".resize").addClass("fa-expand-alt");
         $(columns[element]).find(".resize").removeClass("fa-compress-alt");
         // if there is no hidden element in this column and screensize is mobile
-      } else if (!hiddenCanbanItem && screenWidth < 767) {
+      } else if (!(hiddenAmount > 0) && screenWidth < 767) {
         $(columns[element]).find(".resize").removeClass("fa-expand-alt");
         $(columns[element]).find(".resize").addClass("fa-compress-alt");
         // if screensize is desktop and it's a wide column
@@ -207,9 +212,9 @@ $(".resize").click(function resizeColumns(event) {
     thisColumn.removeClass("col-md-5");
     thisColumn.addClass("col-md-3");
     // if on mobile hide all canban items in this column
+    let canbanItems = $(event.target).siblings().find(".canban-item");
+    let canbanItemsCount = canbanItems.length;
     if (screenWidth < 767) {
-      let canbanItems = $(event.target).siblings().find(".canban-item");
-      let canbanItemsCount = canbanItems.length;
       // hide all but the first items
       for (let i = 1; i < canbanItemsCount; i++) {
         $(canbanItems[i]).addClass("hidden");
