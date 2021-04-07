@@ -262,3 +262,4 @@ On ipad in portrait mode the canban item controls did not display correctly. adj
 error message when clicking on text area of a canban item. added != statement.
 item not deleted when clicking delete modal. added thisitemkey parameter to function.
 when minimizing a column on mobile, when returning to desktop the items are still hidden.
+save on enter did not work on new added items, changed keydown listener to column in stead of textarea itself.
