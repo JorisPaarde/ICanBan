@@ -393,26 +393,14 @@ $(".my-canban-column").focusout(function (event) {
 
 // save text of an item when enter pressed
 if (window.location.href.includes("mycanban")) {
-  $(".item-textarea").keydown(function (event) {
+  $(".my-canban-column").keydown(function (event) {
     if (event.which == 13) {
-      event.preventDefault();
-      // the input value of the textarea
-      let thisItemText = event.target.value;
-      // the id of the item the textarea is in
-      let thisItemId = $(event.target).closest("div[id]")[0].id;
-      // the id of the column this item is in
-      let currentColumn = $(event.target).parents("div[id]")[1].id;
-
-      let canbanItem = {
-        itemText: thisItemText,
-        itemLocation: currentColumn,
-      };
-      // save the settings for this item
-      localStorage.setItem(thisItemId, JSON.stringify(canbanItem));
-      $(this).blur();
+      // triggers focusout event which saves this item
+      $(event.target).blur();
     }
   });
 }
+
 //--------------------------------------------------modifying settings------------------------------------------
 
 //handle clicking of switches in localstorage

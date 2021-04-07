@@ -524,12 +524,13 @@ button.btn.btn-outline-secondary.green-bg:hover{
 
 #delete-modal span{
    margin: 30px;
-   text-decoration: underline;
    font-size: larger;
+   text-decoration: underline;
 }
 
 #delete-modal span:hover{
    cursor: pointer;
+   font-weight: 600;
 }
 
 /*------------------------------------------settings content--------------------------------------*/
