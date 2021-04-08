@@ -201,6 +201,9 @@ $(".resize").click(function resizeColumns(event) {
     let canbanItems = $(event.target).siblings().find(".canban-item");
     let canbanItemsCount = canbanItems.length;
     for (let i = 0; i < canbanItemsCount; i++) {
+      console.log(canbanItems[i]);
+      $(canbanItems[i]).slideDown();
+      console.log(canbanItems[i]);
       $(canbanItems[i]).removeClass("hidden");
     }
     //switch icons
@@ -218,6 +221,9 @@ $(".resize").click(function resizeColumns(event) {
     if (screenWidth < 767) {
       // hide all but the first items
       for (let i = 1; i < canbanItemsCount; i++) {
+        console.log(canbanItems[i]);
+        $(canbanItems[i]).slideUp();
+        console.log(canbanItems[i]);
         $(canbanItems[i]).addClass("hidden");
       }
     }
@@ -290,7 +296,7 @@ function removeCanban(event) {
 function addCanbanItem(thisItemKey, thisItem) {
   //add the following html
   let addedItem = `
-    <div id="${thisItemKey}" class="canban-item">
+    <div id="${thisItemKey}" class="canban-item" style="display : block;">
         <div class="d-flex justify-content-between">
             <i class="fas down fa-level-down-alt"></i>
             <i class="fas left fa-long-arrow-alt-left"></i>
