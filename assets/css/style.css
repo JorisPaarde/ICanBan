@@ -1,38 +1,38 @@
 /*---------------------------------------------css variables--------------------------------------*/
-:root{
-    background-color:white;
-    --font-color: #7a7a7a;
-    --red-hue:rgba(255, 0, 0, 0.1);
-    --green-hue:rgba(0, 255, 56, 0.1);
-    --yellow-hue:rgba(255, 245, 0, 0.1);
-    --border: rgba(0, 0, 0, 0.2);
-    --red-fill-logo: rgba(255, 0, 0, 0.1);
-    --yellow-fill-logo: rgba(255, 255, 0, 0.1);
-    --green-fill-logo: rgba(0, 255, 56, 0.1);
-    --red-bg:rgba(255, 0, 0, 0.1);
-    --yellow-bg:rgba(255, 255, 0, 0.1);
-    --green-bg: rgba(0, 255, 56, 0.1);
-    --modal-bg: rgba(255, 255, 255, 0.9);
-    --modal-shadow: rgba(0, 0, 0, 0.2);
-    --slider-color: #ffefc4;
+:root {
+  background-color: white;
+  --font-color: #7a7a7a;
+  --red-hue: rgba(255, 0, 0, 0.1);
+  --green-hue: rgba(0, 255, 56, 0.1);
+  --yellow-hue: rgba(255, 245, 0, 0.1);
+  --border: rgba(0, 0, 0, 0.2);
+  --red-fill-logo: rgba(255, 0, 0, 0.1);
+  --yellow-fill-logo: rgba(255, 255, 0, 0.1);
+  --green-fill-logo: rgba(0, 255, 56, 0.1);
+  --red-bg: rgba(255, 0, 0, 0.1);
+  --yellow-bg: rgba(255, 255, 0, 0.1);
+  --green-bg: rgba(0, 255, 56, 0.1);
+  --modal-bg: rgba(255, 255, 255, 0.9);
+  --modal-shadow: rgba(0, 0, 0, 0.2);
+  --slider-color: #ffefc4;
 }
 
-[darkmode ="on"]{
-    background-color: #171717;
-    --font-color:#e5e5e5;
-    --red-hue:rgba(255, 0, 0, 0.4);
-    --green-hue:rgba(0, 255, 56, 0.4);
-    --yellow-hue:rgba(255, 245, 0, 0.4);
-    --border: rgba(200, 200, 200, 0.5);
-    --red-fill-logo: rgba(255, 0, 0, 0.5);
-    --yellow-fill-logo: rgba(255, 255, 0, 0.5);
-    --green-fill-logo: rgba(0, 255, 56, 0.5);
-    --red-bg:rgba(255, 0, 0, 0.15);
-    --yellow-bg:rgba(255, 255, 0, 0.15);
-    --green-bg: rgba(0, 255, 56, 0.15);
-    --modal-bg: rgba(0, 0, 0, 0.9);
-    --modal-shadow: rgba(255, 255, 255, 0.2);
-    --slider-color: #463403;
+[darkmode="on"] {
+  background-color: #171717;
+  --font-color: #e5e5e5;
+  --red-hue: rgba(255, 0, 0, 0.4);
+  --green-hue: rgba(0, 255, 56, 0.4);
+  --yellow-hue: rgba(255, 245, 0, 0.4);
+  --border: rgba(200, 200, 200, 0.5);
+  --red-fill-logo: rgba(255, 0, 0, 0.5);
+  --yellow-fill-logo: rgba(255, 255, 0, 0.5);
+  --green-fill-logo: rgba(0, 255, 56, 0.5);
+  --red-bg: rgba(255, 0, 0, 0.15);
+  --yellow-bg: rgba(255, 255, 0, 0.15);
+  --green-bg: rgba(0, 255, 56, 0.15);
+  --modal-bg: rgba(0, 0, 0, 0.9);
+  --modal-shadow: rgba(255, 255, 255, 0.2);
+  --slider-color: #463403;
 }
 
 /*---------------------------------------------fonts--------------------------------------*/
@@ -49,181 +49,188 @@
   color: var(--font-color);
 }
 
-body{
-    font-family: 'Raleway', sans-serif;
-    background-color: inherit;
-    color: var(--font-color)!important;
+body {
+  font-family: "Raleway", sans-serif;
+  background-color: inherit;
+  color: var(--font-color) !important;
 }
 
-p , textarea{
-    font-size: 0.9rem;
-    font-weight: 400;
+p,
+textarea {
+  font-size: 0.9rem;
+  font-weight: 400;
 }
 
-h1{
-    font-size: 2rem;
+h1 {
+  font-size: 2rem;
 }
 
-.info-screen h2{
-    font-size: 1rem;
+.info-screen h2 {
+  font-size: 1rem;
 }
 
 a.href {
-    color: var(--font-color);
-    text-decoration: underline;
+  color: var(--font-color);
+  text-decoration: underline;
 }
 
-.navbar-light .navbar-nav .nav-link{
-    color: var(--font-color);
+.navbar-light .navbar-nav .nav-link {
+  color: var(--font-color);
 }
 
 .navbar-light .navbar-nav .nav-link:hover {
-    color: var(--font-color);
-    text-decoration: underline;
+  color: var(--font-color);
+  text-decoration: underline;
 }
 
 .navbar-light .navbar-brand {
-    color: var(--font-color);
+  color: var(--font-color);
 }
 
 .navbar-light .navbar-brand:hover {
-    color: var(--font-color);
+  color: var(--font-color);
 }
 
 /*--------------------------------------------------colors--------------------------------------*/
 
-.red-bg{
-    background-color: var(--red-bg);
+.red-bg {
+  background-color: var(--red-bg);
 }
 
-.logo-bar.red-bg{
-    background-color: var(--red-fill-logo);
+.logo-bar.red-bg {
+  background-color: var(--red-fill-logo);
 }
 
-.red-shadow{
-    box-shadow: 8px 8px 15px var(--red-hue), inset 4px 4px 10px var(--red-hue);
-    border: 1px solid var(--border);
-    border-radius: 5px;
+.red-shadow {
+  box-shadow: 8px 8px 15px var(--red-hue), inset 4px 4px 10px var(--red-hue);
+  border: 1px solid var(--border);
+  border-radius: 5px;
 }
 
-.green-bg{
-    background-color: var(--green-bg);
+.green-bg {
+  background-color: var(--green-bg);
 }
 
-.logo-bar.green-bg{
-    background-color: var(--green-fill-logo);
+.logo-bar.green-bg {
+  background-color: var(--green-fill-logo);
 }
 
-.green-shadow{
-    box-shadow: 8px 8px 15px var(--green-hue), inset 4px 4px 10px var(--green-hue);
-    border: 1px solid var(--border);
-    border-radius: 5px;
+.green-shadow {
+  box-shadow: 8px 8px 15px var(--green-hue), inset 4px 4px 10px var(--green-hue);
+  border: 1px solid var(--border);
+  border-radius: 5px;
 }
 
-.yellow-bg{
-    background-color: var(--yellow-bg);
+.yellow-bg {
+  background-color: var(--yellow-bg);
 }
 
-.logo-bar.yellow-bg{
-    background-color: var(--yellow-fill-logo);
+.logo-bar.yellow-bg {
+  background-color: var(--yellow-fill-logo);
 }
 
-.yellow-shadow{
-    box-shadow: 8px 8px 15px var(--yellow-hue), inset 4px 4px 10px var(--yellow-hue);
-    border: 1px solid var(--border);
-    border-radius: 5px;
+.yellow-shadow {
+  box-shadow: 8px 8px 15px var(--yellow-hue),
+    inset 4px 4px 10px var(--yellow-hue);
+  border: 1px solid var(--border);
+  border-radius: 5px;
 }
 
 /*------------------------------------------------header--------------------------------------*/
 
 .logo {
-    display: flex;
-    margin-right: 20px;
+  display: flex;
+  margin-right: 20px;
 }
 
-.logo-bar{
-    width: 10px;
-    height: 40px;
-    border: 1px solid var(--border);
-    border-radius: 3px;
-    margin-right: 3px;  
+.logo-bar {
+  width: 10px;
+  height: 40px;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  margin-right: 3px;
 }
 
-a.navbar-brand{
-    color: var(--font-color);
-    font-size: 45px;
+a.navbar-brand {
+  color: var(--font-color);
+  font-size: 45px;
 }
 
 div#navbarNav {
-    font-size: 1.5rem;
-    font-weight: 200;
+  font-size: 1.5rem;
+  font-weight: 200;
 }
 
-.navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link {
-    color: var(--font-color);
-    text-decoration: underline;
+.navbar-light .navbar-nav .active > .nav-link,
+.navbar-light .navbar-nav .nav-link.active,
+.navbar-light .navbar-nav .nav-link.show,
+.navbar-light .navbar-nav .show > .nav-link {
+  color: var(--font-color);
+  text-decoration: underline;
 }
 
 button.navbar-toggler {
-    background-color: #e5e5e5;
+  background-color: #e5e5e5;
 }
 
 /*------------------------------------------home content--------------------------------------*/
 
-.info-screen{
-    height: auto;
+.info-screen {
+  height: auto;
 }
 
-.info-screen h1{
-    text-align: center;
-    margin: 20px;
+.info-screen h1 {
+  text-align: center;
+  margin: 20px;
 }
 
-.kanban-image{
-    width: 100%;
-    margin-bottom: 2rem;
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    border-radius: 3px;
+.kanban-image {
+  width: 100%;
+  margin-bottom: 2rem;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 3px;
 }
 
-.outer-card.yellow-bg.home{
-    padding: 5%;
+.outer-card.yellow-bg.home {
+  padding: 5%;
 }
 
-.outer-card.home{
-    margin-bottom: 2rem;
+.outer-card.home {
+  margin-bottom: 2rem;
 }
 
 /*---------------------------------------------menu items--------------------------------------*/
 
-.menu-item{
-    border: 1px solid #e5e5e5;
-    border-radius: 3px;
-    background-color: rgba(255, 245, 0, 0.1);
-    margin-bottom: 10px;
-    padding: 3px;
+.menu-item {
+  border: 1px solid #e5e5e5;
+  border-radius: 3px;
+  background-color: rgba(255, 245, 0, 0.1);
+  margin-bottom: 10px;
+  padding: 3px;
 }
 
-.menu-item p, .menu-item i, .settings .menu-item label{
-    margin: auto 3px;
+.menu-item p,
+.menu-item i,
+.settings .menu-item label {
+  margin: auto 3px;
 }
 
-input[type="text"].text-box{
-    border: 1px solid #e5e5e5;
-    margin-left: 0.5rem;
-    width: 55%;
-    font-size: 1rem;
-    color: var(--font-color);
-    background-color: transparent;
+input[type="text"].text-box {
+  border: 1px solid #e5e5e5;
+  margin-left: 0.5rem;
+  width: 55%;
+  font-size: 1rem;
+  color: var(--font-color);
+  background-color: transparent;
 }
 
-.settings .menu-item label{
-    font-size: 1rem;
-    font-weight: 400;
+.settings .menu-item label {
+  font-size: 1rem;
+  font-weight: 400;
 }
 
-.menu-item i:hover{
-    cursor: pointer;
+.menu-item i:hover {
+  cursor: pointer;
 }
 
 /*-------w3schools code slider button----*/
@@ -234,7 +241,7 @@ input[type="text"].text-box{
   height: 24px;
 }
 
-.switch input { 
+.switch input {
   opacity: 0;
   width: 0;
   height: 0;
@@ -248,8 +255,8 @@ input[type="text"].text-box{
   right: 0;
   bottom: 0;
   background-color: var(--font-color);
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 .slider:before {
@@ -260,8 +267,8 @@ input[type="text"].text-box{
   left: 4px;
   bottom: 4px;
   background-color: var(--slider-color);
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 input:checked + .slider {
@@ -290,19 +297,21 @@ input:checked + .slider:before {
 
 /*---------------------------------------------E-mail Form--------------------------------------*/
 
-.feature-title{
-    text-align: center;
-    margin: 1rem 0rem;
+.feature-title {
+  text-align: center;
+  margin: 1rem 0rem;
 }
 
-#email-form #fullname, #email-form #emailaddress, #email-form #featurerequest{
-    background-color: var(--yellow-bg);
-    color: var(--font-color);
+#email-form #fullname,
+#email-form #emailaddress,
+#email-form #featurerequest {
+  background-color: var(--yellow-bg);
+  color: var(--font-color);
 }
 
 /* Change autocomplete styles in WebKit https://codepen.io/team/css-tricks/pen/oxyJxR */
 input:-webkit-autofill,
-input:-webkit-autofill:hover, 
+input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 textarea:-webkit-autofill,
 textarea:-webkit-autofill:hover,
@@ -330,24 +339,24 @@ select:-webkit-autofill:focus {
   color: var(--font-color);
 }
 
-
-.email-form input, .email-form textarea{
-    margin-bottom: 1rem;
+.email-form input,
+.email-form textarea {
+  margin-bottom: 1rem;
 }
 
-button.btn.btn-outline-secondary.green-bg{
-   display: flex;
-   margin: auto;
-   color: var(--font-color);
-   border: 1px solid var(--border);
+button.btn.btn-outline-secondary.green-bg {
+  display: flex;
+  margin: auto;
+  color: var(--font-color);
+  border: 1px solid var(--border);
 }
 
-button.btn.btn-outline-secondary.green-bg:hover{
-   display: flex;
-   margin: auto;
-   background-color: rgba(0, 255, 56, 0.25);
-   color: var(--font-color);
-   border: 1px solid rgba(0, 0, 0, 0.1);
+button.btn.btn-outline-secondary.green-bg:hover {
+  display: flex;
+  margin: auto;
+  background-color: rgba(0, 255, 56, 0.25);
+  color: var(--font-color);
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 /* The Modal (background) code from: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_modal2 */
@@ -379,9 +388,8 @@ button.btn.btn-outline-secondary.green-bg:hover{
   text-align: center;
 }
 
-.modal-content p{
-    
-    margin-bottom: 0px;
+.modal-content p {
+  margin-bottom: 0px;
 }
 
 /* The Close Button */
@@ -400,245 +408,289 @@ button.btn.btn-outline-secondary.green-bg:hover{
 }
 
 @-webkit-keyframes animatetop {
-  from {top:-300px; opacity:0} 
-  to {top:0; opacity:1}
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
 }
 
 @keyframes animatetop {
-  from {top:-300px; opacity:0}
-  to {top:0; opacity:1}
+  from {
+    top: -300px;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    opacity: 1;
+  }
 }
 /* The Modal code from: https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_modal2 */
 
 /*------------------------------------------mycanban content--------------------------------------*/
-.my-canban-column{
-    margin-top: 1rem;
-    min-height: 80vh;
-    margin-bottom: 1rem;
-    padding-bottom: 1.2rem;
+
+.col-md-5 {
+  flex-grow: 1;
+  transition: all 400ms ease;
+}
+
+.col-md-3 {
+  flex-shrink: 1;
+  transition: all 400ms ease;
+}
+
+.my-canban-column {
+  margin-top: 1rem;
+  min-height: 80vh;
+  margin-bottom: 1rem;
+  padding-bottom: 1.2rem;
 }
 
 /*---cabnan item colors---*/
-#my-canban-column1 .canban-item{
-    box-shadow: 8px 8px 15px var(--red-hue), inset 4px 4px 10px var(--red-hue);
-    border: 1px solid var(--border);
-    border-radius: 5px;
+#my-canban-column1 .canban-item {
+  box-shadow: 8px 8px 15px var(--red-hue), inset 4px 4px 10px var(--red-hue);
+  border: 1px solid var(--border);
+  border-radius: 5px;
 }
-#my-canban-column2 .canban-item{
-    box-shadow: 8px 8px 15px var(--yellow-hue), inset 4px 4px 10px var(--yellow-hue);
-    border: 1px solid var(--border);
-    border-radius: 5px;
+#my-canban-column2 .canban-item {
+  box-shadow: 8px 8px 15px var(--yellow-hue),
+    inset 4px 4px 10px var(--yellow-hue);
+  border: 1px solid var(--border);
+  border-radius: 5px;
 }
-#my-canban-column3 .canban-item{
-    box-shadow: 8px 8px 15px var(--green-hue), inset 4px 4px 10px var(--green-hue);
-    border: 1px solid var(--border);
-    border-radius: 5px;
+#my-canban-column3 .canban-item {
+  box-shadow: 8px 8px 15px var(--green-hue), inset 4px 4px 10px var(--green-hue);
+  border: 1px solid var(--border);
+  border-radius: 5px;
 }
-#my-canban-column4 .canban-item{
-    box-shadow: 8px 8px 15px var(--yellow-hue), inset 4px 4px 10px var(--yellow-hue);
-    border: 1px solid var(--border);
-    border-radius: 5px;
+#my-canban-column4 .canban-item {
+  box-shadow: 8px 8px 15px var(--yellow-hue),
+    inset 4px 4px 10px var(--yellow-hue);
+  border: 1px solid var(--border);
+  border-radius: 5px;
 }
-#my-canban-column5 .canban-item{
-    box-shadow: 8px 8px 15px var(--green-hue), inset 4px 4px 10px var(--green-hue);
-    border: 1px solid var(--border);
-    border-radius: 5px;
+#my-canban-column5 .canban-item {
+  box-shadow: 8px 8px 15px var(--green-hue), inset 4px 4px 10px var(--green-hue);
+  border: 1px solid var(--border);
+  border-radius: 5px;
 }
 
 /*---------------------------------canban column layout--*/
-.my-canban-column .row{
-    padding: 0rem 0.2rem;
+.my-canban-column .row {
+  padding: 0rem 0.2rem;
 }
-.my-canban-column h2{
-   text-align: center;
-   margin-top: 0.9rem;
-   margin-bottom: 1.2rem;
+.my-canban-column h2 {
+  text-align: center;
+  margin-top: 0.9rem;
+  margin-bottom: 1.2rem;
 }
-.my-canban-column p{
-    margin-top: 0.1rem;
-    margin-bottom: 0.1rem;
+.my-canban-column p {
+  margin-top: 0.1rem;
+  margin-bottom: 0.1rem;
 }
-.my-canban-column .fa-plus{
-    float: right;
-    margin-top: 1.2rem;
-    margin-right: 0.3rem;
-    font-size: 1.5rem;
+.my-canban-column .fa-plus {
+  float: right;
+  margin-top: 1.2rem;
+  margin-right: 0.3rem;
+  font-size: 1.5rem;
 }
-.my-canban-column .fa-compress-alt, .my-canban-column .fa-expand-alt{
-    float: left;
-    margin-top: 1.2rem;
-    margin-left: 0.3rem;
-    font-size: 1.5rem;
+.my-canban-column .fa-compress-alt,
+.my-canban-column .fa-expand-alt {
+  float: left;
+  margin-top: 1.2rem;
+  margin-left: 0.3rem;
+  font-size: 1.5rem;
 }
 
 /*------------------------------------------canban item layout--*/
 
-.hidden{
-    display: none;
+.hidden {
+  display: none;
 }
 
-.my-canban-column .fas:hover{
-    cursor: pointer;
+.my-canban-column .fas:hover {
+  cursor: pointer;
 }
-.canban-item{
-    padding: 0.5rem;
-    width: 8rem;
-    height: 7rem;
-    margin-bottom: 1rem;
+.canban-item {
+  padding: 0.5rem;
+  width: 8rem;
+  height: 7rem;
+  margin-bottom: 1rem;
 }
-.canban-item i{
-    margin-bottom: 0.3rem;
+.canban-item i {
+  margin-bottom: 0.3rem;
 }
-.canban-item i:hover{
-    cursor: pointer;
+.canban-item i:hover {
+  cursor: pointer;
 }
-.canban-item textarea{
-    width: 100%;
-    height: 80%;
-    resize: none;
-    overflow: hidden;
-    background-color: transparent;
-    color: var(--font-color);
-    border: none;
-    border-radius: 3px;
+.canban-item textarea {
+  width: 100%;
+  height: 80%;
+  resize: none;
+  overflow: hidden;
+  background-color: transparent;
+  color: var(--font-color);
+  border: none;
+  border-radius: 3px;
 }
-.canban-item textarea:focus{
-    border: 1px solid var(--border);
-    outline: none;
+.canban-item textarea:focus {
+  border: 1px solid var(--border);
+  outline: none;
 }
-.canban-item-text{
-    line-height: 1.1rem;
+.canban-item-text {
+  line-height: 1.1rem;
 }
 /* in the last column don't display up right and down on desktop*/
-.last .canban-item .up ,.last .canban-item .right ,.last .canban-item .down{
-    display: none;
+.last .canban-item .up,
+.last .canban-item .right,
+.last .canban-item .down {
+  display: none;
 }
 /* in the first column don't display up left and down on desktop*/
-.first .canban-item .up ,.first .canban-item .left ,.first .canban-item .down{
-    display: none;
+.first .canban-item .up,
+.first .canban-item .left,
+.first .canban-item .down {
+  display: none;
 }
 /* in the middle column don't display up down and trash on desktop*/
-.middle .canban-item .up ,.middle .canban-item .trash ,.middle .canban-item .down{
-    display: none;
+.middle .canban-item .up,
+.middle .canban-item .trash,
+.middle .canban-item .down {
+  display: none;
 }
 
-#delete-modal span{
-   margin: 30px;
-   font-size: larger;
-   text-decoration: underline;
+#delete-modal span {
+  margin: 30px;
+  font-size: larger;
+  text-decoration: underline;
 }
 
-#delete-modal span:hover{
-   cursor: pointer;
-   font-weight: 600;
+#delete-modal span:hover {
+  cursor: pointer;
+  font-weight: 600;
 }
 
 /*------------------------------------------settings content--------------------------------------*/
 
-.outer-card.settings{
-    margin-top: 12vh;
-    min-height: 480px;
-    margin-bottom: 20px;
+.outer-card.settings {
+  margin-top: 12vh;
+  min-height: 480px;
+  margin-bottom: 20px;
 }
-.settings h1{
-    text-align: center;
-    margin: 20px;
-    margin-bottom: 10vh;
+.settings h1 {
+  text-align: center;
+  margin: 20px;
+  margin-bottom: 10vh;
 }
 .settings.menu-item {
-    margin: auto;
-    font-size: 1.5rem;
-    margin-bottom: 20px;
+  margin: auto;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
 }
-.settings.menu-item p{
-    font-size: 1rem;
+.settings.menu-item p {
+  font-size: 1rem;
 }
-.fa-toggle-off,.fa-toggle-on{
-    font-size: 2rem;
+.fa-toggle-off,
+.fa-toggle-on {
+  font-size: 2rem;
 }
 
 /*-------------------------------------------media queries--------------------------------------*/
 
-@media (max-height: 736px){
-    .outer-card.settings{
-    margin-top: 5vh;}
+@media (max-height: 736px) {
+  .outer-card.settings {
+    margin-top: 5vh;
+  }
 }
-@media (max-height: 568px){
-    .outer-card.settings{
+@media (max-height: 568px) {
+  .outer-card.settings {
     margin-top: 0px;
-    min-height: 450px;}
+    min-height: 450px;
+  }
 }
 
 /*media queries for small mobile devices*/
 
-@media (max-width: 375px){
-    /*media query for column name entry*/
-    .settings .menu-item label,.settings.menu-item p{
-    font-size: 0.8rem;}
-    input[type="text"].text-box{
-        margin-left: 0px;
-        font-size: 0.8rem;
-    }
+@media (max-width: 375px) {
+  /*media query for column name entry*/
+  .settings .menu-item label,
+  .settings.menu-item p {
+    font-size: 0.8rem;
+  }
+  input[type="text"].text-box {
+    margin-left: 0px;
+    font-size: 0.8rem;
+  }
 }
 
 /*-------------------media queries for mobile devices (phones)-----------------*/
 
-@media (max-width: 768px){
-    .logo{
+@media (max-width: 768px) {
+  .logo {
     margin-right: 0px;
-    }
-    a.navbar-brand{
+  }
+  a.navbar-brand {
     font-size: 35px;
-    }
-    h1{
+  }
+  h1 {
     font-size: 1.5rem;
-    }
-    .container.info-screen {
+  }
+  .container.info-screen {
     width: 95%;
-    }
-    .my-canban-column p{
+  }
+  .my-canban-column p {
     margin-top: 0rem;
-    }
-    .my-canban-column h2{
+  }
+  .my-canban-column h2 {
     margin-bottom: 0.5rem;
-    }
+  }
 }
 
-@media (max-width: 767px){
-    /* in the last column don't display left right and up on mobile*/
-    .last .canban-item .left ,.last .canban-item .right ,.last .canban-item .down{
-        display: none;
-    }
-    .last .canban-item .up{
-        display: block;
-    }
-    /* in the first column don't display up left and down on mobile*/
-    .first .canban-item .up ,.first .canban-item .left ,.first .canban-item .right{
-       display: none;
-    }
-    .first .canban-item .down{
-        display: block;
-    }
-    /* in the middle column don't display up down and trash on mobile*/
-    .middle .canban-item .left ,.middle .canban-item .trash ,.middle .canban-item .right{
-        display: none;
-    }
-    .middle .canban-item .up, .middle .canban-item .down{
-        display: block;
-    }
-    .my-canban-column{
+@media (max-width: 767px) {
+  /* in the last column don't display left right and up on mobile*/
+  .last .canban-item .left,
+  .last .canban-item .right,
+  .last .canban-item .down {
+    display: none;
+  }
+  .last .canban-item .up {
+    display: block;
+  }
+  /* in the first column don't display up left and down on mobile*/
+  .first .canban-item .up,
+  .first .canban-item .left,
+  .first .canban-item .right {
+    display: none;
+  }
+  .first .canban-item .down {
+    display: block;
+  }
+  /* in the middle column don't display up down and trash on mobile*/
+  .middle .canban-item .left,
+  .middle .canban-item .trash,
+  .middle .canban-item .right {
+    display: none;
+  }
+  .middle .canban-item .up,
+  .middle .canban-item .down {
+    display: block;
+  }
+  .my-canban-column {
     margin-top: 0rem;
     min-height: fit-content;
     margin-bottom: 1rem;
-    }
-    .canban-item{
+  }
+  .canban-item {
     padding: 0.4rem;
     width: 100%;
     height: auto;
     margin-bottom: 0.3rem;
-    }
-    .canban-item textarea{
+  }
+  .canban-item textarea {
     margin-top: 0rem;
-    height:1.5rem;
-    }
+    height: 1.5rem;
+  }
 }
