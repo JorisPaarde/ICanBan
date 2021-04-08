@@ -184,6 +184,7 @@ function setResizeIcons() {
   }
 }
 
+//resize columns when the icon is clicked
 $(".resize").click(function resizeColumns(event) {
   let currentState = $(event.target).attr("class");
   let screenWidth = $(document).width();
@@ -227,8 +228,18 @@ $(".resize").click(function resizeColumns(event) {
 
 //--------------------------------------------------modifying items------------------------------------------
 
-// add new canban-item to column when plus is clicked
-$(".add-item").click(function addNewCanbanItem(event) {
+// when plus is clicked add a new canban-item to this column
+$(".add-item").click(function(event){
+  // when the item is added add focus to this textarea
+  $.when(addNewCanbanItem(event)).done(function() {
+    let lastAddedItem = `item-nr-${localStorage.getItem('itemCount')}`;
+    let thistextarea = document.getElementById(`${lastAddedItem}`).getElementsByClassName('item-textarea');
+    $(thistextarea).focus();
+  });
+});
+
+// add new item to a column
+function addNewCanbanItem(event) {
   //update number of items in localstorage
   let lastid = localStorage.getItem("itemCount");
   lastid++;
@@ -248,7 +259,6 @@ $(".add-item").click(function addNewCanbanItem(event) {
   );
   //add the following html
   let addedItem = `
-   <!--Canban item start-->
     <div id="item-nr-${JSON.stringify(lastid)}" class="canban-item">
         <div class="d-flex justify-content-between">
             <i class="fas down fa-level-down-alt"></i>
@@ -258,14 +268,14 @@ $(".add-item").click(function addNewCanbanItem(event) {
             <i class="fas up fa-level-up-alt"></i>
         </div>
             <textarea class="item-textarea" id="canban-item-input" placeholder="name your item (max 35 chars)"
-            name="canban-item-input" maxlength="35" autofocus></textarea>
+            name="canban-item-input" maxlength="35"></textarea>
         </div>`;
   //hide it add it to the clicked column and animate it in
   $(addedItem)
     .hide()
-    .prependTo($(this).parent().find(".canban-column"))
+    .prependTo($(event.target).parent().find(".canban-column"))
     .slideDown(250);
-});
+};
 
 // delete canban item
 function removeCanban(event) {
@@ -280,7 +290,6 @@ function removeCanban(event) {
 function addCanbanItem(thisItemKey, thisItem) {
   //add the following html
   let addedItem = `
-   <!--Canban item start-->
     <div id="${thisItemKey}" class="canban-item">
         <div class="d-flex justify-content-between">
             <i class="fas down fa-level-down-alt"></i>
@@ -387,6 +396,8 @@ $(".my-canban-column").focusout(function (event) {
   let thisItemId = $(event.target).closest("div[id]")[0].id;
   // the id of the column this item is in
   let currentColumn = $(event.target).parents("div[id]")[1].id;
+  // remove autofocus from this item
+  $(event.target).removeAttr("autofocus");
 
   let canbanItem = {
     itemText: thisItemText,
