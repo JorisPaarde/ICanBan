@@ -1,28 +1,24 @@
 function validateForm(contactForm) {
-    var validatedForm = true;
+    var validatedForm = false;
     var modal = document.getElementById("confirmationModal");
 
     // is the fullname longer than 4 chars?
     if (contactForm.name.value.length < 5) {
-        validatedForm = false;
         console.log('name to short');
         modal = document.getElementById("badNameModal");
 
         // does the name include letters?
     } if (!/[a-zA-Z]/.test(contactForm.name.value)) {
-        validatedForm = false;
         console.log('name has no letters');
         modal = document.getElementById("badNameModal");
 
         // does the name include at least one space?
     } if (!/\s/.test(contactForm.name.value)) {
-        validatedForm = false;
         console.log('name has no space');
         modal = document.getElementById("badNameModal");
 
         // does the feature request input include any letters?
     } if (!/[a-zA-Z]/.test(contactForm.featurerequest.value)) {
-        validatedForm = false;
         console.log('feature has no letters');
         modal = document.getElementById("badFeatureModal");
 
@@ -30,28 +26,26 @@ function validateForm(contactForm) {
     } if (contactForm.featurerequest.value.match(/\w/g) != null) {
         // does the feature request input include at least 4 letters or numbers?
         if (contactForm.featurerequest.value.match(/\w/g).length < 4) {
-            validatedForm = false;
             console.log('feature has less than 4 letters');
             modal = document.getElementById("badFeatureModal");
         }
 
         // is the feature request input longer than 4 chars?
     } if (contactForm.featurerequest.value.length < 4) {
-        validatedForm = false;
         console.log('feature to short');
         modal = document.getElementById("badFeatureModal");
 
         // is the email input longer than 5 chars?
     } if (contactForm.emailaddress.value.length < 5) {
-        validatedForm = false;
         console.log('email to short');
         modal = document.getElementById("badEmailModal");
 
         // does the email input include a dot?
     } if (!/\u002E/.test(contactForm.emailaddress.value)) {
-        validatedForm = false;
         console.log('email has no .');
         modal = document.getElementById("badEmailModal");
+    }else{
+        validatedForm = true;
     }
     return [validatedForm, modal];
 }
@@ -92,7 +86,6 @@ function sendMail(contactForm) {
         return false;
     }
 }
-
 
 // Confirmation modal edited from https://www.w3schools.com/howto/howto_css_modals.asp
 function displayModal(modal) {
