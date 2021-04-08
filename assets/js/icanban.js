@@ -150,10 +150,21 @@ function setResizeIcons() {
     columns.each((element) => {
       // get number of items hidden in this column
       hiddenAmount = $(columns[element]).find(".hidden").length;
+      itemAmount = $(columns[element]).find(".canban-item").length;
+      //if on mobile and no more than 1 item in this column don't show any expand or contract item
+      if (itemAmount < 2 && screenWidth < 767) {
+        console.log(itemAmount);
+        $(columns[element]).find(".resize").hide();
+      }
+      //if on mobile and no more than 1 item in this column don't show any expand or contract item
+      if (itemAmount >= 2 && screenWidth < 767) {
+        console.log(itemAmount);
+        $(columns[element]).find(".resize").show();
+      }
       // if it's more than 0 display the amount
-      if (hiddenAmount > 0){
+      if (hiddenAmount > 0) {
         $(columns[element]).find(".resize")[0].innerHTML = hiddenAmount;
-      }else{
+      } else {
         // display nothing
         $(columns[element]).find(".resize")[0].innerHTML = "";
       }
@@ -201,9 +212,7 @@ $(".resize").click(function resizeColumns(event) {
     let canbanItems = $(event.target).siblings().find(".canban-item");
     let canbanItemsCount = canbanItems.length;
     for (let i = 0; i < canbanItemsCount; i++) {
-      console.log(canbanItems[i]);
       $(canbanItems[i]).slideDown();
-      console.log(canbanItems[i]);
       $(canbanItems[i]).removeClass("hidden");
     }
     //switch icons
@@ -221,9 +230,7 @@ $(".resize").click(function resizeColumns(event) {
     if (screenWidth < 767) {
       // hide all but the first items
       for (let i = 1; i < canbanItemsCount; i++) {
-        console.log(canbanItems[i]);
         $(canbanItems[i]).slideUp();
-        console.log(canbanItems[i]);
         $(canbanItems[i]).addClass("hidden");
       }
     }
@@ -235,11 +242,13 @@ $(".resize").click(function resizeColumns(event) {
 //--------------------------------------------------modifying items------------------------------------------
 
 // when plus is clicked add a new canban-item to this column
-$(".add-item").click(function(event){
+$(".add-item").click(function (event) {
   // when the item is added add focus to this textarea
-  $.when(addNewCanbanItem(event)).done(function() {
-    let lastAddedItem = `item-nr-${localStorage.getItem('itemCount')}`;
-    let thistextarea = document.getElementById(`${lastAddedItem}`).getElementsByClassName('item-textarea');
+  $.when(addNewCanbanItem(event)).done(function () {
+    let lastAddedItem = `item-nr-${localStorage.getItem("itemCount")}`;
+    let thistextarea = document
+      .getElementById(`${lastAddedItem}`)
+      .getElementsByClassName("item-textarea");
     $(thistextarea).focus();
   });
 });
@@ -281,7 +290,11 @@ function addNewCanbanItem(event) {
     .hide()
     .prependTo($(event.target).parent().find(".canban-column"))
     .slideDown(250);
-};
+  // adjust resize icon to not display on mobile if there is less than 2 items
+  setTimeout(function () {
+    setResizeIcons();
+  }, 350);
+}
 
 // delete canban item
 function removeCanban(event) {
@@ -291,12 +304,16 @@ function removeCanban(event) {
     .slideUp(300, function () {
       $(event.target).parent().parent().remove();
     });
+  // adjust resize icon to not display on mobile if there is less than 2 items
+  setTimeout(function () {
+    setResizeIcons();
+  }, 350);
 }
 
 function addCanbanItem(thisItemKey, thisItem) {
   //add the following html
   let addedItem = `
-    <div id="${thisItemKey}" class="canban-item" style="display : block;">
+    <div id="${thisItemKey}" class="canban-item" style="display: block;">
         <div class="d-flex justify-content-between">
             <i class="fas down fa-level-down-alt"></i>
             <i class="fas left fa-long-arrow-alt-left"></i>
