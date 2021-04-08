@@ -156,8 +156,8 @@ function setResizeIcons() {
         console.log(itemAmount);
         $(columns[element]).find(".resize").hide();
       }
-      //if on mobile and no more than 1 item in this column don't show any expand or contract item
-      if (itemAmount >= 2 && screenWidth < 767) {
+      //if on mobile and more than 1 item in this column expand or contract item or if on desktop
+      if ((itemAmount >= 2 && screenWidth < 767)||(screenWidth > 767)) {
         console.log(itemAmount);
         $(columns[element]).find(".resize").show();
       }
