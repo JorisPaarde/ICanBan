@@ -1,12 +1,18 @@
-// adjust page to settings and adjust decor columns height
 $(document).ready(
+  // check if localstorage is empty, if so populate it with default values
   populateMem(),
+  // check if darkmode is on in localstorage, if so display site in darkmode
   setDarkmode(),
+  // check columnsettings in localstorage, display site accordingly
   checkColumns(),
+  // check canbanitems in localstorage, display items accordingly
   setCanbanItems(),
+  // set resize icons to correct mode
   setResizeIcons()
 );
+
 //--------------------------------------------------initializing memory------------------------------------------
+
 // Constructor function for columns
 function column(text, status) {
   this.columnText = text;
@@ -46,7 +52,7 @@ function populateMem() {
 
 //--------------------------------------------------building site from memory------------------------------------------
 
-// set darkmode to match localstorage
+// -------------------------------------------set darkmode to match localstorage
 function setDarkmode() {
   let mode = localStorage.getItem("darkmode");
   mode = JSON.parse(mode);
@@ -77,7 +83,7 @@ function setDarkmode() {
   }
 }
 
-// set all Columns to match localstorage
+//---------------------------------------- set all Columns to match localstorage
 function checkColumns() {
   // create array of the columns to load
   let columns = [];
@@ -87,22 +93,6 @@ function checkColumns() {
   //if the loaded page is the settings page
   // read out status of all columns and set the switches
   columns.forEach(setColumns);
-}
-
-// set all items to match localstorage
-function setCanbanItems() {
-  if (window.location.href.includes("mycanban")) {
-    //scan localstorage for canban items
-    for (var i = 0; i < localStorage.length; i++) {
-      let thisItem = localStorage.getItem(localStorage.key(i));
-      let thisItemKey = localStorage.key(i);
-      if (thisItemKey.includes("item-nr")) {
-        // this is a canban item add it to the html
-        thisItem = JSON.parse(thisItem);
-        addCanbanItem(thisItemKey, thisItem);
-      }
-    }
-  }
 }
 
 // check the setting of a column
@@ -136,66 +126,25 @@ function setColumns(item, _index) {
   $(`#${item}`).val(thisColumn.columnText);
 }
 
-//--------------------------------------------------modifying Columns------------------------------------------
-
-window.addEventListener("resize", setResizeIcons);
-
-// display the correct resize icon
-function setResizeIcons() {
-  let screenWidth = $(document).width();
-  // if on the canban page
-  if (window.location.href.indexOf("mycanban")) {
-    let columns = $(".my-canban-column");
-    //go over all columns
-    columns.each((element) => {
-      // get number of items hidden in this column
-      hiddenAmount = $(columns[element]).find(".hidden").length;
-      itemAmount = $(columns[element]).find(".canban-item").length;
-      //if on mobile and no more than 1 item in this column don't show any expand or contract item
-      if (itemAmount < 2 && screenWidth < 767) {
-        console.log(itemAmount);
-        $(columns[element]).find(".resize").hide();
+//---------------------------------------- set all items to match localstorage
+function setCanbanItems() {
+  if (window.location.href.includes("mycanban")) {
+    //scan localstorage for canban items
+    for (var i = 0; i < localStorage.length; i++) {
+      let thisItem = localStorage.getItem(localStorage.key(i));
+      let thisItemKey = localStorage.key(i);
+      if (thisItemKey.includes("item-nr")) {
+        // this is a canban item add it to the html
+        thisItem = JSON.parse(thisItem);
+        addCanbanItem(thisItemKey, thisItem);
       }
-      //if on mobile and more than 1 item in this column expand or contract item or if on desktop
-      if ((itemAmount >= 2 && screenWidth < 767)||(screenWidth > 767)) {
-        console.log(itemAmount);
-        $(columns[element]).find(".resize").show();
-      }
-      // if it's more than 0 display the amount
-      if (hiddenAmount > 0) {
-        $(columns[element]).find(".resize")[0].innerHTML = hiddenAmount;
-      } else {
-        // display nothing
-        $(columns[element]).find(".resize")[0].innerHTML = "";
-      }
-      // if there is a hidden element in this column and screensize is mobile
-      if (hiddenAmount > 0 && screenWidth < 767) {
-        $(columns[element]).find(".resize").addClass("fa-expand-alt");
-        $(columns[element]).find(".resize").removeClass("fa-compress-alt");
-        // if there is no hidden element in this column and screensize is mobile
-      } else if (!(hiddenAmount > 0) && screenWidth < 767) {
-        $(columns[element]).find(".resize").removeClass("fa-expand-alt");
-        $(columns[element]).find(".resize").addClass("fa-compress-alt");
-        // if screensize is desktop and it's a wide column
-      } else if (
-        screenWidth >= 767 &&
-        $(columns[element]).hasClass("col-md-5")
-      ) {
-        $(columns[element]).find(".resize").removeClass("fa-expand-alt");
-        $(columns[element]).find(".resize").addClass("fa-compress-alt");
-        // if screensize is desktop and it's a narrow column
-      } else if (
-        screenWidth >= 767 &&
-        $(columns[element]).hasClass("col-md-3")
-      ) {
-        $(columns[element]).find(".resize").addClass("fa-expand-alt");
-        $(columns[element]).find(".resize").removeClass("fa-compress-alt");
-      }
-    });
+    }
   }
 }
 
-//resize columns when the icon is clicked
+//--------------------------------------------------modifying Columns------------------------------------------
+
+//--------------------------------------resize columns when the icon is clicked
 $(".resize").click(function resizeColumns(event) {
   let currentState = $(event.target).attr("class");
   let screenWidth = $(document).width();
@@ -239,9 +188,66 @@ $(".resize").click(function resizeColumns(event) {
   }
 });
 
+// if one resize icon is clicked set all resize icons to display new situation
+window.addEventListener("resize", setResizeIcons);
+
+// display the correct resize icon
+function setResizeIcons() {
+  let screenWidth = $(document).width();
+  // if on the canban page
+  if (window.location.href.indexOf("mycanban")) {
+    let columns = $(".my-canban-column");
+    //go over all columns
+    columns.each((element) => {
+      // get number of items hidden in this column
+      hiddenAmount = $(columns[element]).find(".hidden").length;
+      itemAmount = $(columns[element]).find(".canban-item").length;
+      //if on mobile and no more than 1 item in this column don't show any expand or contract item
+      if (itemAmount < 2 && screenWidth < 767) {
+        $(columns[element]).find(".resize").hide();
+      }
+      //if on mobile and more than 1 item in this column expand or contract item or if on desktop
+      if ((itemAmount >= 2 && screenWidth < 767) || screenWidth > 767) {
+        $(columns[element]).find(".resize").show();
+      }
+      // if it's more than 0 display the amount
+      if (hiddenAmount > 0) {
+        $(columns[element]).find(".resize")[0].innerHTML = hiddenAmount;
+      } else {
+        // display nothing
+        $(columns[element]).find(".resize")[0].innerHTML = "";
+      }
+      // if there is a hidden element in this column and screensize is mobile
+      if (hiddenAmount > 0 && screenWidth < 767) {
+        $(columns[element]).find(".resize").addClass("fa-expand-alt");
+        $(columns[element]).find(".resize").removeClass("fa-compress-alt");
+        // if there is no hidden element in this column and screensize is mobile
+      } else if (!(hiddenAmount > 0) && screenWidth < 767) {
+        $(columns[element]).find(".resize").removeClass("fa-expand-alt");
+        $(columns[element]).find(".resize").addClass("fa-compress-alt");
+        // if screensize is desktop and it's a wide column
+      } else if (
+        screenWidth >= 767 &&
+        $(columns[element]).hasClass("col-md-5")
+      ) {
+        $(columns[element]).find(".resize").removeClass("fa-expand-alt");
+        $(columns[element]).find(".resize").addClass("fa-compress-alt");
+        // if screensize is desktop and it's a narrow column
+      } else if (
+        screenWidth >= 767 &&
+        $(columns[element]).hasClass("col-md-3")
+      ) {
+        $(columns[element]).find(".resize").addClass("fa-expand-alt");
+        $(columns[element]).find(".resize").removeClass("fa-compress-alt");
+      }
+    });
+  }
+}
+
 //--------------------------------------------------modifying items------------------------------------------
 
-// when plus is clicked add a new canban-item to this column
+//-----------------------------add a new canban-item
+//when plus is clicked
 $(".add-item").click(function (event) {
   // when the item is added add focus to this textarea
   $.when(addNewCanbanItem(event)).done(function () {
@@ -253,7 +259,7 @@ $(".add-item").click(function (event) {
   });
 });
 
-// add new item to a column
+//-------------------------- add NEW canban item html to a column
 function addNewCanbanItem(event) {
   //update number of items in localstorage
   let lastid = localStorage.getItem("itemCount");
@@ -296,7 +302,7 @@ function addNewCanbanItem(event) {
   }, 350);
 }
 
-// delete canban item
+//-----------------------------------------------delete a canban item
 function removeCanban(event) {
   $(event.target)
     .parent()
@@ -310,6 +316,27 @@ function removeCanban(event) {
   }, 350);
 }
 
+//-----------------------------------------display confirm delete modal
+function displayDeleteModal(event, thisItemKey) {
+  // Get this modal
+  var modal = document.getElementById("delete-modal");
+  // Show this modal
+  let deleteConfirm = document.getElementById("confirm-delete");
+  let deleteAbort = document.getElementById("cancel-delete");
+  modal.style.display = "block";
+  // if confirmed delete the item
+  deleteConfirm.onclick = function () {
+    modal.style.display = "none";
+    removeCanban(event);
+    localStorage.removeItem(thisItemKey);
+  };
+  // if canceled remove the modal
+  deleteAbort.onclick = function () {
+    modal.style.display = "none";
+  };
+}
+
+//-----------------------------------------------add a canban item to a column
 function addCanbanItem(thisItemKey, thisItem) {
   //add the following html
   let addedItem = `
@@ -324,14 +351,26 @@ function addCanbanItem(thisItemKey, thisItem) {
             <textarea class="item-textarea" id="canban-item-input" placeholder="${thisItem.itemText}"
             name="canban-item-input" maxlength="35"></textarea>
         </div>`;
-  //hide it add it to the clicked column and animate it in
+  //hide it add it to the column and animate it in
   $(addedItem)
     .hide()
     .prependTo($(`#${thisItem.itemLocation}`).find(".canban-column"))
     .slideDown(250);
 }
 
-// execution of different canban item controls
+//---------------------------------------execution of canban item controls
+
+//canban item icon control executer
+$(".my-canban-column").click(function (event) {
+  // get the class of the clicked item
+  var clickedElement = $(event.target).attr("class");
+  // if an icon is clicked check which one
+  if (clickedElement != undefined) {
+    executeButtonPress(event, clickedElement);
+  }
+});
+
+//various canban item controls
 function executeButtonPress(event, clickedElement) {
   // find the clicked item id
   var thisItemKey = $(event.target).closest("div[id]").attr("id");
@@ -381,37 +420,7 @@ function executeButtonPress(event, clickedElement) {
   }
 }
 
-//display confirm delete modal
-function displayDeleteModal(event, thisItemKey) {
-  // Get this modal
-  var modal = document.getElementById("delete-modal");
-  // Show this modal
-  let deleteConfirm = document.getElementById("confirm-delete");
-  let deleteAbort = document.getElementById("cancel-delete");
-  modal.style.display = "block";
-  // if confirmed delete the item
-  deleteConfirm.onclick = function () {
-    modal.style.display = "none";
-    removeCanban(event);
-    localStorage.removeItem(thisItemKey);
-  };
-  // if canceled remove the modal
-  deleteAbort.onclick = function () {
-    modal.style.display = "none";
-  };
-}
-
-//canban items controls
-$(".my-canban-column").click(function (event) {
-  // get the class of the clicked item
-  var clickedElement = $(event.target).attr("class");
-  // if an icon is clicked check which one
-  if (clickedElement != undefined) {
-    executeButtonPress(event, clickedElement);
-  }
-});
-
-// saving text when edited
+// save text when clicking outside textarea
 $(".my-canban-column").focusout(function (event) {
   // the input value of the textarea
   let thisItemText = event.target.value;
@@ -442,40 +451,10 @@ if (window.location.href.includes("mycanban")) {
 
 //--------------------------------------------------modifying settings------------------------------------------
 
-//handle clicking of switches in localstorage
-$(document).ready(checkSwitches(), checkColumnText());
+// set switches to match localstorage and initialize text saving for columns
+$(document).ready(checkSwitches(), saveColumnText());
 
-// set clicked columns to either on or off in localstorage
-function setColumnStatus(thisColumn, status) {
-  if (window.location.href.includes("settings")) {
-    // get columndata and change to json format
-    let column = localStorage.getItem(thisColumn);
-    column = JSON.parse(column);
-    // set columnstatus to this status
-    column.columnStatus = status;
-    // convert JSON back to sting
-    column = JSON.stringify(column);
-    // store the new data for this column
-    localStorage.setItem(thisColumn, column);
-  }
-}
-
-// set the text of a column to match localstorage value
-function setColumnText(thisColumn, text) {
-  if (window.location.href.includes("settings")) {
-    // get columndata and change to json format
-    let column = localStorage.getItem(thisColumn);
-    column = JSON.parse(column);
-    // set columnstatus to this status
-    column.columnText = text;
-    // convert JSON back to sting
-    column = JSON.stringify(column);
-    // store the new data for this column
-    localStorage.setItem(thisColumn, column);
-  }
-}
-
-// process when a switch is clicked
+// process when a settings switch is clicked
 function checkSwitches() {
   if (window.location.href.includes("settings")) {
     $('.column , input[type="checkbox"]').click(function () {
@@ -516,7 +495,38 @@ function checkSwitches() {
   }
 }
 
-function checkColumnText() {
+// set clicked columns to either on or off to match localstorage value
+function setColumnStatus(thisColumn, status) {
+  if (window.location.href.includes("settings")) {
+    // get columndata and change to json format
+    let column = localStorage.getItem(thisColumn);
+    column = JSON.parse(column);
+    // set columnstatus to this status
+    column.columnStatus = status;
+    // convert JSON back to sting
+    column = JSON.stringify(column);
+    // store the new data for this column
+    localStorage.setItem(thisColumn, column);
+  }
+}
+
+// set the text of a column to match localstorage value
+function setColumnText(thisColumn, text) {
+  if (window.location.href.includes("settings")) {
+    // get columndata and change to json format
+    let column = localStorage.getItem(thisColumn);
+    column = JSON.parse(column);
+    // set columnstatus to this status
+    column.columnText = text;
+    // convert JSON back to sting
+    column = JSON.stringify(column);
+    // store the new data for this column
+    localStorage.setItem(thisColumn, column);
+  }
+}
+
+// set the text of a column in localstorage when pressing enter or clicking outside the textarea
+function saveColumnText() {
   if (window.location.href.includes("settings")) {
     // save text when enter pressed
     $(".text-box").keydown(function (event) {
