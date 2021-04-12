@@ -11,7 +11,7 @@ This project was made as a second milestone project for the Code Institute full 
 
 [View the live project here](https://jorispaarde.github.io/ICanBan/index.html)
 
-![Icanban mockup image](/readme-images/site-mockup.jpg)
+![Icanban mockup image](readme-images/site-mockup.jpg)
 
 ## Table of Contents
 - [UX](#user-experience-(ux))
@@ -22,6 +22,9 @@ This project was made as a second milestone project for the Code Institute full 
 - [Technologies Used](#technologies-used)
 - [Testing](#testing)
 - [Deployment](#deployment)
+  - [Github Pages](#github-pages)
+  - [Making a clone](#making-a-local-clone)
+  - [EmailJS Setup](#setting-up-your-emailJS)
 - [Credits](#credits)
 
 ## User Experience (UX)
@@ -186,10 +189,10 @@ The project was deployed to GitHub Pages using the following steps...
 
 1. Log in to GitHub
 2. Locate the [repository](https://github.com/JorisPaarde/ICanBan).
-3. Go to settings menu: <h4 align="center"><img src="/readme-images/settings.png"></h4>
+3. Go to settings menu: <h4 align="center"><img src="readme-images/settings.png"></h4>
 4. scroll down to the bottom of the page.
-5. Select master and save. <h4 align="center"><img src="/readme-images/select-save.png"></h4>
-6. View the publihed result. (This may take some time to show up correctly.) <h4 align="center"><img src="/readme-images/view.png"></h4>
+5. Select master and save. <h4 align="center"><img src="readme-images/select-save.png"></h4>
+6. View the published result. (This may take some time to show up correctly.) <h4 align="center"><img src="readme-images/view.png"></h4>
 
 ### Making a Local Clone
 
@@ -199,7 +202,7 @@ The project was deployed to GitHub Pages using the following steps...
    If u haven't find out how to do that [here](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 2. Log into GitHub.
 3. Locate the [repository](https://github.com/JorisPaarde/ICanBan).
-4. Copy the link to the repository here: <h4 align="center"><img src="/readme-images/clone.png"></h4>
+4. Copy the link to the repository here: <h4 align="center"><img src="readme-images/clone.png"></h4>
 5. Open a terminal and enter the following command (inside the directory u want the repository to be placed):
 
 ```
@@ -219,7 +222,20 @@ Unpacking objects: 100% (25/25), done.
 ```
 8. your local clone is now ready.
 
-#### To make a local clone of this project in Windows , follow [these](https://www.jcchouinard.com/clone-github-repository-on-windows/) steps:
+#### To make a local clone of this project in Windows , follow [these](https://www.jcchouinard.com/clone-github-repository-on-windows/) steps.
+
+### Setting up your EmailJS
+
+To set up the email service for the email form:
+- Go to: [EmailJS](https://dashboard.emailjs.com/sign-up) to sign up for an account.
+- Add your email service by going to email services and add new service.
+- Under email templates create a new template.
+- Under settings , give your template an id of "contact-form", this will make sure the email service will work with this code.
+- Copy your service id by clicking on your newly created email service under email services as shown here.
+<h4 align="center"><img src="readme-images/service-id.png"></h4>
+- Replace the id shown here (in the email.js file) by your id.
+<h4 align="center"><img src="readme-images/service-id-add.png"></h4>
+- Your email service should now be set up.
 
 ---
 
@@ -245,23 +261,6 @@ All the below mentioned code is also marked with comments in the code itself.
 
 -   My Mentor for pointing me to ux issues i had to adress like asking for confirmation when deleting an item.
 -   My fellow students and several other mentors on Slack for their tips and moral support.
+-   Special thanks to Simen Daehlin (Eventyret_mentor on slack) for his tireless expanations on slack.
 -   The basic Readme layout by Code Institute.
 
-Bugs:
-
-Logo would expand on larger screen sizes due to justify content space between. placed div's in a logo div to keep them together.
-menu broke on smallest screen sizes. added media query.
-email form enter name field was by accident targeted in css. made css for menu items more specific.
-decorative columns where not the right size on all screens. added a fuction to calculate the right hight for them. adjustDecoDivs.
-when rotating the screen on tablet these dcorative column's height was not correct. added onorientationchange eventlistener.
-when typing a name for a column the text wasn't saved when clicking outside the field with mouse. added focusout function.
-when pressing enter, focus stays on settings text field. added blur to checkText function.
-when loading site with empty memory darkmode was not initialized correctly. corrected value.
-settings for darkmode did not display correctly. added inner html change.
-On ipad in portrait mode the canban item controls did not display correctly. adjusted media query.
-error message when clicking on text area of a canban item. added != statement.
-item not deleted when clicking delete modal. added thisitemkey parameter to function.
-when minimizing a column on mobile, when returning to desktop the items are still hidden.
-save on enter did not work on new added items, changed keydown listener to column in stead of textarea itself.
-resize animation did not work first time after reload. added style="display: block;" to items html.
-resize icon hidden on desktop when coming from mobile. added shoa always on desktop.
