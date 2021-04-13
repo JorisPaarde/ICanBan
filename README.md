@@ -119,19 +119,27 @@ a pretty complete set of diacritics, as well as a stylistic alternate inspired b
 
 ####   main page
 
+-   Introduction text
+-   Visual of mycanban page
+-   Controls section
 -   Email form with extensive validation
 
 #### settings page
 
 -   Animated sliders
 -   Text field input
+-   Direct link to MyCanban page
 
 #### MyCanban page
 
--   Add item to the column
+-   Add item to a column with autofocus
 -   Text field input
--   Remove item with confirmation
+-   Remove item with confirmation modal
 -   Move items to adjacent column
+-   Expandable and contractable columns
+-   Alternate layout on mobile
+-   Responsive display of controls
+-   Hidden items indication
 
 ### Possible future Features
 
@@ -151,6 +159,8 @@ a pretty complete set of diacritics, as well as a stylistic alternate inspired b
 -   [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
     - CSS3 was used to give the html styling and layout.
     And to make the page responsive to differentscreen sizes.
+-   [Javascript](https://nl.wikipedia.org/wiki/JavaScript)
+    - Javascript was used for the email form functionality and all website altering functions, like adding and moving items, darkmode etc. also for storing data in localstorage.
 
 ### Frameworks, Libraries & Programs Used
 
