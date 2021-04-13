@@ -74,6 +74,17 @@ a.href {
   text-decoration: underline;
 }
 
+.to-canban {
+  text-align: center;
+  color: var(--font-color);
+  text-decoration: underline;
+  font-size: 1.2rem;
+}
+
+.to-canban.settings {
+  margin-top: 3rem;
+}
+
 .navbar-light .navbar-nav .nav-link {
   color: var(--font-color);
 }
@@ -227,10 +238,6 @@ input[type="text"].text-box {
 .settings .menu-item label {
   font-size: 1rem;
   font-weight: 400;
-}
-
-.menu-item i:hover {
-  cursor: pointer;
 }
 
 /*-------w3schools code slider button----*/
@@ -580,19 +587,23 @@ button.btn.btn-outline-secondary.green-bg:hover {
   min-height: 480px;
   margin-bottom: 20px;
 }
+
 .settings h1 {
   text-align: center;
-  margin: 20px;
-  margin-bottom: 10vh;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
 }
+
 .settings.menu-item {
   margin: auto;
   font-size: 1.5rem;
   margin-bottom: 20px;
 }
+
 .settings.menu-item p {
   font-size: 1rem;
 }
+
 .fa-toggle-off,
 .fa-toggle-on {
   font-size: 2rem;
@@ -623,6 +634,11 @@ button.btn.btn-outline-secondary.green-bg:hover {
   input[type="text"].text-box {
     margin-left: 0px;
     font-size: 0.8rem;
+  }
+  .col-sm-12,
+  .col-12.settings {
+    padding-left: 4px;
+    padding-right: 4px;
   }
 }
 
