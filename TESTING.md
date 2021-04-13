@@ -30,7 +30,7 @@ Have Quick access to navigation on the site. | The navigation menu is directly o
 ---
 user story|implementation
 ----|----
-Quickly access my personal Kanban page without having to go trough the menu. |
+Quickly access my personal Kanban page without having to go trough the menu. | Links where added to the index and settings page for extra fast access to the mycanban page. Especially on mobile, when the burger menu collapses this saves the user the time to go trough the burger menu.
 Give feature suggestions for the site. | To achieve this, An email form is placed at the bottom of the index page.
 
 <br>
@@ -43,9 +43,9 @@ Give feature suggestions for the site. | To achieve this, An email form is place
 ---
 user story|implementation
 ----|----
-Change the site to dark mode or light mode. |
-Add a column to my Kanban. |
-Change the name of a column. |
+Change the site to dark mode or light mode. | A simple slider switch has been placed on the settings menu page.
+Add or remove a column to my Kanban. | This can be achieved again by a slider switch on the settings page.
+Change the name of a column. | Simply clicking on the menu text allows the user to adjust the name.
 
 <br>
 <br>
@@ -56,13 +56,13 @@ Change the name of a column. |
 ---
 user story|implementation
 ----|----
-Add a card to a column. |
-Enter text in a new card. |
-Move a card to another column. |
-Expand or contract the size of a column. |
-Delete a card. |
-Only be presented with usefull controls in a canban item. |
-Easily be able to access all columns on all screensizes and orientations. |
+Add a card to a column. | Clicking the plus icon adds a card to that column. it also gets focus so the user can immediately start typing.
+Enter text in a new card. | This can be done at any moment by clicking the text. Also as mentioned before when adding a new item.
+Move a card to another column. | Arrows indicating where the card will move to when clicked, are on all cards. These are also responsive, so they change on mobile or desktop.
+Expand or contract the size of a column. | The available direction (expand or contract) is automatically displayed. When both are irrelevant due to not enough items, the controls are hidden altogether.
+Delete a card. | Simply pressing the trashcan deletes an item. Confirmation is asked to prevent deleting by accident.
+Only be presented with usefull controls in a canban item. | All controls are hidden/shown when they are relevant to keep the UI clean.
+Easily be able to access all columns on all screensizes and orientations. | This is achieved on mobile by the contract expand controls. wich are positioned on top so the user doesn't have to scroll too much to control the size of a column.
 
 <br>
 <br>
