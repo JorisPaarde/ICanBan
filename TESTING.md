@@ -67,15 +67,53 @@ Easily be able to access all columns on all screensizes and orientations. | This
 <br>
 <br>
 
-## Responsive layout testing
+## Responsive/visual layout testing
 
-settings buttons on galaxy fold (width 280px) where broken. fixed by reducing the padding on the columns of the settingsmenu.
+### Homepage
+
+feature|expected behaviour|testing|result|Fix(if needed)
+---|---|---|---|---
+Navigation menu|Collapses and/or stays readable and doesn't overflow|Resized screen from large(width 1920px), down to small(width 280px)|Menu collapses on medium screen size, text stays readable, no items are overflowing.
+Main text area|Stays readable and doesn't overflow |Resized screen from large to small|Correct
+Canban page image|Image is sharp and doesn't obscure other content|Resized screen from large to small|Correct, breaks on screens smaller than 200px width, but this was ignored as these are almost never used.
+Links on page|Items react as intended when mouse hovers over |Hover over with mouse |Links change mouse cursor to pointer as intended.
+General controls|Items are readable and layout stays intact |Resized screen from large to small|Correct
+General controls|Items react as intended when mouse hovers over |Hover over with mouse |Hover on settings items on index page seemed to indicate they were clickable.|Adjusted css so they don't respond to hover.
+Email form|Form doesn't overflow and placeholder text stays readable|Resized screen from large to small|Placeholder text disappears partially on screen-width of 310px and smaller| Adjusted font size to 0.8rem on smallest screens.
+
+
+### Settings page
+
+feature|expected behaviour|testing|result|Fix(if needed)
+---|---|---|---|---
+
+Settings buttons on galaxy fold (width 280px) where broken. fixed by reducing the padding on the columns of the settingsmenu.
+
+### MyCanban page
+
+feature|expected behaviour|testing|result|Fix(if needed)
+---|---|---|---|---
+
+## Menu testing
+
+feature|expected behaviour|testing|result|Fix(if needed)
+---|---|---|---|---
 
 ## Email form testing
 
+feature|expected behaviour|testing|result|Fix(if needed)
+---|---|---|---|---
+
 ## Settings page testing
 
+feature|expected behaviour|testing|result|Fix(if needed)
+---|---|---|---|---
+
 ## Icanban functionality testing
+
+feature|expected behaviour|testing|result|Fix(if needed)
+---|---|---|---|---
+
 
 ## Bugs encountered during development and their fixes:
 
