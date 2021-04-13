@@ -640,6 +640,9 @@ button.btn.btn-outline-secondary.green-bg:hover {
     padding-left: 4px;
     padding-right: 4px;
   }
+  .email-form input, .email-form textarea{
+    font-size: 0.8rem;
+  }
 }
 
 /*-------------------media queries for mobile devices (phones)-----------------*/
