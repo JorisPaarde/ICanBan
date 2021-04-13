@@ -69,6 +69,8 @@ Easily be able to access all columns on all screensizes and orientations. |
 
 ## Responsive layout testing
 
+settings buttons on galaxy fold (width 280px) where broken. fixed by reducing the padding on the columns of the settingsmenu.
+
 ## Email form testing
 
 ## Settings page testing
