@@ -38,10 +38,10 @@ function populateMem() {
     localStorage.setItem("column2", JSON.stringify(column2));
     localStorage.setItem("column3", JSON.stringify(column3));
     // Create four item objects with default settings
-    var item1 = new item("my-canban-column1", "");
-    var item2 = new item("my-canban-column1", "");
-    var item3 = new item("my-canban-column2", "");
-    var item4 = new item("my-canban-column3", "");
+    var item1 = new item("my-canban-column1", "click to change text");
+    var item2 = new item("my-canban-column1", "click to change text");
+    var item3 = new item("my-canban-column2", "click to change text");
+    var item4 = new item("my-canban-column3", "click to change text");
     localStorage.setItem("item-nr-1", JSON.stringify(item1));
     localStorage.setItem("item-nr-2", JSON.stringify(item2));
     localStorage.setItem("item-nr-3", JSON.stringify(item3));
