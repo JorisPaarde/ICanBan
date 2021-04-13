@@ -1,7 +1,8 @@
 # Tests and bugreports:
 
 - [User story testing](#user-story-testing)
-- [Responsive layout testing](#responsive-layout-testing)
+- [Responsive layout testing](#responsive/visual-layout-testing)
+- [Menu testing](#menu-testing)
 - [Email form testing](#email-form-testing)
 - [Settings page testing](#settings-page-testing)
 - [Icanban functionality testing](#icanban-functionality-testing)
@@ -75,24 +76,36 @@ feature|expected behaviour|testing|result|Fix(if needed)
 ---|---|---|---|---
 Navigation menu|Collapses and/or stays readable and doesn't overflow|Resized screen from large(width 1920px), down to small(width 280px)|Menu collapses on medium screen size, text stays readable, no items are overflowing.
 Main text area|Stays readable and doesn't overflow |Resized screen from large to small|Correct
-Canban page image|Image is sharp and doesn't obscure other content|Resized screen from large to small|Correct, breaks on screens smaller than 200px width, but this was ignored as these are almost never used.
+Canban page image|Image is sharp and doesn't obscure other content|Resized screen from large to small|Correct, breaks on screens smaller than 200px width, this was ignored as these are almost never used.
 Links on page|Items react as intended when mouse hovers over |Hover over with mouse |Links change mouse cursor to pointer as intended.
 General controls|Items are readable and layout stays intact |Resized screen from large to small|Correct
 General controls|Items react as intended when mouse hovers over |Hover over with mouse |Hover on settings items on index page seemed to indicate they were clickable.|Adjusted css so they don't respond to hover.
 Email form|Form doesn't overflow and placeholder text stays readable|Resized screen from large to small|Placeholder text disappears partially on screen-width of 310px and smaller| Adjusted font size to 0.8rem on smallest screens.
+Decoration columns|only display on medium screensizes and above|Resized screen from large to small|Correct
 
+---
 
 ### Settings page
 
 feature|expected behaviour|testing|result|Fix(if needed)
 ---|---|---|---|---
+Navigation menu|Collapses and/or stays readable and doesn't overflow|Resized screen from large(width 1920px), down to small(width 280px)|Menu collapses on medium screen size, text stays readable, no items are overflowing.
+Dark mode|When switch is clicked the css varables change|Click switch|Correct display of darkmode
+Column text adjust textfield|Stays readable and doesn't overflow|Resized screen from large to small|Correct
+Slider buttons|Animate slide when clicked|Click switch|Correct
+Slider buttons|Form stays as intended|Resized screen from large to small|Settings buttons on galaxy fold (width 280px) or smaller where broken.| Reduced the padding on the columns of the settingsmenu. Still breaks on screens smaller than 260px width, this was ignored as these are almost never used.
+Decoration columns|only display on medium screensizes and above|Resized screen from large to small|Correct
 
-Settings buttons on galaxy fold (width 280px) where broken. fixed by reducing the padding on the columns of the settingsmenu.
+---
 
 ### MyCanban page
 
 feature|expected behaviour|testing|result|Fix(if needed)
 ---|---|---|---|---
+Navigation menu|Collapses and/or stays readable and doesn't overflow|Resized screen from large(width 1920px), down to small(width 280px)|Menu collapses on medium screen size, text stays readable, no items are overflowing.
+
+<br>
+<br>
 
 ## Menu testing
 
