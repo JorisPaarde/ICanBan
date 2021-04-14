@@ -222,7 +222,7 @@ function setResizeIcons() {
         $(columns[element]).find(".resize").addClass("fa-expand-alt");
         $(columns[element]).find(".resize").removeClass("fa-compress-alt");
         // if there is no hidden element in this column and screensize is mobile
-      } else if (hiddenAmount = 0 && screenWidth < 767) {
+      } else if (hiddenAmount == 0 && screenWidth < 767) {
         $(columns[element]).find(".resize").removeClass("fa-expand-alt");
         $(columns[element]).find(".resize").addClass("fa-compress-alt");
         // if screensize is desktop and it's a wide column
