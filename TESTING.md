@@ -118,23 +118,39 @@ Add canban item plus|Stays readable and doesn't overflow|Resized screen from lar
 feature|expected behaviour|testing|result|Fix(if needed)
 ---|---|---|---|---
 Menu links|direct the user to the right page.|Clicked all links in the menu. Repeated on all pages|All links behave correctly
-Logo|clicking the logo brings the user back to the main page.|Clicked logo text and logo itself.|Clicking the text behaves as intended. The logo itself does nothing.|
+Logo|clicking the logo brings the user back to the main page.|Clicked logo text and logo itself.|Clicking the text behaves as intended. The logo itself does nothing.| As this is also clearly indicated by the mouseover transition to pointer this will stay as is.
+
+<br>
 
 # Email form testing
 
 feature|expected behaviour|testing|result|Fix(if needed)
 ---|---|---|---|---
+Enter fullname|reject fullname shorter than 5 characters|Entered "ab c" and "ab cd" as a name|Rejected and accepted as intended
+Enter fullname|reject fullname without at least one space|Entered "JohnDoe" and "John Doe"|Rejected and accepted as intended
+Enter fullname|reject fullname that doesn't include letters|Entered "!@#$" and "    "|Rejected both as intended
+Enter email|reject adress without a @ or a .|Entered mail adresses "abc@abc" and "abc.abc" and "a@b.c"|Both incomplete email adresses where rejected, last one was accepted
+Enter email|reject email adress shorter than a.b@c|Entered "a.@c"|Modal shows rejected email but send anyway|Corrected email validation code
+Enter email|reject email adress with no characters after @|Entered "abc.@"|Rejected as intended.
+Enter Feature|reject feature request shorter than 4 characters|Entered "abc" and "abcd"|Rejected and accepted as intended
+Enter Feature|reject feature request with less than 4 letters|Entered "a!!!!" and "aaa!!!!" and "this!!!"|Rejected and accepted as intended.
+
+<br>
 
 # Settings page testing
 
 feature|expected behaviour|testing|result|Fix(if needed)
 ---|---|---|---|---
 
+<br>
+
 # Icanban functionality testing
 
 feature|expected behaviour|testing|result|Fix(if needed)
 ---|---|---|---|---
 moving up and down arrows hard to click on mobile. added border 
+
+<br>
 
 # Bugs encountered during development and their fixes:
 
