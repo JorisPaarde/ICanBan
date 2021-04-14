@@ -200,8 +200,8 @@ function setResizeIcons() {
     //go over all columns
     columns.each((element) => {
       // get number of items hidden in this column
-      hiddenAmount = $(columns[element]).find(".hidden").length;
-      itemAmount = $(columns[element]).find(".canban-item").length;
+      let hiddenAmount = $(columns[element]).find(".hidden").length;
+      let itemAmount = $(columns[element]).find(".canban-item").length;
       //if on mobile and no more than 1 item in this column don't show any expand or contract item
       if (itemAmount < 2 && screenWidth < 767) {
         $(columns[element]).find(".resize").hide();
@@ -222,7 +222,7 @@ function setResizeIcons() {
         $(columns[element]).find(".resize").addClass("fa-expand-alt");
         $(columns[element]).find(".resize").removeClass("fa-compress-alt");
         // if there is no hidden element in this column and screensize is mobile
-      } else if (!(hiddenAmount > 0) && screenWidth < 767) {
+      } else if (hiddenAmount = 0 && screenWidth < 767) {
         $(columns[element]).find(".resize").removeClass("fa-expand-alt");
         $(columns[element]).find(".resize").addClass("fa-compress-alt");
         // if screensize is desktop and it's a wide column
