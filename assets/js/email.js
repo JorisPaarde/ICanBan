@@ -89,17 +89,17 @@ function sendMail(contactForm) {
 // Confirmation modal edited from https://www.w3schools.com/howto/howto_css_modals.asp
 function displayModal(modal) {
     // Get this modal
-    var modal = document.getElementById(modal.id);
+    modal = document.getElementById(modal.id);
     // Show this modal
     modal.style.display = "block";
     // When the user clicks on the modal close it
     modal.onclick = function () {
         modal.style.display = "none";
-    }
+    };
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function (event) {
         if (event.target == modal) {
             modal.style.display = "none";
         }
-    }
-};
+    };
+}
