@@ -553,6 +553,7 @@ button.btn.btn-outline-secondary.green-bg:hover {
 .canban-item .up, .canban-item .down, .canban-item .left, .canban-item .right, .canban-item .trash{
   padding: 2px 4px;
   border: 1px solid var(--border);
+  border-radius: 4px;
 }
 
 /* in the last column don't display up right and down on desktop*/
@@ -648,6 +649,9 @@ button.btn.btn-outline-secondary.green-bg:hover {
   .email-form input, .email-form textarea{
     font-size: 0.8rem;
   }
+  .my-canban-column h2 {
+    margin-bottom: 0.5rem;
+  }
 }
 
 /*-------------------media queries for mobile devices (phones)-----------------*/
@@ -669,7 +673,7 @@ button.btn.btn-outline-secondary.green-bg:hover {
     margin-top: 0rem;
   }
   .my-canban-column h2 {
-    margin-bottom: 0.5rem;
+    margin-bottom: 1.2rem;
   }
 }
 
