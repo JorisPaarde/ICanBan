@@ -6,6 +6,9 @@
 - [Email form testing](#email-form-testing)
 - [Settings page testing](#settings-page-testing)
 - [Icanban functionality testing](#icanban-functionality-testing)
+- [Browser testing](#browser-testing)
+- [Validators](#validators)
+- [Lighthouse Report](#lighthouse-report)
 - [Bugs during development](#bugs-encountered-during-development-and-their-fixes)
 
 # User story testing:
@@ -180,7 +183,7 @@ Firefox|Yes|Yes|None
 
 # Validators
 
-To validate the html and CSS [W3C markup validation](https://validator.w3.org/) was used.
+## To validate the html and CSS [W3C markup validation](https://validator.w3.org/) was used.
 The initial response for the HTML was as follows:
 
 ![initial html validation](readme-images/html-validation-first.png)
@@ -197,21 +200,29 @@ For the CSS the results were as follows:
 ![CSS validation](readme-images/css-validation.png)
 
 <br>
-For Javascript validation JSHint was used.
 
-Results icanban.js:
+## For Javascript validation [JSHint](https://jshint.com/) was used.
+
+Results:
 
 file|line|waring/error|fix
 ---|---|---|---
 icanban.js|203 and 204 |Variable not declared properly.|Added let variable.
 icanban.js|225| Confusing use of '!'. |Corrected "!variable > 0" changed to "variable == 0"
-
 email.js|92|'modal' is already defined.|removed var
 email.js|98|Missing semicolon.|fixed
 email.js|104|Missing semicolon.|fixed
 email.js|105|Unnecessary semicolon.|fixed
 email.js|63|undefined variable emailjs.|This is part of the emailjs script
 email.js|53|unused variable: sendMail.|This function is called in the html
+
+<br>
+
+# Lighthouse Report 
+
+## index page on desktop:
+
+![Lighthouse reults](readme-images/lighthouse-test.png)
 
 <br>
 
