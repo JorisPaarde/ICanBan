@@ -1,51 +1,50 @@
 function validateForm(contactForm) {
-    var validatedForm = false;
+    var validatedForm = true;
     var modal = document.getElementById("confirmationModal");
 
     // is the fullname longer than 4 chars?
     if (contactForm.name.value.length < 5) {
         console.log('name to short');
         modal = document.getElementById("badNameModal");
-
+        validatedForm = false;
         // does the name include letters?
-    } if (!/[a-zA-Z]/.test(contactForm.name.value)) {
+    }if (!/[a-zA-Z]/.test(contactForm.name.value)) {
         console.log('name has no letters');
         modal = document.getElementById("badNameModal");
-
+        validatedForm = false;
         // does the name include at least one space?
-    } if (!/\s/.test(contactForm.name.value)) {
+    }if (!/\s/.test(contactForm.name.value)) {
         console.log('name has no space');
         modal = document.getElementById("badNameModal");
-
+        validatedForm = false;
         // does the feature request input include any letters?
-    } if (!/[a-zA-Z]/.test(contactForm.featurerequest.value)) {
+    }if (!/[a-zA-Z]/.test(contactForm.featurerequest.value)) {
         console.log('feature has no letters');
         modal = document.getElementById("badFeatureModal");
-
+        validatedForm = false;
         // does the feature request input include letters or numbers?
-    } if (contactForm.featurerequest.value.match(/\w/g) != null) {
+    }if (contactForm.featurerequest.value.match(/\w/g) != null) {
         // does the feature request input include at least 4 letters or numbers?
         if (contactForm.featurerequest.value.match(/\w/g).length < 4) {
             console.log('feature has less than 4 letters');
             modal = document.getElementById("badFeatureModal");
+            validatedForm = false;
         }
-
         // is the feature request input longer than 4 chars?
-    } if (contactForm.featurerequest.value.length < 4) {
+    }if (contactForm.featurerequest.value.length < 4) {
         console.log('feature to short');
         modal = document.getElementById("badFeatureModal");
-
+        validatedForm = false;
         // is the email input longer than 5 chars?
-    } if (contactForm.emailaddress.value.length < 5) {
+    }if (contactForm.emailaddress.value.length < 5) {
         console.log('email to short');
         modal = document.getElementById("badEmailModal");
-
+        validatedForm = false; 
         // does the email input include a dot?
-    } if (!/\u002E/.test(contactForm.emailaddress.value)) {
+    }if (!/\u002E/.test(contactForm.emailaddress.value)) {
         console.log('email has no .');
         modal = document.getElementById("badEmailModal");
-    }else{
-        validatedForm = true;
+        validatedForm = false;
     }
     return [validatedForm, modal];
 }
