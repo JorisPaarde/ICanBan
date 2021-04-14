@@ -550,6 +550,11 @@ button.btn.btn-outline-secondary.green-bg:hover {
 .canban-item-text {
   line-height: 1.1rem;
 }
+.canban-item .up, .canban-item .down, .canban-item .left, .canban-item .right, .canban-item .trash{
+  padding: 2px 4px;
+  border: 1px solid var(--border);
+}
+
 /* in the last column don't display up right and down on desktop*/
 .last .canban-item .up,
 .last .canban-item .right,
