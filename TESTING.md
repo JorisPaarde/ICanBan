@@ -68,13 +68,13 @@ Easily be able to access all columns on all screensizes and orientations. | This
 <br>
 <br>
 
-## Responsive/visual layout testing
+# Responsive/visual layout testing
 
-### Homepage
+## Homepage
 
 feature|expected behaviour|testing|result|Fix(if needed)
 ---|---|---|---|---
-Navigation menu|Collapses and/or stays readable and doesn't overflow|Resized screen from large(width 1920px), down to small(width 280px)|Menu collapses on medium screen size, text stays readable, no items are overflowing.
+Navigation menu|Collapses and/or stays readable and doesn't overflow|Resized screen from large(width 1920px), down to small(width 280px)|Menu collapses on medium screen size, text stays readable, no items are overflowing. Breaks below 280px width, this was ignored as these are almost never used.
 Main text area|Stays readable and doesn't overflow |Resized screen from large to small|Correct
 Canban page image|Image is sharp and doesn't obscure other content|Resized screen from large to small|Correct, breaks on screens smaller than 200px width, this was ignored as these are almost never used.
 Links on page|Items react as intended when mouse hovers over |Hover over with mouse |Links change mouse cursor to pointer as intended.
@@ -85,11 +85,11 @@ Decoration columns|only display on medium screensizes and above|Resized screen f
 
 ---
 
-### Settings page
+## Settings page
 
 feature|expected behaviour|testing|result|Fix(if needed)
 ---|---|---|---|---
-Navigation menu|Collapses and/or stays readable and doesn't overflow|Resized screen from large(width 1920px), down to small(width 280px)|Menu collapses on medium screen size, text stays readable, no items are overflowing.
+Navigation menu|Collapses and/or stays readable and doesn't overflow|Resized screen from large(width 1920px), down to small(width 280px)|Menu collapses on medium screen size, text stays readable, no items are overflowing. Breaks below 280px width, this was ignored as these are almost never used.
 Dark mode|When switch is clicked the css varables change|Click switch|Correct display of darkmode
 Column text adjust textfield|Stays readable and doesn't overflow|Resized screen from large to small|Correct
 Slider buttons|Animate slide when clicked|Click switch|Correct
@@ -98,37 +98,45 @@ Decoration columns|only display on medium screensizes and above|Resized screen f
 
 ---
 
-### MyCanban page
+## MyCanban page
 
 feature|expected behaviour|testing|result|Fix(if needed)
 ---|---|---|---|---
-Navigation menu|Collapses and/or stays readable and doesn't overflow|Resized screen from large(width 1920px), down to small(width 280px)|Menu collapses on medium screen size, text stays readable, no items are overflowing.
+Navigation menu|Collapses and/or stays readable and doesn't overflow|Resized screen from large(width 1920px), down to small(width 280px)|Menu collapses on medium screen size, text stays readable, no items are overflowing. Breaks below 280px width, this was ignored as these are almost never used.
+Canban columns|Never overlap and change to rows on screems smaller than 768px|Resized screen from large to small|Displays correctly
+canban items|Display as squares on 768px and up and display as rows on smaller screens|Resized screen from large to small|No issues, text and icons are displayed as intended until 270px width. Below that the placeholder text is partially disappearing, this was ignored as screens this small are almost never used.
+Canban item controls,moving an item|Stay visible when needed and dissapear when unnecessary. Not overflowing.|Resized screen from large to small|Arrows for moving items change direction as intended. Only relevant directions are displaying.
+Canban item controls,deleting an item|Stay visible when needed and dissapear when unnecessary. Not overflowing.|Moving items from one column to another|Trashcan Only displays on relevant locations.(deliberately not displaying on the middle column to declutter UI)
+Column expand/contract icon|Stay visible when needed and dissapear when unnecessary. Not overflowing.|Resize columns by clicking the icon and removing/adding items to a column| Icon changes on resize correctly, dissapears on mobile when there are no items to hide, appears when there are items to hide. Indicates the amount of hidden items correctly.
+Add canban item plus|Stays readable and doesn't overflow|Resized screen from large(width 1920px), down to small(width 280px)|No issues
 
 <br>
 <br>
 
-## Menu testing
+# Menu testing
+
+feature|expected behaviour|testing|result|Fix(if needed)
+---|---|---|---|---
+Menu links|direct the user to the right page.|Clicked all links in the menu. Repeated on all pages|All links behave correctly
+Logo|clicking the logo brings the user back to the main page.|Clicked logo text and logo itself.|Clicking the text behaves as intended. The logo itself does nothing.|
+
+# Email form testing
 
 feature|expected behaviour|testing|result|Fix(if needed)
 ---|---|---|---|---
 
-## Email form testing
+# Settings page testing
 
 feature|expected behaviour|testing|result|Fix(if needed)
 ---|---|---|---|---
 
-## Settings page testing
+# Icanban functionality testing
 
 feature|expected behaviour|testing|result|Fix(if needed)
 ---|---|---|---|---
+moving up and down arrows hard to click on mobile. added border 
 
-## Icanban functionality testing
-
-feature|expected behaviour|testing|result|Fix(if needed)
----|---|---|---|---
-
-
-## Bugs encountered during development and their fixes:
+# Bugs encountered during development and their fixes:
 
 | Bug | Fix |
 |-----|-----|
