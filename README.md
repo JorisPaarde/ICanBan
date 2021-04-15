@@ -50,7 +50,6 @@ This project was made as a second milestone project for the Code Institute full 
 #### As a visitor to the settings page , I want to:
 
 1. Change the site to dark mode or light mode.
-1. Add a column to my Kanban.
 1. Change the name of a column.
 
 ### Kanban functionality:
@@ -101,7 +100,7 @@ a pretty complete set of diacritics, as well as a stylistic alternate inspired b
 
 ### Mockup
 
--  The mockup of this site was made in Figma. U can view it [here](https://www.figma.com/file/y5LdwdHOZVvlOjnidnMRb4/ICanBan?node-id=0%3A1) 
+-  The mockup design of this site was made in Figma. U can view it [here](https://www.figma.com/file/y5LdwdHOZVvlOjnidnMRb4/ICanBan?node-id=0%3A1) 
 
 ![Icanban mockup image](readme-images/mockup-design.jpg)
 
@@ -199,10 +198,9 @@ The project was deployed to GitHub Pages using the following steps...
 
 1. Log in to GitHub
 2. Locate the [repository](https://github.com/JorisPaarde/ICanBan).
-3. Go to settings menu: <h4 align="center"><img src="readme-images/settings.png"></h4>
-4. scroll down to the bottom of the page.
-5. Select master and save. <h4 align="center"><img src="readme-images/select-save.png"></h4>
-6. View the published result. (This may take some time to show up correctly.) <h4 align="center"><img src="readme-images/view.png"></h4>
+3. Go to the pages tab in the settings menu: <h4 align="center"><img src="readme-images/settings.png"></h4>
+4. Select master and save. <h4 align="center"><img src="readme-images/select-save.png"></h4>
+5. View the published result. (This may take some time to show up correctly.)
 
 ### Making a Local Clone
 
@@ -233,6 +231,8 @@ Unpacking objects: 100% (25/25), done.
 8. your local clone is now ready.
 
 #### To make a local clone of this project in Windows , follow [these](https://www.jcchouinard.com/clone-github-repository-on-windows/) steps.
+
+<br>
 
 ### Setting up your EmailJS
 
