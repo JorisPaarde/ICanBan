@@ -1,7 +1,7 @@
 /*---------------------------------------------css variables--------------------------------------*/
 :root {
   background-color: white;
-  --font-color: #7a7a7a;
+  --font-color: #5e5e5e;
   --red-hue: rgba(255, 0, 0, 0.1);
   --green-hue: rgba(0, 255, 56, 0.1);
   --yellow-hue: rgba(255, 245, 0, 0.1);
@@ -9,9 +9,9 @@
   --red-fill-logo: rgba(255, 0, 0, 0.1);
   --yellow-fill-logo: rgba(255, 255, 0, 0.1);
   --green-fill-logo: rgba(0, 255, 56, 0.1);
-  --red-bg: rgba(255, 0, 0, 0.1);
-  --yellow-bg: rgba(255, 255, 0, 0.1);
-  --green-bg: rgba(0, 255, 56, 0.1);
+  --red-bg: rgba(255, 0, 0, 0.06);
+  --yellow-bg: rgba(255, 255, 0, 0.06);
+  --green-bg: rgba(0, 255, 56, 0.06);
   --modal-bg: rgba(255, 255, 255, 0.9);
   --modal-shadow: rgba(0, 0, 0, 0.2);
   --slider-color: #ffefc4;
@@ -58,7 +58,7 @@ body {
 p,
 textarea {
   font-size: 0.9rem;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 h1 {
@@ -233,11 +233,12 @@ input[type="text"].text-box {
   font-size: 1rem;
   color: var(--font-color);
   background-color: transparent;
+  font-weight: 500;
 }
 
 .settings .menu-item label {
   font-size: 1rem;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 /*-------w3schools code slider button----*/
